@@ -64,6 +64,15 @@ table {
 	padding: 0 20px;
 }
 
+.documentation-body a {
+	color: #00bcd4;
+	text-decoration: none;
+}
+
+.documentation-body a:hover {
+	text-decoration: underline;
+}
+
 .images-jquery-vs-javascript {
   margin: 0 auto;
   padding: 0 20px;
@@ -88,6 +97,7 @@ table {
 	box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
 -webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
 -moz-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
+overflow: auto;
 }
 
 .lang-javascript{
