@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JS to jQuery.</title>
+</head>
+
+<body>
+  <div id="documentation-body">
+    <h1 id="-image-images-jquery-vs-javascript-jpeg-"><img src="./Images/jquery-vs-javascript.jpeg" alt="Image"></h1>
+    <h1 id="js-vs-jquery">JS-vs-jQuery</h1>
+    <p> To help people, here's a jQuery to JavaScript cheat sheet that includes the JavaScript equivalents to the most
+      frequently used jQuery functionality.</p>
+    <h2 id="convert-javascript-to-jquery">Convert JavaScript to jQuery</h2>
+    <p><strong><em>JavaScript:</em></strong> is an object orient programming language designed to make web development
+      easier and more attractive.
+      <strong><em>jQuery:</em></strong> is an open-source JavaScript library that simplifies the interactions between an
+      HTML/CSS document, or more precisely the Document Object Model (DOM), and JavaScript.</p>
+    <h3 id="how-to-convert-javascript-to-jquery-">How to convert JavaScript to jQuery ?</h3>
+    <p><strong>Selection:</strong> In <strong><em>jQuery</em></strong>, to select any element, we simply use
+      the<code>$()</code>sign, but in JavaScript, to select any element, we can
+      use<code>querySelector()</code>or<code>querySelectorAll()</code>.</p>
+    <h4 id="program">Program</h4>
+    <pre><code class="lang-javascript">// jQuery to <span class="hljs-keyword">select</span> all instances
+// <span class="hljs-keyword">of</span> <span class="hljs-keyword">class</span> <span class="hljs-string">"select"</span>
+$(<span class="hljs-string">".select"</span>);
+
+// JavaScript to <span class="hljs-keyword">select</span> <span class="hljs-keyword">only</span> the
+// <span class="hljs-keyword">first</span> <span class="hljs-keyword">instance</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">class</span> <span class="hljs-string">"select"</span>
+document.querySelector(<span class="hljs-string">".select"</span>);
+
+// To <span class="hljs-keyword">select</span> all the instances
+// <span class="hljs-keyword">of</span> <span class="hljs-keyword">class</span> <span class="hljs-string">"select"</span>  
+document.querySelectorAll(<span class="hljs-string">".select"</span>);
+</code></pre>
+    <h5 id="some-other-examples-of-selectors">Some other examples of selectors</h5>
+    <p><strong>Select Elements:</strong></p>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+jQuery();
+<span class="hljs-symbol">$</span>(); <span class="hljs-comment">// Shortcut</span>
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Selects all the links among the descendants of the 'my-class' class.</span>
+jQuery(<span class="hljs-string">'.my-class a'</span>);
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.my-class a'</span>);
+<span class="hljs-symbol">$</span>(<span class="hljs-string">"html"</span>) <span class="hljs-comment">// To select the entire html.</span>
+<span class="hljs-symbol">$</span>(<span class="hljs-string">"body"</span>) <span class="hljs-comment">// To select the entire html body.</span>
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-jquery-global-function-https-api-jquery-com-jquery-">See more in the jQuery
+      API docs:<a href="https://api.jquery.com/jQuery/">jQuery() global function</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelectorAll</span>();
+<span class="hljs-comment">// Example</span>
+<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(selector)
+<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'.my-class a'</span>)
+<span class="hljs-built_in">document</span>.body
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-queryselectorall-method-https-developer-mozilla-org-en-us-docs-web-api-document-queryselectorall-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">.querySelectorAll()
+        method.</a>
+    </h4>
+    <h3 id="select-first-element">Select First Element</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.first<span class="hljs-comment">()</span>;
+
+<span class="hljs-comment">// Example</span>
+$<span class="hljs-comment">('.my-class a')</span>.first<span class="hljs-comment">()</span>;
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-first-method-https-api-jquery-com-first-">See more in the jQuery API docs:
+      <a href="https://api.jquery.com/first/">first() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'.my-class a'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-queryselector-method-https-developer-mozilla-org-en-us-docs-web-api-document-queryselector-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">.querySelector() method.</a></h4>
+    <h3 id="find-elements">Find Elements</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.<span class="hljs-built_in">find</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Find all the span tags that are descendants of links within the 'my-class' class.</span>
+<span class="hljs-comment">// <span class="hljs-doctag">Note:</span> searches for all descendants not just for children.</span>
+$(<span class="hljs-string">'.my-class a'</span>).<span class="hljs-built_in">find</span>(<span class="hljs-string">'span'</span>);
+$(<span class="hljs-string">'.my-class a'</span>).<span class="hljs-built_in">find</span>(<span class="hljs-string">'span'</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'red'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-find-method-https-api-jquery-com-find-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/find/">.find() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-comment">// To find the first element (also if there's only one)</span>
+<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>();
+
+<span class="hljs-comment">// To find all elements</span>
+<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelectorAll</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// At first querySelectorAll() returns a NodeList, so we have to loop through it to find all the span tags we want.</span>
+<span class="hljs-comment">// For the sake of testing, I made the selected elements red, you can find the 'style.color' property below in this cheat sheet.</span>
+
+<span class="hljs-comment">// finds all '.my-class a'</span>
+let nodes = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelectorAll</span>(<span class="hljs-string">'.my-class a'</span>);
+
+<span class="hljs-comment">// loops through all '.my-class a'</span>
+<span class="hljs-keyword">for</span> (let i = <span class="hljs-number">0</span>; i &lt; nodes.length; i++) {
+
+    <span class="hljs-comment">// checks if the individual '.my-class a' element has a </span>
+    <span class="hljs-comment">// 'span' descendant to avoid 'undefined' error</span>
+    <span class="hljs-keyword">if</span> (nodes[i].<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'span'</span>)) {
+
+      <span class="hljs-comment">// colors span tags that are desdendants of '.my-class a'</span>
+      nodes[i].<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'span'</span>).style.color = <span class="hljs-string">'red'</span>;
+   }
+}
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-queryselector-method-https-developer-mozilla-org-en-us-docs-web-api-document-queryselector-queryselectorall-method-https-developer-mozilla-org-en-us-docs-web-api-document-queryselectorall-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">.querySelector() method</a>, <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">.querySelectorAll()
+        method.</a>
+    </h4>
+    <h3 id="select-children">Select Children</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.children();
+.children(<span class="hljs-string">'selector'</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Finds all the children of all '.my-class a' elements on the age</span>
+<span class="hljs-comment">// Finds all the 'span' elements that are the children of any '.my-class a' element on the page</span>
+<span class="hljs-comment">// <span class="hljs-doctag">Note:</span> searches only for children (first-level of descendants)</span>
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.my-class a'</span>).children();
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.my-class a'</span>).children(<span class="hljs-string">'span'</span>);
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.my-class a'</span>).children(<span class="hljs-string">'span'</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'blue'</span>); <span class="hljs-comment">// for testing</span>
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-children-method-https-api-jquery-com-children-">See more in the jQuery API
+      docs: <a href="https://api.jquery.com/children/">.children() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+parentNode.children;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// 2nd example of the jQuery version above, plus makes the selected span tags blue for the sake of easy testing.</span>
+<span class="hljs-comment">// for 1st example, only leave out the if check at the end (we need this because the JS version is not a method but a property, so we need to check which children are 'span')</span>
+
+<span class="hljs-comment">// selects all the elements with 'my-class a' on the page</span>
+<span class="hljs-keyword">let</span> items = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'.my-class a'</span>);
+
+<span class="hljs-comment">// loops through all the elements with '.my-class a'</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; items.length; i++) {
+
+        <span class="hljs-comment">// finds the children of the current '.my-class a' element</span>
+        <span class="hljs-keyword">let</span> kids = items[i].children;
+
+        <span class="hljs-comment">// loops through the children of the current '.my-class a' element</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; kids.length; j++) {
+
+            <span class="hljs-comment">// checks if the child element is a span tag</span>
+            <span class="hljs-keyword">if</span> (kids[j].tagName == <span class="hljs-string">'SPAN'</span>) {
+
+                  kids[j].style.color = <span class="hljs-string">'blue'</span>;
+
+            }
+        }
+}
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-children-property-https-developer-mozilla-org-en-us-docs-web-api-element-children-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/children">.children
+        property</a></h4>
+    <h3 id="select-parent">Select Parent</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.<span class="hljs-keyword">parent</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Selects the parent elements of ALL elements with 'my-class a' on the page.</span>
+
+$(<span class="hljs-string">'.my-class a'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-parent-method-https-api-jquery-com-parent-">See more in the jQuery API docs:
+      <a href="https://api.jquery.com/parent/">.parent() method</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">/* Syntax */</span>
+Node.parentNode;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Selects the parent of the FIRST element with 'my-class a' on the page (for the sake of less repetition)</span>
+<span class="hljs-comment">// For looping through all '.my-class a' elements, use the looping solution and querySelectorAll() from the two examples above.</span>
+
+let item = <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'.my-class a'</span>);
+item.parentNode;
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-parentnode-property-https-developer-mozilla-org-en-us-docs-web-api-node-parentnode-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">.parentNode
+        property.</a></h4>
+    <h3 id="select-siblings">Select Siblings</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.siblings();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Selects the siblings of ALL elements with the 'find-siblings' class on the page.</span>
+
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.find-siblings'</span>).siblings();
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-siblings-method-https-api-jquery-com-siblings-">See more in the jQuery API
+      docs: <a href="https://api.jquery.com/siblings/">.siblings() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+Node.parentNode.querySelectorAll(<span class="hljs-string">":not(#elem)"</span>);
+
+// Example
+// Selects the siblings <span class="hljs-keyword">of</span> the FIRST element <span class="hljs-keyword">with</span> the <span class="hljs-string">'find-siblings'</span> class.
+// <span class="hljs-keyword">For</span> looping through all <span class="hljs-string">'find-siblings'</span> elements, see examples <span class="hljs-string">#3</span> <span class="hljs-keyword">and</span> <span class="hljs-string">#4</span> the <span class="hljs-string">':scope'</span> pseudoclass is necessary <span class="hljs-keyword">for</span> preventing the child elements <span class="hljs-keyword">of</span> <span class="hljs-string">'item'</span> from being selected (otherwise querySelectorAll() searches through all descendants <span class="hljs-keyword">of</span> <span class="hljs-string">'item'</span>, <span class="hljs-keyword">with</span> <span class="hljs-string">':scope &gt;'</span> it loops through just the first level).
+let item = document.querySelector(<span class="hljs-string">'.find-siblings'</span>);
+let siblings = item.parentNode.querySelectorAll(<span class="hljs-string">':scope &gt; :not(.find-siblings)'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-parentnode-property-https-developer-mozilla-org-en-us-docs-web-api-node-parentnode-queryselectorall-method-https-developer-mozilla-org-en-us-docs-web-api-document-queryselectorall-scope-pseudo-class-https-developer-mozilla-org-en-us-docs-web-css-scope-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">.parentNode
+        property</a>, <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">.querySelectorAll()
+        method</a>,
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:scope">:scope pseudo-class</a></h4>
+    <h3 id="select-next-sibling">Select Next Sibling</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">//Syntax</span>
+.<span class="hljs-keyword">next</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Selects the next siblings of all elements with 'my-class a' on the page.</span>
+$(<span class="hljs-string">'.my-class a'</span>).<span class="hljs-keyword">next</span>();
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-next-method-https-api-jquery-com-next-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/next/">.next() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+nonDocumentTypeChildNode.nextElementSibling;
+
+// Example
+// <span class="hljs-keyword">For</span> declaring the <span class="hljs-string">'item'</span> variable by selecting elements <span class="hljs-keyword">with</span> <span class="hljs-string">'my-class a'</span> on the page, see examples <span class="hljs-string">#3</span>, <span class="hljs-string">#4</span>, <span class="hljs-string">#5</span>.
+item.nextElementSibling;
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-nextelementsibling-property-https-developer-mozilla-org-en-us-docs-web-api-element-nextelementsibling-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling">.nextElementSibling
+        property.</a></h4>
+    <h3 id="select-previous-sibling">Select Previous Sibling</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.prev<span class="hljs-comment">()</span>;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Selects the previous siblings of all elements with 'my-class a' on the page.</span>
+$<span class="hljs-comment">('.my-class a')</span>.prev<span class="hljs-comment">()</span>;
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-prev-method-https-api-jquery-com-prev-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/prev/">.prev() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+nonDocumentTypeChildNode.previousElementSibling;
+
+// Example
+// <span class="hljs-keyword">For</span> declaring the <span class="hljs-string">'item'</span> variable by selecting elements <span class="hljs-keyword">with</span> <span class="hljs-string">'my-class a'</span> on the page, see examples examples <span class="hljs-string">#3</span>, <span class="hljs-string">#4</span>, <span class="hljs-string">#5</span>.
+item.previousElementSibling;
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-previouselementsibling-property-https-developer-mozilla-org-en-us-docs-web-api-element-previouselementsibling-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/previousElementSibling">.previousElementSibling
+        property.</a></h4>
+    <h3 id="add-class">Add Class</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-regexp">//</span> Syntax
+addClass();
+
+<span class="hljs-regexp">//</span> Example
+<span class="hljs-regexp">//</span> Adds the <span class="hljs-string">'second-class'</span> class to every <span class="hljs-string">'my-class'</span> element.
+$(<span class="hljs-string">'.my-class'</span>).addClass(<span class="hljs-string">'second-class'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-addclass-method-https-api-jquery-com-addclass-">See more in the jQuery API
+      docs: <a href="https://api.jquery.com/addclass/">.addClass() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+// Example
+// <span class="hljs-keyword">For</span> declaring the <span class="hljs-string">'item'</span> variable by selecting elements <span class="hljs-keyword">with</span> <span class="hljs-string">'my-class'</span> on the page, see examples examples <span class="hljs-string">#3</span>, <span class="hljs-string">#4</span>, <span class="hljs-string">#5</span>.
+item.classList.add(<span class="hljs-string">'second-class'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-classlist-property-https-developer-mozilla-org-en-us-docs-web-api-element-classlist-and-add-method-https-developer-mozilla-org-en-us-docs-web-api-domtokenlist-add-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">.classList property</a> and <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/add">.add() method</a></h4>
+    <h3 id="remove-class">Remove Class</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">//Syntax
+.removeClass();
+
+// Example
+// Removes the <span class="hljs-string">'second-class'</span> class from <span class="hljs-keyword">every</span> <span class="hljs-string">'my-class'</span> <span class="hljs-literal">element</span>.
+// Removes <span class="hljs-string">'second-class'</span>, <span class="hljs-keyword">then</span> add <span class="hljs-string">'third-class'</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">every</span> <span class="hljs-string">'my-class'</span> <span class="hljs-literal">element</span>.
+$(<span class="hljs-string">'.my-class'</span>).removeClass(<span class="hljs-string">'second-class'</span>);
+$(<span class="hljs-string">'.my-class'</span>).removeClass(<span class="hljs-string">'second-class'</span>).addClass(<span class="hljs-string">'third-class'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-removeclass-method-https-api-jquery-com-removeclass-">See more in the jQuery
+      API docs: <a href="https://api.jquery.com/removeclass/">.removeClass() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-type">Element</span>.classList.remove();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'item' variable by selecting elements with 'my-class' on the page, see examples examples #3, #4, #5.</span>
+
+item.classList.remove(<span class="hljs-symbol">'second</span>-<span class="hljs-class"><span class="hljs-keyword">class</span>')</span>;
+
+<span class="hljs-comment">// To use it together with add(), you need two separate statements.</span>
+item.classList.remove(<span class="hljs-symbol">'second</span>-<span class="hljs-class"><span class="hljs-keyword">class</span>')</span>;
+item.classList.add(<span class="hljs-symbol">'third</span>-<span class="hljs-class"><span class="hljs-keyword">class</span>')</span>;
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-classlist-property-https-developer-mozilla-org-en-us-docs-web-api-element-classlist-remove-method-https-developer-mozilla-org-en-us-docs-web-api-domtokenlist-remove-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">.classList property</a>, <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/remove">.remove() method.</a></h4>
+    <h3 id="toggle-class">Toggle Class</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+.toggleClass()<span class="hljs-comment">;</span>
+
+// Example
+// Adds the <span class="hljs-string">'active'</span> class <span class="hljs-keyword">to</span> elements <span class="hljs-keyword">with</span> <span class="hljs-string">'my-class'</span> <span class="hljs-keyword">if</span> they don<span class="hljs-string">' have it remove it if they have it.
+$('</span>.my-class<span class="hljs-string">').toggleClass('</span>active<span class="hljs-string">');</span>
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-toggleclass-method-https-api-jquery-com-toggleclass-">See more in the jQuery
+      API docs: <a href="https://api.jquery.com/toggleclass/">.toggleClass() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.toggle</span>();
+
+<span class="hljs-comment">// Example </span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+<span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.classList</span><span class="hljs-selector-class">.toggle</span>(<span class="hljs-string">'active'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-classlist-property-https-developer-mozilla-org-en-us-docs-web-api-element-classlist-toggle-method-https-developer-mozilla-org-en-us-docs-web-api-domtokenlist-toggle-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">.classList property</a>, <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/toggle">.toggle() method.</a></h4>
+    <h3 id="has-class">Has Class</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+.hasClass();
+
+// Example
+// Checks <span class="hljs-keyword">if</span> any element <span class="hljs-keyword">with</span> <span class="hljs-symbol">'my</span>-class' has the <span class="hljs-symbol">'active</span>' class.
+// Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">or</span> <span class="hljs-literal">false</span>
+// <span class="hljs-keyword">If</span> there<span class="hljs-symbol">'s</span> <span class="hljs-keyword">at</span> least one element <span class="hljs-keyword">with</span> <span class="hljs-symbol">'active</span>' it<span class="hljs-symbol">'s</span> <span class="hljs-literal">true</span>, otherwise <span class="hljs-literal">false</span>.
+$('.my-class').hasClass(<span class="hljs-symbol">'active</span>');
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-hasclass-method-https-api-jquery-com-hasclass-">See more in the jQuery API
+      docs: <a href="https://api.jquery.com/hasclass/">.hasClass() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+element.classList.contains();
+
+// Example 
+// Similar <span class="hljs-keyword">to</span> the jQuery version, this one also checks <span class="hljs-keyword">if</span> any element <span class="hljs-keyword">in</span> the whole classList has the <span class="hljs-symbol">'active</span>' class
+// <span class="hljs-keyword">If</span> at least one element has <span class="hljs-symbol">'active</span>', it<span class="hljs-symbol">'s</span> <span class="hljs-literal">true</span>, otherwise <span class="hljs-literal">false</span>.
+// <span class="hljs-keyword">For</span> declaring the <span class="hljs-symbol">'item</span>' <span class="hljs-keyword">variable</span>, see examples #<span class="hljs-number">3</span>, #<span class="hljs-number">4</span>, #<span class="hljs-number">5</span>.
+item.classList.contains(<span class="hljs-symbol">'active</span>');
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-classlist-property-https-developer-mozilla-org-en-us-docs-web-api-element-classlist-contains-method-https-developer-mozilla-org-en-us-docs-web-api-domtokenlist-contains-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">.classList property</a>, <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/contains">.contains() method.</a></h4>
+    <h3 id="get-attribute">Get Attribute</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.attr(<span class="hljs-string">'attr-name'</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Returns the value of the href property of the FIRST occurrence of an element with 'my-class'</span>
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.my-class'</span>).attr(<span class="hljs-string">'href'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-attr-method-https-api-jquery-com-attr-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/attr/">.attr() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">/* Syntax */</span>
+<span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.getAttribute</span>(<span class="hljs-string">'attr-name'</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+ <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.getAttribute</span>(<span class="hljs-string">'href'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-getattribute-method-https-developer-mozilla-org-en-us-docs-web-api-element-getattribute-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute">.getAttribute() method.</a></h4>
+    <h3 id="set-attribute">Set Attribute</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.attr(<span class="hljs-string">'attr-name'</span>, <span class="hljs-keyword">value</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Sets the value of the href property for ALL contact links that have the 'contact-link' class</span>
+$(<span class="hljs-string">'.contact-link'</span>).attr(<span class="hljs-string">'href'</span>, <span class="hljs-string">'contact.html'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-jquery-api-docs-attr-method-https-api-jquery-com-attr-you-need-to-use-the-same-attr-method-as-for-getting-an-attribute-value-but-with-two-parameters-instead-of-one-">
+      See more in jQuery API docs: <a href="https://api.jquery.com/attr/">.attr() method</a> (you need to use the same
+      <code>.attr()</code> method as for getting an attribute value, but with two parameters instead of one)</h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.setAttribute</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+<span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.setAttribute</span>(<span class="hljs-string">'href'</span>, <span class="hljs-string">'contact.html'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-setattribute-method-https-developer-mozilla-org-en-us-docs-web-api-element-setattribute-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute">.setAttribute() method.</a></h4>
+    <h3 id="remove-attribute">Remove Attribute</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-regexp">//</span> Syntax
+.removeAttr(<span class="hljs-string">'attr-name'</span>);
+<span class="hljs-regexp">//</span> Example
+<span class="hljs-regexp">//</span> Removes <span class="hljs-string">'target'</span> attributes from contact links.
+$(<span class="hljs-string">'.contact-link'</span>).removeAttr(<span class="hljs-string">'target'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-removeattr-method-https-api-jquery-com-removeattr-">See more in the jQuery
+      API
+      docs: <a href="https://api.jquery.com/removeAttr/">.removeAttr() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.removeAttribute</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+ <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.removeAttribute</span>(<span class="hljs-string">'target'</span>);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-removeattribute-method-https-developer-mozilla-org-en-us-docs-web-api-element-removeattribute-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/removeAttribute">.removeAttribute() method.</a>
+    </h4>
+    <h3 id="append-a-new-child-element">Append a New Child Element</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">//Syntax</span>
+.<span class="hljs-built_in">append</span>(<span class="hljs-string">'html-string'</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Appends an extra list element to the end of every ordered list on the page.</span>
+$(<span class="hljs-string">"ol"</span>).<span class="hljs-built_in">append</span>(<span class="hljs-string">"&lt;li&gt;"</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-append-method-https-api-jquery-com-append-">See more in the jQuery API docs:
+      <a href="https://api.jquery.com/append/">.append() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-selector-tag">Node</span><span class="hljs-selector-class">.appendChild</span>();
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
+<span class="hljs-selector-tag">ol</span><span class="hljs-selector-class">.appendChild</span>(document.createElement(<span class="hljs-string">"li"</span>));
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-appendchild-method-https-developer-mozilla-org-en-us-docs-web-api-node-appendchild-and-createelement-method-https-developer-mozilla-org-en-us-docs-web-api-document-createelement-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">.appendChild() method</a> and <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">.createElement() method.</a></h4>
+    <h3 id="prepend-a-new-child-element">Prepend a New Child Element</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+
+.prepend(<span class="hljs-string">'html-string'</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Prepends an extra list element to the beginning of every ordered list on the page.</span>
+<span class="hljs-symbol">$</span>(<span class="hljs-string">"ol"</span>).prepend(<span class="hljs-string">"&lt;li&gt;"</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-prepend-method-https-api-jquery-com-prepend-">See more in the jQuery API
+      docs:
+      <a href="https://api.jquery.com/prepend/">.prepend() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+
+<span class="hljs-selector-tag">Node</span><span class="hljs-selector-class">.insertBefore</span>();
+
+<span class="hljs-comment">// Example </span>
+<span class="hljs-comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
+<span class="hljs-selector-tag">ol</span><span class="hljs-selector-class">.insertBefore</span>(document.createElement(<span class="hljs-string">"li"</span>), ol.firstChild);
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-insertbefore-method-https-developer-mozilla-org-en-us-docs-web-api-node-insertbefore-createelement-method-https-developer-mozilla-org-en-us-docs-web-api-document-createelement-and-firstchild-property-https-developer-mozilla-org-en-us-docs-web-api-node-firstchild-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore">.insertBefore() method</a>, <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement">.createElement() method</a> and
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild">firstChild property.</a></h4>
+    <h3 id="get-or-set-html-content">Get or Set HTML Content</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.html();
+.html(<span class="hljs-string">'html-string'</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Gets the HTML content of the FIRST element that matches 'my-class'.</span>
+<span class="hljs-comment">// Sets/resets the HTML content of EACH element that matches 'my-class'.</span>
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.my-class'</span>).html();
+<span class="hljs-symbol">$</span>(<span class="hljs-string">'.my-class'</span>).html(<span class="hljs-string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-html-method-https-api-jquery-com-html-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/html/">.html() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-built_in">Element</span>.innerHTML;
+<span class="hljs-comment">// Example </span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+item.innerHTML; <span class="hljs-comment">// gets the value.</span>
+item.innerHTML = <span class="hljs-string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="hljs-comment">// sets the value.</span>
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-innerhtml-property-https-developer-mozilla-org-en-us-docs-web-api-element-innerhtml-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">.innerHTML property.</a></h4>
+    <h3 id="get-or-set-css-property">Get or Set CSS Property</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript">// Syntax
+.css(<span class="hljs-string">'property-name'</span>);
+.css(<span class="hljs-string">'property-name'</span>, <span class="hljs-keyword">value</span>);
+
+// Example
+// Gets the <span class="hljs-string">'color'</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> the FIRST <span class="hljs-literal">element</span> that has <span class="hljs-string">'my-class'</span>.
+// Sets the <span class="hljs-string">'color'</span> <span class="hljs-keyword">value</span> <span class="hljs-keyword">to</span> <span class="hljs-string">'white'</span> <span class="hljs-keyword">for</span> EVERY <span class="hljs-literal">element</span> that has <span class="hljs-string">'my-class'</span>.
+$(<span class="hljs-string">'.my-class'</span>).css(<span class="hljs-string">'color'</span>);
+$(<span class="hljs-string">'.my-class'</span>).css(<span class="hljs-string">'color'</span>, <span class="hljs-string">'white'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-css-method-https-api-jquery-com-css-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/css/">.css() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+ElementCSSInlineStyle.style.{propertyName};
+
+<span class="hljs-comment">// Example </span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+item.style.<span class="hljs-keyword">color</span>; <span class="hljs-comment">// getting value</span>
+item.style.<span class="hljs-keyword">color</span> = <span class="hljs-string">'white'</span>; <span class="hljs-comment">// setting value</span>
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-style-property-https-developer-mozilla-org-en-us-docs-web-api-htmlelement-style-and-css-properties-reference-https-developer-mozilla-org-en-us-docs-web-css-css_properties_reference-for-the-javascript-names-of-css-properties-">
+      See more in the DOM API docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style">.style
+        property</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference">CSS
+        Properties Reference</a> (for the JavaScript names of CSS properties)</h4>
+    <h3 id="get-or-set-text-content-of-an-element-and-all-of-its-descendants">Get or Set Text Content of an Element and
+      All of Its Descendants</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.<span class="hljs-keyword">text</span>();
+.<span class="hljs-keyword">text</span>(<span class="hljs-string">'text'</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Gets the text content of the FIRST element (and all of its descendants) that matches 'my-class'.</span>
+<span class="hljs-comment">// Sets/resets the text content of EACH element that matches 'my-class'.</span>
+$(<span class="hljs-string">'.my-class'</span>).<span class="hljs-keyword">text</span>();
+$(<span class="hljs-string">'.my-class'</span>).<span class="hljs-keyword">text</span>(<span class="hljs-string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-text-method-https-api-jquery-com-text-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/text/">.text() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+<span class="hljs-built_in">Element</span>.textContent;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+item.textContent; <span class="hljs-comment">// gets the value</span>
+item.textContent = <span class="hljs-string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="hljs-comment">// sets the value</span>
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-textcontent-property-https-developer-mozilla-org-en-us-docs-web-api-node-textcontent-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent">.textContent property.</a></h4>
+    <h3 id="get-or-set-input-values">Get or Set Input Values</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.<span class="hljs-keyword">val</span>();
+.<span class="hljs-keyword">val</span>(<span class="hljs-keyword">val</span>);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Gets the value of the input with the 'name' name.</span>
+<span class="hljs-comment">// Sets/resets the value of the input with the 'name' name.</span>
+$(<span class="hljs-string">'input[name=name]'</span>).<span class="hljs-keyword">val</span>();
+$(<span class="hljs-string">'input[name=name]'</span>).<span class="hljs-keyword">val</span>(<span class="hljs-string">'Marilyn Monroe'</span>);
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-val-method-https-api-jquery-com-val-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/val/">.val() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+HTMLInputElement.<span class="hljs-keyword">value</span>;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'input' variable, see examples #3, #4, #5.</span>
+input.<span class="hljs-keyword">value</span>; <span class="hljs-comment">// gets the value</span>
+input.<span class="hljs-keyword">value</span> = <span class="hljs-string">'Marilyn Monroe'</span>; <span class="hljs-comment">// sets the value</span>
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-value-property-https-developer-mozilla-org-en-us-docs-web-api-htmlinputelement-in-the-list-of-properties-that-apply-to-any-type-of-input-element-that-is-not-hidden-">
+      See more in the DOM API docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement">.value
+        property</a> (in the list of &#39;&#39;Properties that apply to any type of input element that is not
+      hidden&quot;)</h4>
+    <h3 id="hide-element">Hide Element</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.<span class="hljs-keyword">hide</span>();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Hides all elements with 'my-class'.</span>
+$(<span class="hljs-string">'.my-class'</span>).<span class="hljs-keyword">hide</span>();
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-hide-method-https-api-jquery-com-hide-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/hide/">.hide() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+ElementCSSInlineStyle.style.<span class="hljs-built_in">display</span> = <span class="hljs-string">'none'</span>;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+item.style.<span class="hljs-built_in">display</span> = <span class="hljs-string">'none'</span>;
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-style-property-https-developer-mozilla-org-en-us-docs-web-api-htmlelement-style-">
+      See more in the DOM API docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style">.style
+        property.</a></h4>
+    <h3 id="show-element">Show Element</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.show<span class="hljs-comment">()</span>;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Displays all elements with 'my-class'.</span>
+$<span class="hljs-comment">('.my-class')</span>.show<span class="hljs-comment">()</span>
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-show-method-https-api-jquery-com-show-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/show/">.show() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+ElementCSSInlineStyle.style.<span class="hljs-built_in">display</span> = <span class="hljs-string">''</span>;
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+item.style.<span class="hljs-built_in">display</span> = <span class="hljs-string">''</span>; <span class="hljs-comment">// resets default.</span>
+item.style.<span class="hljs-built_in">display</span> = <span class="hljs-string">'block'</span>; <span class="hljs-comment">// sets display as block.</span>
+item.style.<span class="hljs-built_in">display</span> = <span class="hljs-string">'flex'</span>; <span class="hljs-comment">// sets display as flex.</span>
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-style-property-https-developer-mozilla-org-en-us-docs-web-api-htmlelement-style-syntax-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style#syntax">.style property.</a></h4>
+    <h3 id="add-event-listener">Add Event Listener</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.on();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Adds or removes the 'active' class to/from all elements with '.submenu' when #toggle is clicked.</span>
+$(<span class="hljs-string">'#toggle'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    $(<span class="hljs-string">'.submenu'</span>).toggleClass(<span class="hljs-string">'active'</span>);
+});
+</code></pre>
+    <h4 id="see-more-in-the-jquery-api-docs-on-method-https-api-jquery-com-on-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/on/">.on() method</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+EventTarget.addEventListener(<span class="hljs-string">'event'</span>, functionName);
+
+<span class="hljs-comment">// Example  </span>
+<span class="hljs-comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
+<span class="hljs-comment">// To select all submenus, use the 'for' loop in // Example #3 and #4.</span>
+<span class="hljs-keyword">let</span> toggle = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#toggle"</span>);
+<span class="hljs-keyword">let</span> submenu = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">".submenu"</span>);
+
+toggle.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+   submenu.classList.toggle(<span class="hljs-string">'active'</span>); 
+});
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-addeventlistener-method-https-developer-mozilla-org-en-us-docs-web-api-eventtarget-addeventlistener-and-dom-event-reference-https-developer-mozilla-org-en-us-docs-web-events-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">.addEventListener()
+        method</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Events">DOM Event Reference.</a></h4>
+    <h3 id="remove-event-listener">Remove Event Listener</h3>
+    <ul>
+      <li><strong><em>jQuery:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+.off();
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// Removes the listed event handler when #toggle is clicked.</span>
+$(<span class="hljs-string">'#toggle'</span>).off(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    $(<span class="hljs-string">'.submenu'</span>).toggleClass(<span class="hljs-string">'active'</span>);
+});
+</code>
+</pre>
+    <h4 id="see-more-in-the-jquery-api-docs-off-method-https-api-jquery-com-off-">See more in the jQuery API docs: <a
+        href="https://api.jquery.com/off/">.off() method.</a></h4>
+    <ul>
+      <li><strong><em>JavaScript:</em></strong></li>
+    </ul>
+    <pre><code class="lang-javascript"><span class="hljs-comment">// Syntax</span>
+EventTarget.removeEventListener(<span class="hljs-string">'event'</span>, functionName);
+
+<span class="hljs-comment">// Example</span>
+<span class="hljs-comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
+<span class="hljs-comment">// To select all submenus, use the 'for' loop in Example #3 and #4.</span>
+<span class="hljs-keyword">let</span> toggle = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#toggle"</span>);
+<span class="hljs-keyword">let</span> submenu = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">".submenu"</span>);
+
+toggle.removeEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+   submenu.classList.toggle(<span class="hljs-string">'active'</span>); 
+});
+</code></pre>
+    <h4
+      id="see-more-in-the-dom-api-docs-removeeventlistener-method-https-developer-mozilla-org-en-us-docs-web-api-eventtarget-removeeventlistener-and-dom-event-reference-https-developer-mozilla-org-en-us-docs-web-events-">
+      See more in the DOM API docs: <a
+        href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener">.removeEventListener()
+        method</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/Events">DOM Event Reference.</a></h4>
+    <h2 id="contributing">Contributing</h2>
+    <p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to
+      change.
+      Please make sure to update tests as appropriate.</p>
+    <h2 id="license">License</h2>
+    <p><a href="https://choosealicense.com/licenses/mit/">MIT</a></p>
+  </div>
+</body>
+
+</html>
