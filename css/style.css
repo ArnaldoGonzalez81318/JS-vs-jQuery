@@ -80,3 +80,9 @@ table {
 .lang-javascript{
 	color: #cacaca;
 }
+
+.paragraph{
+	font-size: 16px;
+	margin: 20px 0;
+	padding: 0 20px;
+}
