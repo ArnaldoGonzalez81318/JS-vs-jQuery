@@ -53,3 +53,9 @@ table {
   padding: 0 20px;
   text-align: center;
 }
+
+.js-vs-jquery {
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+}
