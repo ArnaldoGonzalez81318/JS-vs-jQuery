@@ -53,7 +53,7 @@ table {
 
 .documentation-body h2, .documentation-body h3, .documentation-body h4, .documentation-body h5 {
 	font-family: 'Roboto', sans-serif;
-	font-weight: 200;
+	font-weight: 400;
 	font-size: 1.1rem;
 	margin: 0 0 20px 0;
 	padding: 0 20px;
@@ -90,7 +90,7 @@ table {
 }
 
 .paragraph{
-	font-weight: 200;
+	font-weight: 300;
 	font-size: 1.1rem;
 	line-height: 1.5rem;
 	margin: 20px 0;
