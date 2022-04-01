@@ -138,6 +138,11 @@ table {
 	padding: 0 20px;
 }
 
+.documentation-body strong {
+	font-weight: bold;
+	font-style: italic;
+}
+
 .documentation-body h2,
 .documentation-body h3,
 .documentation-body h4,
