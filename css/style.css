@@ -1,18 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -20,25 +88,44 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -46,12 +133,15 @@ table {
 
 #documentation-body {
 	font-family: 'Roboto', sans-serif;
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 0 20px;
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 0 20px;
 }
 
-.documentation-body h2, .documentation-body h3, .documentation-body h4, .documentation-body h5 {
+.documentation-body h2,
+.documentation-body h3,
+.documentation-body h4,
+.documentation-body h5 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	font-size: 1.1rem;
@@ -74,21 +164,21 @@ table {
 }
 
 .images-jquery-vs-javascript {
-  margin: 0 auto;
-  padding: 0 20px;
-  text-align: center;
+	margin: 0 auto;
+	padding: 0 20px;
+	text-align: center;
 }
 
 .js-vs-jquery {
-  margin: 30px auto;
-  padding: 0 20px;
-  text-align: left;
+	margin: 30px auto;
+	padding: 0 20px;
+	text-align: left;
 	font-weight: 500;
 	font-size: 3rem;
 	line-height: 3.5rem;
 }
 
-.code{
+.code {
 	background-color: #eee;
 	font-family: courier, monospace;
 	padding: 0 3px;
@@ -96,18 +186,27 @@ table {
 	border-radius: 15px;
 	margin: 20px;
 	box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
--webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
--moz-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
-overflow-x: auto;
-overflow-y: hidden;
+	-webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
+	-moz-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
-.lang-javascript{
+.small-code {
+	color: #707070;
+	background-color: #eee;
+	font-family: courier, monospace;
+	padding: 0 3px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.lang-javascript {
 	color: #707070;
 	font-weight: 300;
 }
 
-.paragraph{
+.paragraph {
 	font-weight: 300;
 	font-size: 1.1rem;
 	line-height: 1.5rem;
