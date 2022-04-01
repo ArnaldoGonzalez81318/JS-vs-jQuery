@@ -209,7 +209,36 @@ table {
 	padding: 15px;
 	border-radius: 100%;
 	overflow: hidden;
-	text-shadow: 1px 1px #a5a5a5, 2px 2px #a5a5a5, 3px 3px #a5a5a5, 4px 4px #a5a5a5, 5px 5px #a5a5a5, 6px 6px #a5a5a5, 7px 7px #a5a5a5, 8px 8px #a5a5a5, 9px 9px #a5a5a5, 10px 10px #a5a5a5, 11px 11px #a5a5a5, 12px 12px #a5a5a5, 13px 13px #a5a5a5, 14px 14px #a5a5a5, 15px 15px #a5a5a5, 16px 16px #a5a5a5, 17px 17px #a5a5a5, 18px 18px #a5a5a5, 19px 19px #a5a5a5, 20px 20px #a5a5a5, 21px 21px #a5a5a5, 22px 22px #a5a5a5, 23px 23px #a5a5a5, 24px 24px #a5a5a5, 25px 25px #a5a5a5, 26px 26px #a5a5a5, 27px 27px #a5a5a5, 28px 28px #a5a5a5, 29px 29px #a5a5a5, 30px 30px #a5a5a5, 31px 31px #a5a5a5, 32px 32px #a5a5a5, 33px 33px #a5a5a5, 34px 34px #a5a5a5, 35px 35px #a5a5a5, 36px 36px #a5a5a5, 37px 37px #a5a5a5, 38px 38px #a5a5a5, 39px 39px #a5a5a5, 40px 40px #a5a5a5, 41px 41px #a5a5a5, 42px 42px #a5a5a5, 43px 43px #a5a5a5, 44px 44px #a5a5a5, 45px 45px #a5a5a5, 46px 46px #a5a5a5, 47px 47px #a5a5a5, 48px 48px #a5a5a5, 49px 49px #a5a5a5, 50px 50px #a5a5a5, 51px 51px #a5a5a5, 52px 52px #a5a5a5, 53px 53px #a5a5a5, 54px 54px #a5a5a5, 55px 55px #a5a5a5, 56px 56px #a5a5a5, 57px 57px #a5a5a5, 58px 58px #a5a5a5, 59px 59px #a5a5a5, 60px 60px #a5a5a5, 61px 61px #a5a5a5, 62px 62px #a5a5a5, 63px 63px #a5a5a5, 64px 64px #a5a5a5, 65px 65px #a5a5a5, 66px 66px #a5a5a5, 67px 67px #a5a5a5, 68px 68px #a5a5a5, 69px 69px #a5a5a5, 70px 70px #a5a5a5, 71px 71px #a5a5a5, 72px 72px #a5a5a5, 73px 73px #a5a5a5, 74px 74px #a5a5a5, 75px 75px #a5a5a5, 76px 76px #a5a5a5, 77px 77px #a5a5a5, 78px 78px #a5a5a5, 79px 79px #a5a5a5, 80px 80px #a5a5a5, 81px 81px #a5a5a5, 82px 82px #a5a5a5, 83px 83px #a5a5a5, 84px 84px #a5a5a5, 85px 85px #a5a5a5, 86px 86px #a5a5a5, 87px 87px #a5a5a5, 88px 88px #a5a5a5, 89px 89px #a5a5a5, 90px 90px #a5a5a5, 91px 91px #a5a5a5, 92px 92px #a5a5a5, 93px 93px #a5a5a5, 94px 94px #a5a5a5, 95px 95px #a5a5a5, 96px 96px #a5a5a5, 97px 97px #a5a5a5, 98px 98px #a5a5a5, 99px 99px #a5a5a5, 100px 100px #a5a5a5, 101px 101px #a5a5a5, 102px 102px #a5a5a5, 103px 103px #a5a5a5, 104px 104px #a5a5a5, 105px 105px #a5a5a5, 106px 106px #a5a5a5, 107px 107px #a5a5a5, 108px 108px #a5a5a5, 109px 109px #a5a5a5, 110px 110px #a5a5a5, 111px 111px #a5a5a5, 112px 112px #a5a5a5, 113px 113px #a5a5a5, 114px 114px #a5a5a5, 115px 115px #a5a5a5, 116px 116px #a5a5a5, 117px 117px #a5a5a5, 118px 118px #a5a5a5, 119px 119px #a5a5a5;
+	text-shadow: 1px 1px #a5a5a5, 2px 2px #a5a5a5, 3px 3px #a5a5a5,
+		4px 4px #a5a5a5, 5px 5px #a5a5a5, 6px 6px #a5a5a5, 7px 7px #a5a5a5,
+		8px 8px #a5a5a5, 9px 9px #a5a5a5, 10px 10px #a5a5a5, 11px 11px #a5a5a5,
+		12px 12px #a5a5a5, 13px 13px #a5a5a5, 14px 14px #a5a5a5, 15px 15px #a5a5a5,
+		16px 16px #a5a5a5, 17px 17px #a5a5a5, 18px 18px #a5a5a5, 19px 19px #a5a5a5,
+		20px 20px #a5a5a5, 21px 21px #a5a5a5, 22px 22px #a5a5a5, 23px 23px #a5a5a5,
+		24px 24px #a5a5a5, 25px 25px #a5a5a5, 26px 26px #a5a5a5, 27px 27px #a5a5a5,
+		28px 28px #a5a5a5, 29px 29px #a5a5a5, 30px 30px #a5a5a5, 31px 31px #a5a5a5,
+		32px 32px #a5a5a5, 33px 33px #a5a5a5, 34px 34px #a5a5a5, 35px 35px #a5a5a5,
+		36px 36px #a5a5a5, 37px 37px #a5a5a5, 38px 38px #a5a5a5, 39px 39px #a5a5a5,
+		40px 40px #a5a5a5, 41px 41px #a5a5a5, 42px 42px #a5a5a5, 43px 43px #a5a5a5,
+		44px 44px #a5a5a5, 45px 45px #a5a5a5, 46px 46px #a5a5a5, 47px 47px #a5a5a5,
+		48px 48px #a5a5a5, 49px 49px #a5a5a5, 50px 50px #a5a5a5, 51px 51px #a5a5a5,
+		52px 52px #a5a5a5, 53px 53px #a5a5a5, 54px 54px #a5a5a5, 55px 55px #a5a5a5,
+		56px 56px #a5a5a5, 57px 57px #a5a5a5, 58px 58px #a5a5a5, 59px 59px #a5a5a5,
+		60px 60px #a5a5a5, 61px 61px #a5a5a5, 62px 62px #a5a5a5, 63px 63px #a5a5a5,
+		64px 64px #a5a5a5, 65px 65px #a5a5a5, 66px 66px #a5a5a5, 67px 67px #a5a5a5,
+		68px 68px #a5a5a5, 69px 69px #a5a5a5, 70px 70px #a5a5a5, 71px 71px #a5a5a5,
+		72px 72px #a5a5a5, 73px 73px #a5a5a5, 74px 74px #a5a5a5, 75px 75px #a5a5a5,
+		76px 76px #a5a5a5, 77px 77px #a5a5a5, 78px 78px #a5a5a5, 79px 79px #a5a5a5,
+		80px 80px #a5a5a5, 81px 81px #a5a5a5, 82px 82px #a5a5a5, 83px 83px #a5a5a5,
+		84px 84px #a5a5a5, 85px 85px #a5a5a5, 86px 86px #a5a5a5, 87px 87px #a5a5a5,
+		88px 88px #a5a5a5, 89px 89px #a5a5a5, 90px 90px #a5a5a5, 91px 91px #a5a5a5,
+		92px 92px #a5a5a5, 93px 93px #a5a5a5, 94px 94px #a5a5a5, 95px 95px #a5a5a5,
+		96px 96px #a5a5a5, 97px 97px #a5a5a5, 98px 98px #a5a5a5, 99px 99px #a5a5a5,
+		100px 100px #a5a5a5, 101px 101px #a5a5a5, 102px 102px #a5a5a5, 103px 103px #a5a5a5,
+		104px 104px #a5a5a5, 105px 105px #a5a5a5, 106px 106px #a5a5a5, 107px 107px #a5a5a5,
+		108px 108px #a5a5a5, 109px 109px #a5a5a5, 110px 110px #a5a5a5, 111px 111px #a5a5a5,
+		112px 112px #a5a5a5, 113px 113px #a5a5a5, 114px 114px #a5a5a5, 115px 115px #a5a5a5,
+		116px 116px #a5a5a5, 117px 117px #a5a5a5, 118px 118px #a5a5a5, 119px 119px #a5a5a5;
 }
 
 .small-code {
