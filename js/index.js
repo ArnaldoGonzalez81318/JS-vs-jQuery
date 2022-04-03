@@ -1,7 +1,8 @@
-$(function () {
-  $(".fa-copy").click(function () {
-    $(this).closest(".lang-javascript").text();
-    document.execCommand("Copy");
-    console.log("Copied");
-  });
-});
+function copy() {
+  let copyText = document.querySelector(".lang-javascript");
+  copyText.focus();
+  document.execCommand("copy");
+  console.log(copyText.textContent);
+}
+
+document.querySelector(".fa-copy").addEventListener("click", copy);
