@@ -65,14 +65,14 @@
       <code class="lang-javascript">
       <span class="comment">// Syntax</span>
       <span class="function">jQuery</span>();
-      <span class="hljs-symbol">$</span>(); <span class="comment">// Shortcut</span>
+      <span class="symbol">$</span>(); <span class="comment">// Shortcut</span>
 
       <span class="comment">// Example</span>
       <span class="comment">// Selects all the links among the descendants of the 'my-class' class.</span>
       <span class="function">jQuery</span>(<span class="string">'.my-class a'</span>);
-      <span class="hljs-symbol">$</span>(<span class="string">'.my-class a'</span>);
-      <span class="hljs-symbol">$</span>(<span class="string">"html"</span>) <span class="comment">// To select the entire html.</span>
-      <span class="hljs-symbol">$</span>(<span class="string">"body"</span>) <span class="comment">// To select the entire html body.</span>
+      <span class="symbol">$</span>(<span class="string">'.my-class a'</span>);
+      <span class="symbol">$</span>(<span class="string">"html"</span>) <span class="comment">// To select the entire html.</span>
+      <span class="symbol">$</span>(<span class="string">"body"</span>) <span class="comment">// To select the entire html body.</span>
     </code>
   </pre>
     <h4 class="see-more">See more in the jQuery API docs:
@@ -221,9 +221,9 @@
         <span class="comment">// Finds all the children of all '.my-class a' elements on the age</span>
         <span class="comment">// Finds all the 'span' elements that are the children of any '.my-class a' element on the page</span>
         <span class="comment">// <span class="hljs-doctag">Note:</span> searches only for children (first-level of descendants)</span>
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>();
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>);
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'blue'</span>); <span class="comment">// for testing</span>
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>();
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'blue'</span>); <span class="comment">// for testing</span>
       </code>
     </pre>
 
@@ -327,7 +327,7 @@
         <span class="comment">// Example</span>
         <span class="comment">// Selects the siblings of ALL elements with the 'find-siblings' class on the page.</span>
         
-        <span class="hljs-symbol">$</span>(<span class="string">'.find-siblings'</span>).<span class="function">siblings</span>();
+        <span class="symbol">$</span>(<span class="string">'.find-siblings'</span>).<span class="function">siblings</span>();
       </code>
     </pre>
 
@@ -634,7 +634,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Returns the value of the href property of the FIRST occurrence of an element with 'my-class'</span>
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">attr</span>(<span class="string">'href'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">attr</span>(<span class="string">'href'</span>);
       </code>
     </pre>
 
@@ -792,7 +792,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Prepends an extra list element to the beginning of every ordered list on the page.</span>
-        <span class="hljs-symbol">$</span>(<span class="string">"ol"</span>).<span class="function">prepend</span>(<span class="string">"&lt;li&gt;"</span>);
+        <span class="symbol">$</span>(<span class="string">"ol"</span>).<span class="function">prepend</span>(<span class="string">"&lt;li&gt;"</span>);
       </code>
     </pre>
 
@@ -835,8 +835,8 @@
         <span class="comment">// Example</span>
         <span class="comment">// Gets the HTML content of the FIRST element that matches 'my-class'.</span>
         <span class="comment">// Sets/resets the HTML content of EACH element that matches 'my-class'.</span>
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>();
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>();
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
       </code>
     </pre>
 
