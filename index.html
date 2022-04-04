@@ -182,14 +182,14 @@
         <span class="comment">// For the sake of testing, I made the selected elements red, you can find the 'style.color' property below in this cheat sheet.</span>
         
         <span class="comment">// finds all '.my-class a'</span>
-        <span class="hljs-keyword">let</span> nodes = <span class="hljs-built_in">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
+        <span class="keyword">let</span> nodes = <span class="hljs-built_in">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
 
         <span class="comment">// loops through all '.my-class a'</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nodes.length; i++) {
+        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nodes.length; i++) {
           
           <span class="comment">// checks if the individual '.my-class a' element has a </span>
           <span class="comment">// 'span' descendant to avoid 'undefined' error</span>
-          <span class="hljs-keyword">if</span> (nodes[i].<span class="function">querySelector</span>(<span class="string">'span'</span>)) {
+          <span class="keyword">if</span> (nodes[i].<span class="function">querySelector</span>(<span class="string">'span'</span>)) {
             <span class="comment">// colors span tags that are desdendants of '.my-class a'</span>
             nodes[i].<span class="function">querySelector</span>(<span class="string">'span'</span>).style.color = <span class="string">'red'</span>;
           }
@@ -245,15 +245,15 @@
         <span class="comment">// 2nd example of the jQuery version above, plus makes the selected span tags blue for the sake of easy testing.</span>
         <span class="comment">// for 1st example, only leave out the if check at the end (we need this because the JS version is not a method but a property, so we need to check which children are 'span')</span>
         <span class="comment">// selects all the elements with 'my-class a' on the page</span>
-        <span class="hljs-keyword">let</span> items = <span class="hljs-built_in">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
+        <span class="keyword">let</span> items = <span class="hljs-built_in">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
         <span class="comment">// loops through all the elements with '.my-class a'</span>
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; items.length; i++) {
+        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; items.length; i++) {
           <span class="comment">// finds the children of the current '.my-class a' element</span>
-          <span class="hljs-keyword">let</span> kids = items[i].children;
+          <span class="keyword">let</span> kids = items[i].children;
           <span class="comment">// loops through the children of the current '.my-class a' element</span>
-          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; kids.length; j++) {
+          <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; kids.length; j++) {
             <span class="comment">// checks if the child element is a span tag</span>
-            <span class="hljs-keyword">if</span> (kids[j].tagName == <span class="string">'SPAN'</span>) {
+            <span class="keyword">if</span> (kids[j].tagName == <span class="string">'SPAN'</span>) {
               kids[j].style.color = <span class="string">'blue'</span>;
             }
           }
@@ -302,7 +302,7 @@
         <span class="comment">// Selects the parent of the FIRST element with 'my-class a' on the page (for the sake of less repetition)</span>
         <span class="comment">// For looping through all '.my-class a' elements, use the looping solution and querySelectorAll() from the two examples above.</span>
         
-        <span class="hljs-keyword">let</span> item = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>);
+        <span class="keyword">let</span> item = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>);
         item.parentNode;
       </code>
     </pre>
@@ -350,8 +350,8 @@
         // <span>and</span> <span>#4</span> the <span>':scope'</span> pseudoclass is necessary <span>for</span>
         // preventing the child elements <span>of</span> <span>'item'</span> from being selected (otherwise querySelectorAll() searches through all descendants 
         // <span>of</span> <span>'item'</span>, <span>with</span> <span>':scope &gt;'</span> it loops through just the first level).
-        <span class="hljs-keyword">let</span> item = document.<span class="function">querySelector</span>(<span class="string">'.find-siblings'</span>);
-        <span class="hljs-keyword">let</span> siblings = item.parentNode.<span class="function">querySelectorAll</span>(<span class="string">':scope &gt; :not(.find-siblings)'</span>);
+        <span class="keyword">let</span> item = document.<span class="function">querySelector</span>(<span class="string">'.find-siblings'</span>);
+        <span class="keyword">let</span> siblings = item.parentNode.<span class="function">querySelectorAll</span>(<span class="string">':scope &gt; :not(.find-siblings)'</span>);
       </code>
     </pre>
 
@@ -593,13 +593,12 @@
         <span class="comment">// Checks if any element with 'my-class' has the 'active' class.</span>
         <span class="comment">// Returns true or false</span>
         <span class="comment">// If there's at least one element with 'active' it's true, otherwise false.</span>
-        $(<span class="string">'.my-class'</span>).hasClass(<span class="string">'active</span>');
+        $(<span class="string">'.my-class'</span>).<span class="function">hasClass</span>(<span class="string">'active</span>');
       </code>
     </pre>
 
-    <h4 class="see-more">See more in the jQuery
-      API
-      docs: <a href="https://api.jquery.com/hasclass/">.hasClass() method.</a></h4>
+    <h4 class="see-more">See more in the jQuery API docs:
+      <a href="https://api.jquery.com/hasclass/">.hasClass() method.</a></h4>
     <ul>
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
@@ -607,14 +606,14 @@
     <pre class="code">
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
-        // Syntax
+        <span class="comment">// Syntax</span>
         element.classList.contains();
         
-        // Example 
-        <span>// Similar to the jQuery version, this one also checks if any element in the whole classList has the 'active' class</span>
-        <span>// If at least one element has 'active', it's true, otherwise false</span>.
-        <span>// For declaring the 'item' variable, see examples #3, #4, #5</span>.
-        item.classList.contains(<span class="string">'active</span>');
+        <span class="comment">// Example</span>
+        <span class="comment">// Similar to the jQuery version, this one also checks if any element in the whole classList has the 'active' class</span>
+        <span class="comment">// If at least one element has 'active', it's true, otherwise false</span>.
+        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5</span>.
+        item.classList.<span class="function">contains</span>(<span class="string">'active</span>');
       </code>
     </pre>
 
@@ -631,11 +630,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        .attr(<span class="string">'attr-name'</span>);
+        <span>.</span><span class="function">attr</span>(<span class="string">'attr-name'</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// Returns the value of the href property of the FIRST occurrence of an element with 'my-class'</span>
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).attr(<span class="string">'href'</span>);
+        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">attr</span>(<span class="string">'href'</span>);
       </code>
     </pre>
 
@@ -649,11 +648,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">/* Syntax */</span>
-        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.getAttribute</span>(<span class="string">'attr-name'</span>);
+        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.<span class="function">getAttribute</span>(<span class="string">'attr-name'</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.getAttribute</span>(<span class="string">'href'</span>);
+        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.<span class="function">getAttribute</span></span>(<span class="string">'href'</span>);
       </code>
     </pre>
 
@@ -669,11 +668,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        .attr(<span class="string">'attr-name'</span>, <span class="hljs-keyword">value</span>);
+        .<span class="function">attr</span>(<span class="string">'attr-name'</span>, <span class="keyword">value</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// Sets the value of the href property for ALL contact links that have the 'contact-link' class</span>
-        $(<span class="string">'.contact-link'</span>).attr(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
+        $(<span class="string">'.contact-link'</span>).<span class="function">attr</span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
       </code>
     </pre>
 
@@ -689,11 +688,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.setAttribute</span>();
+        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.<span class="function">setAttribute</span></span>();
         
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.setAttribute</span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
+        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.<span class="function">setAttribute</span></span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
       </code>
     </pre>
 
@@ -709,11 +708,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="hljs-regexp">//</span> Syntax
-        .removeAttr(<span class="string">'attr-name'</span>);
+        .<span class="function">removeAttr</span>(<span class="string">'attr-name'</span>);
 
-        <span>// Example</span>
-        <span>// Removes 'target' attributes from contact links.</span>
-        $(<span class="string">'.contact-link'</span>).removeAttr(<span class="string">'target'</span>);
+        <span class="comment">// Example</span>
+        <span class="comment">// Removes 'target' attributes from contact links.</span>
+        $(<span class="string">'.contact-link'</span>).<span class="function">removeAttr</span>(<span class="string">'target'</span>);
       </code>
     </pre>
 
@@ -728,11 +727,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.removeAttribute</span>();
+        <span class="hljs-selector-tag">Element</span><span class="function">.removeAttribute</span>();
         
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.removeAttribute</span>(<span class="string">'target'</span>);
+        <span class="hljs-selector-tag">item</span><span class="function">.removeAttribute</span>(<span class="string">'target'</span>);
       </code>
     </pre>
 
@@ -749,11 +748,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">//Syntax</span>
-        .<span class="hljs-built_in">append</span>(<span class="string">'html-string'</span>);
+        .<span class="function">append</span>(<span class="string">'html-string'</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// Appends an extra list element to the end of every ordered list on the page.</span>
-        $(<span class="string">"ol"</span>).<span class="hljs-built_in">append</span>(<span class="string">"&lt;li&gt;"</span>);
+        $(<span class="string">"ol"</span>).<span class="function">append</span>(<span class="string">"&lt;li&gt;"</span>);
       </code>
     </pre>
 
@@ -768,11 +767,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Node</span><span class="hljs-selector-class">.appendChild</span>();
+        <span class="hljs-selector-tag">Node</span><span class="function">.appendChild</span>();
 
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">ol</span><span class="hljs-selector-class">.appendChild</span>(document.createElement(<span class="string">"li"</span>));
+        <span class="hljs-selector-tag">ol</span><span class="function">.appendChild</span>(document.<span class="function">createElement</span>(<span class="string">"li"</span>));
       </code>
     </pre>
 
@@ -789,11 +788,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        .prepend(<span class="string">'html-string'</span>);
+        .<span class="function">prepend</span>(<span class="string">'html-string'</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// Prepends an extra list element to the beginning of every ordered list on the page.</span>
-        <span class="hljs-symbol">$</span>(<span class="string">"ol"</span>).prepend(<span class="string">"&lt;li&gt;"</span>);
+        <span class="hljs-symbol">$</span>(<span class="string">"ol"</span>).<span class="function">prepend</span>(<span class="string">"&lt;li&gt;"</span>);
       </code>
     </pre>
 
@@ -807,11 +806,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Node</span><span class="hljs-selector-class">.insertBefore</span>();
+        <span class="hljs-selector-tag">Node</span>.<span class="function">insertBefore</span>();
         
         <span class="comment">// Example </span>
         <span class="comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">ol</span><span class="hljs-selector-class">.insertBefore</span>(document.createElement(<span class="string">"li"</span>), ol.firstChild);
+        <span class="hljs-selector-tag">ol</span><span class="hljs-selector-class">.<span class="function">insertBefore</span></span>(document.<span class="function">createElement</span>(<span class="string">"li"</span>), ol.firstChild);
       </code>
     </pre>
 
@@ -830,14 +829,14 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        .html();
-        .html(<span class="string">'html-string'</span>);
+        .<span class="function">html</span>();
+        .<span class="function">html</span>(<span class="string">'html-string'</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// Gets the HTML content of the FIRST element that matches 'my-class'.</span>
         <span class="comment">// Sets/resets the HTML content of EACH element that matches 'my-class'.</span>
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).html();
-        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).html(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>();
+        <span class="hljs-symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
       </code>
     </pre>
 
@@ -851,12 +850,12 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        <span class="hljs-built_in">Element</span>.innerHTML;
+        <span class="comment">Element</span>.<span class="function">innerHTML</span>;
 
         <span class="comment">// Example </span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        item.innerHTML; <span class="comment">// gets the value.</span>
-        item.innerHTML = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value.</span>
+        item.<span class="function">innerHTML</span>; <span class="comment">// gets the value.</span>
+        item.<span class="function">innerHTML</span> = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value.</span>
       </code>
     </pre>
 
@@ -871,13 +870,13 @@
     <pre class="code">
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
-        // Syntax
+        <span class="comment">// Syntax</span>
         .<span class="function">css</span>(<span class="string">'property-name'</span>);
-        .<span class="function">css</span>(<span class="string">'property-name'</span>, <span class="hljs-keyword">value</span>);
+        .<span class="function">css</span>(<span class="string">'property-name'</span>, <span class="keyword">value</span>);
         
-        // Example
-        <span>// Gets the 'color' value of the FIRST element that has 'my-class'</span>.
-        <span>// Sets the 'color' value to 'white' for EVERY element that has 'my-class'</span>.
+        <span class="comment">// Example </span>
+        <span class="comment">// Gets the 'color' value of the FIRST element that has 'my-class'</span>.
+        <span class="comment">// Sets the 'color' value to 'white' for EVERY element that has 'my-class'</span>.
         $(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>);
         $(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'white'</span>);
       </code>
@@ -892,12 +891,12 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        ElementCSSInlineStyle.style.{propertyName};
+        <span class="function">ElementCSSInlineStyle</span>.<span class="function">style</span>.<span class="function">propertyName</span> = <span class="string">'value'</span>;
         
         <span class="comment">// Example </span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        item.style.<span>color</span>; <span class="comment">// getting value</span>
-        item.style.<span>color</span> = <span class="string">'white'</span>; <span class="comment">// setting value</span>
+        <span class="function">item</span>.<span class="function">style</span>.<span class="function">color</span>; <span class="comment">// getting value</span>
+        <span class="function">item</span>.<span class="function">style</span>.<span class="function">color</span> = <span class="string">'white'</span>; <span class="comment">// setting value</span>
       </code>
     </pre>
 
@@ -916,14 +915,14 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        .<span class="hljs-keyword">text</span>();
-        .<span class="hljs-keyword">text</span>(<span class="string">'text'</span>);
+        .<span class="function">text</span>();
+        .<span class="function">text</span>(<span class="string">'text'</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// Gets the text content of the FIRST element (and all of its descendants) that matches 'my-class'.</span>
         <span class="comment">// Sets/resets the text content of EACH element that matches 'my-class'.</span>
-        $(<span class="string">'.my-class'</span>).<span class="hljs-keyword">text</span>();
-        $(<span class="string">'.my-class'</span>).<span class="hljs-keyword">text</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+        $(<span class="string">'.my-class'</span>).<span class="function">text</span>();
+        $(<span class="string">'.my-class'</span>).<span class="function">text</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
       </code>
     </pre>
 
@@ -937,12 +936,12 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        <span class="hljs-built_in">Element</span>.textContent;
+        <span class="function">Element</span>.<span class="function">textContent</span>;
         
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        item.textContent; <span class="comment">// gets the value</span>
-        item.textContent = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value</span>
+        <span class="function">item</span>.<span class="function">textContent</span>; <span class="comment">// gets the value</span>
+        <span class="function">item</span>.<span class="function">textContent</span> = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value</span>
       </code>
     </pre>
 
@@ -959,7 +958,7 @@
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
         .<span class="function">val</span>();
-        .<span class="function">val</span>(<span class="hljs-keyword">val</span>);
+        .<span class="function">val</span>(<span class="keyword">val</span>);
         
         <span class="comment">// Example</span>
         <span class="comment">// Gets the value of the input with the 'name' name.</span>
@@ -978,12 +977,12 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        HTMLInputElement.<span class="hljs-keyword">value</span>;
+        <span class="function">HTMLInputElement</span>.<span class="keyword">value</span>;
         
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'input' variable, see examples #3, #4, #5.</span>
-        input.<span class="hljs-keyword">value</span>; <span class="comment">// gets the value</span>
-        input.<span class="hljs-keyword">value</span> = <span class="string">'Marilyn Monroe'</span>; <span class="comment">// sets the value</span>
+        <span class="function">input</span>.<span class="keyword">value</span>; <span class="comment">// gets the value</span>
+        <span class="function">input</span>.<span class="keyword">value</span> = <span class="string">'Marilyn Monroe'</span>; <span class="comment">// sets the value</span>
       </code>
     </pre>
 
@@ -1018,11 +1017,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        ElementCSSInlineStyle.style.<span class="hljs-built_in">display</span> = <span class="string">'none'</span>;
+        <span class="function">ElementCSSInlineStyle</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'none'</span>;
         
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        item.style.<span class="hljs-built_in">display</span> = <span class="string">'none'</span>;
+        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'none'</span>;
       </code>
     </pre>
 
@@ -1060,9 +1059,9 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        item.style.<span class="hljs-built_in">display</span> = <span class="string">''</span>; <span class="comment">// resets default.</span>
-        item.style.<span class="hljs-built_in">display</span> = <span class="string">'block'</span>; <span class="comment">// sets display as block.</span>
-        item.style.<span class="hljs-built_in">display</span> = <span class="string">'flex'</span>; <span class="comment">// sets display as flex.</span>
+        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">''</span>; <span class="comment">// resets default.</span>
+        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'block'</span>; <span class="comment">// sets display as block.</span>
+        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'flex'</span>; <span class="comment">// sets display as flex.</span>
       </code>
     </pre>
 
@@ -1078,11 +1077,11 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        .on();
+        .<span class="function">on</span>();
         
         <span class="comment">// Example</span>
         <span class="comment">// Adds or removes the 'active' class to/from all elements with '.submenu' when #toggle is clicked.</span>
-        $(<span class="string">'#toggle'</span>).<span class="function">on</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        $(<span class="string">'#toggle'</span>).<span class="function">on</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>)</span>{
           $(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
         });
       </code>
@@ -1097,16 +1096,16 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        EventTarget.addEventListener(<span class="string">'event'</span>, functionName);
+        <span class="function">EventTarget</span>.<span class="function">addEventListener</span>(<span class="string">'event'</span>, functionName);
         
         <span class="comment">// Example  </span>
         <span class="comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
         <span class="comment">// To select all submenus, use the 'for' loop in // Example #3 and #4.</span>
-        <span class="hljs-keyword">let</span> toggle = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
-        <span class="hljs-keyword">let</span> submenu = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
+        <span class="keyword">let</span> toggle = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
+        <span class="keyword">let</span> submenu = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
         
-        toggle.addEventListener(<span class="string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-          submenu.classList.toggle(<span class="string">'active'</span>); 
+        <span class="function">toggle</span>.<span class="function">addEventListener</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          <span class="function">submenu</span>.<span class="function">classList</span>.<span class="function">toggle</span>(<span class="string">'active'</span>); 
         });
       </code>
     </pre>
@@ -1144,16 +1143,16 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// Syntax</span>
-        EventTarget.removeEventListener(<span class="string">'event'</span>, functionName);
+        <span class="function">EventTarget</span>.<span class="function">removeEventListener</span>(<span class="string">'event'</span>, functionName);
         
         <span class="comment">// Example</span>
         <span class="comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
         <span class="comment">// To select all submenus, use the 'for' loop in Example #3 and #4.</span>
-        <span class="hljs-keyword">let</span> toggle = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
-        <span class="hljs-keyword">let</span> submenu = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
+        <span class="keyword">let</span> toggle = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
+        <span class="keyword">let</span> submenu = <span class="hljs-built_in">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
         
-        toggle.removeEventListener(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>) </span>{
-          submenu.classList.toggle(<span class="string">'active'</span>);
+        <span class="function">toggle</span>.<span class="function">removeEventListener</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>) </span>{
+          <span class="function">submenu.classList</span>.<span class="function">toggle</span>(<span class="string">'active'</span>);
         });
       </code>
     </pre>
