@@ -131,7 +131,7 @@ table {
 	border-spacing: 0;
 }
 
-#documentation-body {
+.documentation-body {
 	font-family: 'Roboto', sans-serif;
 	max-width: 1500px;
 	margin: 0 auto;
