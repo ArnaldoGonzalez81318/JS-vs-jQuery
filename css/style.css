@@ -274,6 +274,10 @@ table {
 	color: #9e9e9e;
 }
 
+.selector {
+	color: rgb(255, 94, 0);
+}
+
 .symbol {
 	color: #0086b3;
 }
