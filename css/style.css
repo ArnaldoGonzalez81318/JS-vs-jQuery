@@ -267,6 +267,10 @@ table {
 	color: #066d05;
 }
 
+.hljs-keyword {
+	color: #135ac0;
+}
+
 .function {
 	color: #ba0633;
 }
