@@ -251,7 +251,7 @@ table {
 }
 
 .lang-javascript {
-	color: #252525;
+	color: #444;
 	font-weight: 300;
 }
 
@@ -264,7 +264,7 @@ table {
 }
 
 .comment {
-	color: #707070;
+	color: #9e9e9e;
 }
 
 .string {
