@@ -1,8 +1,9 @@
 function copy() {
   let copyText = document.querySelector(".lang-javascript");
-  copyText.focus();
+  copyText.select();
   document.execCommand("copy");
-  console.log(copyText.textContent);
+
+  console.log("Copied the text: " + copyText.value);
 }
 
 document.querySelector(".fa-copy").addEventListener("click", copy);
