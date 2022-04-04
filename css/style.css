@@ -325,14 +325,23 @@ option {
 	line-height: 3.5rem;
 }
 
+.copy-to-clipboard-icon {
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	margin: 0 20px;
+	text-align: right;
+}
+
 .code {
-	position: relative;
 	background-color: #eee;
 	font-family: courier, monospace;
 	padding: 0 3px;
 	border: 1px solid #ccc;
-	border-radius: 15px;
-	margin: 20px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	margin: 0 20px 20px 20px;
 	box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
 	-webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
 	-moz-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
@@ -341,7 +350,6 @@ option {
 }
 
 .fa-copy {
-	position: absolute;
 	color: #fff;
 	font-size: 1.5rem;
 	top: 15px;
