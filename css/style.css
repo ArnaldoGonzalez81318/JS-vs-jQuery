@@ -260,7 +260,9 @@ table {
 
 .lang-javascript {
 	color: #444;
+	font-family: courier, monospace;
 	font-weight: 300;
+	font-size: 1rem;
 }
 
 .paragraph {
