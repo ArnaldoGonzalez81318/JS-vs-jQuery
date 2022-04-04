@@ -24,9 +24,11 @@
   <div id="documentation-body" class="documentation-body">
     <div class="images-jquery-vs-javascript"><img src="./Images/jquery-vs-javascript.jpeg" alt="Image"></div>
     <h1 class="js-vs-jquery">JS vs jQuery</h1>
-    <p class="paragraph"> To help people, here's a jQuery to JavaScript cheat sheet that includes the JavaScript
+    <p class="paragraph"> To help people, here's a <a
+        href="https://releases.jquery.com/"><strong><em>jQuery:</em></strong></a> to JavaScript cheat sheet that
+      includes the JavaScript
       equivalents to the most
-      frequently used jQuery functionality.</p>
+      frequently used <a href="https://releases.jquery.com/"><strong><em>jQuery:</em></strong></a> functionality.</p>
     <h2 class="convert-javascript-to-jquery">Convert JavaScript to jQuery</h2>
     <p class="paragraph"><strong><em>JavaScript:</em></strong> is an object orient programming language designed to make
       web development easier and more attractive.
@@ -46,7 +48,7 @@
       <i class="fa-solid fa-copy"></i>
       <code class="lang-javascript">
         <span class="comment">// jQuery to select all instances of class "select"</span>
-        $(<span class="string">".select"</span>);
+        <span class="symbol">$</span>(<span class="string">".select"</span>);
 
         <span class="comment">// JavaScript to select only the first instance of class "select"</span>
         <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">".select"</span>);
@@ -113,7 +115,7 @@
         <span>.</span><span class="function">first</span><span>()</span>;
 
         <span class="comment">// Example</span>
-        <span>$(</span><span class="string">'.my-class a'</span>).<span class="function">first</span><span>()</span>;
+        <span><span class="symbol">$</span>(</span><span class="string">'.my-class a'</span>).<span class="function">first</span><span>()</span>;
       </code>
     </pre>
 
@@ -155,8 +157,8 @@
         <span class="comment">// Example</span>
         <span class="comment">// Find all the span tags that are descendants of links within the 'my-class' class.</span>
         <span class="comment">// <span class="hljs-doctag">Note:</span> searches for all descendants not just for children.</span>
-        $(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>);
-        $(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'red'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'red'</span>);
       </code>
     </pre>
 
@@ -281,7 +283,7 @@
         <span class="comment">// Example</span>
         <span class="comment">// Selects the parent elements of ALL elements with 'my-class a' on the page.</span>
         
-        $(<span class="string">'.my-class a'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>);
       </code>
     </pre>
 
@@ -376,7 +378,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Selects the next siblings of all elements with 'my-class a' on the page.</span>
-        $(<span class="string">'.my-class a'</span>).<span class="function">next</span>();
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">next</span>();
       </code>
     </pre>
 
@@ -420,7 +422,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Selects the previous siblings of all elements with 'my-class a' on the page.</span>
-        $<span class="string">('.my-class a')</span>.<span class="function">prev</span><span class="comment">()</span>;
+        <span class="symbol">$</span><span class="string">('.my-class a')</span>.<span class="function">prev</span><span class="comment">()</span>;
       </code>
     </pre>
 
@@ -463,7 +465,7 @@
 
         <span class="comment">// Example</span>
         <span class="comment">// Adds the 'second-class' class to every 'my-class' element.</span>
-        $(<span class="string">'.my-class'</span>).<span class="function">addClass</span>(<span class="string">'second-class'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">addClass</span>(<span class="string">'second-class'</span>);
       </code>
     </pre>
 
@@ -503,8 +505,8 @@
         <span class="comment">// Example</span>
         <span class="comment">// Removes the 'second-class' class from every 'my-class' element.</span>
         <span class="comment">// Removes 'second-class', then add 'third-class' to every 'my-class' element.</span>
-        $(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>);
-        $(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>).<span class="function">addClass</span>(<span class="string">'third-class'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>).<span class="function">addClass</span>(<span class="string">'third-class'</span>);
       </code>
     </pre>
 
@@ -551,7 +553,7 @@
       
         <span class="comment">// Example</span>
         <span class="comment">// Adds the 'active' class to elements with 'my-class' if they don ' have it remove it if they have it.</span>
-          $(<span class="string">'.my-class</span>').<span class="function">toggleClass</span>(<span class="string">'active'</span><span>);</span>
+        <span class="symbol">$</span>(<span class="string">'.my-class</span>').<span class="function">toggleClass</span>(<span class="string">'active'</span><span>);</span>
         </code>
       </pre>
 
@@ -593,7 +595,7 @@
         <span class="comment">// Checks if any element with 'my-class' has the 'active' class.</span>
         <span class="comment">// Returns true or false</span>
         <span class="comment">// If there's at least one element with 'active' it's true, otherwise false.</span>
-        $(<span class="string">'.my-class'</span>).<span class="function">hasClass</span>(<span class="string">'active</span>');
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">hasClass</span>(<span class="string">'active</span>');
       </code>
     </pre>
 
@@ -672,7 +674,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Sets the value of the href property for ALL contact links that have the 'contact-link' class</span>
-        $(<span class="string">'.contact-link'</span>).<span class="function">attr</span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
+        <span class="symbol">$</span>(<span class="string">'.contact-link'</span>).<span class="function">attr</span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
       </code>
     </pre>
 
@@ -712,7 +714,7 @@
 
         <span class="comment">// Example</span>
         <span class="comment">// Removes 'target' attributes from contact links.</span>
-        $(<span class="string">'.contact-link'</span>).<span class="function">removeAttr</span>(<span class="string">'target'</span>);
+        <span class="symbol">$</span>(<span class="string">'.contact-link'</span>).<span class="function">removeAttr</span>(<span class="string">'target'</span>);
       </code>
     </pre>
 
@@ -752,7 +754,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Appends an extra list element to the end of every ordered list on the page.</span>
-        $(<span class="string">"ol"</span>).<span class="function">append</span>(<span class="string">"&lt;li&gt;"</span>);
+        <span class="symbol">$</span>(<span class="string">"ol"</span>).<span class="function">append</span>(<span class="string">"&lt;li&gt;"</span>);
       </code>
     </pre>
 
@@ -877,8 +879,8 @@
         <span class="comment">// Example </span>
         <span class="comment">// Gets the 'color' value of the FIRST element that has 'my-class'</span>.
         <span class="comment">// Sets the 'color' value to 'white' for EVERY element that has 'my-class'</span>.
-        $(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>);
-        $(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'white'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'white'</span>);
       </code>
     </pre>
 
@@ -921,8 +923,8 @@
         <span class="comment">// Example</span>
         <span class="comment">// Gets the text content of the FIRST element (and all of its descendants) that matches 'my-class'.</span>
         <span class="comment">// Sets/resets the text content of EACH element that matches 'my-class'.</span>
-        $(<span class="string">'.my-class'</span>).<span class="function">text</span>();
-        $(<span class="string">'.my-class'</span>).<span class="function">text</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">text</span>();
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">text</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
       </code>
     </pre>
 
@@ -963,8 +965,8 @@
         <span class="comment">// Example</span>
         <span class="comment">// Gets the value of the input with the 'name' name.</span>
         <span class="comment">// Sets/resets the value of the input with the 'name' name.</span>
-        $(<span class="string">'input[name=name]'</span>).<span class="function">val</span>();
-        $(<span class="string">'input[name=name]'</span>).<span class="function">val</span>(<span class="string">'Marilyn Monroe'</span>);
+        <span class="symbol">$</span>(<span class="string">'input[name=name]'</span>).<span class="function">val</span>();
+        <span class="symbol">$</span>(<span class="string">'input[name=name]'</span>).<span class="function">val</span>(<span class="string">'Marilyn Monroe'</span>);
       </code>
     </pre>
 
@@ -1003,7 +1005,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Hides all elements with 'my-class'.</span>
-        $(<span class="string">'.my-class'</span>).<span class="function">hide</span>();
+        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">hide</span>();
       </code>
     </pre>
 
@@ -1041,7 +1043,7 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Displays all elements with 'my-class'.</span>
-        $<span class="string">('.my-class')</span>.<span class="function">show</span><span class="comment">()</span>
+        <span class="symbol">$</span><span class="string">('.my-class')</span>.<span class="function">show</span><span class="comment">()</span>
       </code>
     </pre>
 
@@ -1081,8 +1083,8 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Adds or removes the 'active' class to/from all elements with '.submenu' when #toggle is clicked.</span>
-        $(<span class="string">'#toggle'</span>).<span class="function">on</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>)</span>{
-          $(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
+        <span class="symbol">$</span>(<span class="string">'#toggle'</span>).<span class="function">on</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>)</span>{
+          <span class="symbol">$</span>(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
         });
       </code>
     </pre>
@@ -1127,8 +1129,8 @@
         
         <span class="comment">// Example</span>
         <span class="comment">// Removes the listed event handler when #toggle is clicked.</span>
-        $(<span class="string">'#toggle'</span>).<span class="function">off</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>)</span>{
-          $(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
+        <span class="symbol">$</span>(<span class="string">'#toggle'</span>).<span class="function">off</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>)</span>{
+          <span class="symbol">$</span>(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
         });
       </code>
     </pre>
