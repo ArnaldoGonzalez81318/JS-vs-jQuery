@@ -263,11 +263,11 @@ table {
 	padding: 0 20px;
 }
 
-.hljs-comment {
+.comment {
 	color: #707070;
 }
 
-.hljs-string {
+.string {
 	color: #066d05;
 }
 
