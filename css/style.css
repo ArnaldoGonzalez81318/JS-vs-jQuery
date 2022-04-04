@@ -135,7 +135,7 @@ table {
 	font-family: 'Roboto', sans-serif;
 	max-width: 1500px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 50px 20px;
 }
 
 .documentation-body strong {
@@ -145,11 +145,18 @@ table {
 
 .documentation-body h2,
 .documentation-body h3,
-.documentation-body h4,
 .documentation-body h5 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	font-size: 2rem;
+	margin: 0 0 20px 0;
+	padding: 0 20px;
+}
+
+.documentation-body h4 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
 	margin: 0 0 20px 0;
 	padding: 0 20px;
 }
