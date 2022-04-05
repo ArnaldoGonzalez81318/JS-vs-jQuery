@@ -1,7 +1,7 @@
 const copyButtonLabel = "fa-solid fa-copy";
 
 // you can use a class selector instead if you, or the syntax highlighting library adds one to the 'pre'.
-let blocks = document.querySelectorAll("pre");
+let blocks = document.querySelectorAll(".copy-to-clipboard");
 
 blocks.forEach((block) => {
   // only add button if browser supports Clipboard API
@@ -15,7 +15,7 @@ blocks.forEach((block) => {
 
 async function copyCode(event) {
   const button = event.srcElement;
-  const pre = button.parentElement;
+  const pre = button.parentElement.parentElement;
   let code = pre.querySelector("code");
   let text = code.innerText;
   await navigator.clipboard.writeText(text);
