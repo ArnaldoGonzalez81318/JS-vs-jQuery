@@ -266,6 +266,15 @@ option {
 	font-size: 13px;
 }
 
+pre[class*=language-] {
+	margin: 0 20px 20px 20px;
+}
+
+code[class*=language-],
+pre[class*=language-] {
+	font-size: .8em;
+}
+
 .documentation-body {
 	max-width: 1500px;
 	margin: 0 auto;
@@ -320,26 +329,20 @@ option {
 	line-height: 3.5rem;
 }
 
-.copy-to-clipboard-icon {
-	background-color: #eee;
-	border: 1px solid #ccc;
-	border-top-right-radius: 15px;
-	border-top-left-radius: 15px;
-	margin: 0 20px;
-	padding: 5px;
+.copy-to-clipboard {
 	display: flex;
 	align-items: center;
-	justify-content: end
+	justify-content: end;
 }
 
 .code {
-	background-color: #eee;
+	background-color: #2d2d2d;
 	font-family: courier, monospace;
 	padding: 0 3px;
+	margin: 0 20px 20px 20px;
 	border: 1px solid #ccc;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
-	margin: 0 20px 20px 20px;
 	box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
 	-webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
 	-moz-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
@@ -347,13 +350,15 @@ option {
 	overflow-y: hidden;
 }
 
-.fa-copy {
+.fa-copy,
+.fa-circle-check {
 	color: #fff;
 	font-size: 1.5rem;
 	cursor: pointer;
 	background-color: rgb(211, 211, 211);
 	padding: 15px;
 	border-radius: 100%;
+	float: right;
 	overflow: hidden;
 	text-shadow: 1px 1px #a5a5a5, 2px 2px #a5a5a5, 3px 3px #a5a5a5,
 		4px 4px #a5a5a5, 5px 5px #a5a5a5, 6px 6px #a5a5a5, 7px 7px #a5a5a5,

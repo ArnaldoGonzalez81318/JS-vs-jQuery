@@ -1,9 +1,28 @@
-function copy() {
-  let copyText = document.querySelector(".lang-javascript");
-  copyText.select();
-  document.execCommand("copy");
+const copyButtonLabel = "fa-solid fa-copy";
 
-  console.log("Copied the text: " + copyText.value);
+// you can use a class selector instead if you, or the syntax highlighting library adds one to the 'pre'.
+let blocks = document.querySelectorAll("pre");
+
+blocks.forEach((block) => {
+  // only add button if browser supports Clipboard API
+  if (navigator.clipboard) {
+    let button = document.createElement("icon");
+    button.className = copyButtonLabel;
+    button.addEventListener("click", copyCode);
+    block.prepend(button);
+  }
+});
+
+async function copyCode(event) {
+  const button = event.srcElement;
+  const pre = button.parentElement;
+  let code = pre.querySelector("code");
+  let text = code.innerText;
+  await navigator.clipboard.writeText(text);
+
+  button.className = "fa-solid fa-circle-check";
+
+  setTimeout(() => {
+    button.className = copyButtonLabel;
+  }, 1000);
 }
-
-document.querySelector(".fa-copy").addEventListener("click", copy);
