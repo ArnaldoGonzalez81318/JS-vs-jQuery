@@ -24,14 +24,19 @@
   <div id="documentation-body" class="documentation-body">
     <div class="images-jquery-vs-javascript"><img src="./Images/jquery-vs-javascript.jpeg" alt="Image"></div>
     <h1 class="js-vs-jquery">JS vs jQuery</h1>
-    <p class="paragraph"> To help people, here's a <a
-        href="https://releases.jquery.com/"><strong><em>jQuery:</em></strong></a> to JavaScript cheat sheet that
+    <p class="paragraph"> To help people, here's a
+      <a href="https://releases.jquery.com/" target="_blank"><strong><em>jQuery:</em></strong></a> to JavaScript cheat
+      sheet that
       includes the JavaScript
       equivalents to the most
-      frequently used <a href="https://releases.jquery.com/"><strong><em>jQuery:</em></strong></a> functionality.</p>
+      frequently used <a href="https://releases.jquery.com/" target="_blank"><strong><em>jQuery:</em></strong></a>
+      functionality.
+    </p>
     <h2 class="convert-javascript-to-jquery">Convert JavaScript to jQuery</h2>
-    <p class="paragraph"><strong><em>JavaScript:</em></strong> is an object orient programming language designed to make
-      web development easier and more attractive.
+    <p class="paragraph"><strong style="color: #e0c608;"><em>JavaScript:</em></strong> is an object orient programming
+      language designed to make web development easier and more attractive.
+    </p>
+    <p class="paragraph">
       <a href="https://releases.jquery.com/"><strong><em>jQuery:</em></strong></a> is an open-source JavaScript library
       that simplifies the interactions between an
       <strong>HTML/CSS</strong> document, or more precisely the <strong>Document Object Model (DOM)</strong>, and
@@ -65,21 +70,24 @@
     <ul>
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-      <span class="comment">// Syntax</span>
-      <span class="function">jQuery</span>();
-      <span class="symbol">$</span>(); <span class="comment">// Shortcut</span>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+        <span class="comment">// Syntax</span>
+        <span class="function">jQuery</span>();
+        <span class="symbol">$</span>(); <span class="comment">// Shortcut</span>
+  
+        <span class="comment">// Example</span>
+        <span class="comment">// Selects all the links among the descendants of the 'my-class' class.</span>
+        <span class="function">jQuery</span>(<span class="string">'.my-class a'</span>);
+        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>);
+        <span class="symbol">$</span>(<span class="string">"html"</span>) <span class="comment">// To select the entire html.</span>
+        <span class="symbol">$</span>(<span class="string">"body"</span>) <span class="comment">// To select the entire html body.</span>
+      </code>
+    </pre>
+    </div>
 
-      <span class="comment">// Example</span>
-      <span class="comment">// Selects all the links among the descendants of the 'my-class' class.</span>
-      <span class="function">jQuery</span>(<span class="string">'.my-class a'</span>);
-      <span class="symbol">$</span>(<span class="string">'.my-class a'</span>);
-      <span class="symbol">$</span>(<span class="string">"html"</span>) <span class="comment">// To select the entire html.</span>
-      <span class="symbol">$</span>(<span class="string">"body"</span>) <span class="comment">// To select the entire html body.</span>
-    </code>
-  </pre>
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/jQuery/">jQuery() global function</a>
     </h4>
@@ -88,18 +96,20 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">document</span>.<span class="function">querySelectorAll</span>();
-
-        <span class="comment">// Example</span>
-        <span class="function">document</span>.<span class="function">querySelector</span>(<span class="selector">selector</span>)
-        <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>)
-        <span class="function">document</span>.<span class="function">body</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">document</span>.<span class="function">querySelectorAll</span>();
+  
+          <span class="comment">// Example</span>
+          <span class="function">document</span>.<span class="function">querySelector</span>(<span class="selector">selector</span>)
+          <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>)
+          <span class="function">document</span>.<span class="function">body</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">.querySelectorAll()
@@ -111,16 +121,18 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span>.</span><span class="function">first</span><span>()</span>;
-
-        <span class="comment">// Example</span>
-        <span><span class="symbol">$</span>(</span><span class="string">'.my-class a'</span>).<span class="function">first</span><span>()</span>;
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span>.</span><span class="function">first</span><span>()</span>;
+  
+          <span class="comment">// Example</span>
+          <span><span class="symbol">$</span>(</span><span class="string">'.my-class a'</span>).<span class="function">first</span><span>()</span>;
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/first/">first() method.</a>
@@ -130,16 +142,18 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">document</span>.<span class="function">querySelector</span>();
-
-        <span class="comment">// Example</span>
-        <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">document</span>.<span class="function">querySelector</span>();
+  
+          <span class="comment">// Example</span>
+          <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">.querySelector() method.</a>
@@ -151,19 +165,21 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">find</span>();
-
-        <span class="comment">// Example</span>
-        <span class="comment">// Find all the span tags that are descendants of links within the 'my-class' class.</span>
-        <span class="comment">// <span class="hljs-doctag">Note:</span> searches for all descendants not just for children.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>);
-        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'red'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">find</span>();
+  
+          <span class="comment">// Example</span>
+          <span class="comment">// Find all the span tags that are descendants of links within the 'my-class' class.</span>
+          <span class="comment">// <span class="hljs-doctag">Note:</span> searches for all descendants not just for children.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>);
+          <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">find</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'red'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/find/">.find() method.</a>
@@ -173,35 +189,37 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="comment">// To find the first element (also if there's only one)</span>
-        <span class="function">document</span>.<span class="function">querySelector</span>();
-        
-        <span class="comment">// To find all elements</span>
-        <span class="function">document</span>.<span class="function">querySelectorAll</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// At first querySelectorAll() returns a NodeList, so we have to loop through it to find all the span tags we want.</span>
-        <span class="comment">// For the sake of testing, I made the selected elements red, you can find the 'style.color' property below in this cheat sheet.</span>
-        
-        <span class="comment">// finds all '.my-class a'</span>
-        <span class="keyword">let</span> nodes = <span class="function">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
-
-        <span class="comment">// loops through all '.my-class a'</span>
-        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nodes.length; i++) {
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="comment">// To find the first element (also if there's only one)</span>
+          <span class="function">document</span>.<span class="function">querySelector</span>();
           
-          <span class="comment">// checks if the individual '.my-class a' element has a </span>
-          <span class="comment">// 'span' descendant to avoid 'undefined' error</span>
-          <span class="keyword">if</span> (nodes[i].<span class="function">querySelector</span>(<span class="string">'span'</span>)) {
-            <span class="comment">// colors span tags that are desdendants of '.my-class a'</span>
-            nodes[i].<span class="function">querySelector</span>(<span class="string">'span'</span>).style.color = <span class="string">'red'</span>;
+          <span class="comment">// To find all elements</span>
+          <span class="function">document</span>.<span class="function">querySelectorAll</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// At first querySelectorAll() returns a NodeList, so we have to loop through it to find all the span tags we want.</span>
+          <span class="comment">// For the sake of testing, I made the selected elements red, you can find the 'style.color' property below in this cheat sheet.</span>
+          
+          <span class="comment">// finds all '.my-class a'</span>
+          <span class="keyword">let</span> nodes = <span class="function">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
+  
+          <span class="comment">// loops through all '.my-class a'</span>
+          <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; nodes.length; i++) {
+            
+            <span class="comment">// checks if the individual '.my-class a' element has a </span>
+            <span class="comment">// 'span' descendant to avoid 'undefined' error</span>
+            <span class="keyword">if</span> (nodes[i].<span class="function">querySelector</span>(<span class="string">'span'</span>)) {
+              <span class="comment">// colors span tags that are desdendants of '.my-class a'</span>
+              nodes[i].<span class="function">querySelector</span>(<span class="string">'span'</span>).style.color = <span class="string">'red'</span>;
+            }
           }
-        }
-      </code>
-    </pre>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">.querySelector() method</a>,
@@ -215,22 +233,24 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">children</span>();
-        .<span class="function">children</span>(<span class="string">'selector'</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Finds all the children of all '.my-class a' elements on the age</span>
-        <span class="comment">// Finds all the 'span' elements that are the children of any '.my-class a' element on the page</span>
-        <span class="comment">// <span class="hljs-doctag">Note:</span> searches only for children (first-level of descendants)</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>();
-        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>);
-        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'blue'</span>); <span class="comment">// for testing</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">children</span>();
+          .<span class="function">children</span>(<span class="string">'selector'</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Finds all the children of all '.my-class a' elements on the age</span>
+          <span class="comment">// Finds all the 'span' elements that are the children of any '.my-class a' element on the page</span>
+          <span class="comment">// <span class="hljs-doctag">Note:</span> searches only for children (first-level of descendants)</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>();
+          <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>);
+          <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">children</span>(<span class="string">'span'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'blue'</span>); <span class="comment">// for testing</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more-in-the-jquery-api-docs-children-method-https-api-jquery-com-children-">See more in the jQuery
       API docs:
@@ -241,31 +261,33 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        parentNode.children;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// 2nd example of the jQuery version above, plus makes the selected span tags blue for the sake of easy testing.</span>
-        <span class="comment">// for 1st example, only leave out the if check at the end (we need this because the JS version is not a method but a property, so we need to check which children are 'span')</span>
-        <span class="comment">// selects all the elements with 'my-class a' on the page</span>
-        <span class="keyword">let</span> items = <span class="function">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
-        <span class="comment">// loops through all the elements with '.my-class a'</span>
-        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; items.length; i++) {
-          <span class="comment">// finds the children of the current '.my-class a' element</span>
-          <span class="keyword">let</span> kids = items[i].children;
-          <span class="comment">// loops through the children of the current '.my-class a' element</span>
-          <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; kids.length; j++) {
-            <span class="comment">// checks if the child element is a span tag</span>
-            <span class="keyword">if</span> (kids[j].tagName == <span class="string">'SPAN'</span>) {
-              kids[j].style.color = <span class="string">'blue'</span>;
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          parentNode.children;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// 2nd example of the jQuery version above, plus makes the selected span tags blue for the sake of easy testing.</span>
+          <span class="comment">// for 1st example, only leave out the if check at the end (we need this because the JS version is not a method but a property, so we need to check which children are 'span')</span>
+          <span class="comment">// selects all the elements with 'my-class a' on the page</span>
+          <span class="keyword">let</span> items = <span class="function">document</span>.<span class="function">querySelectorAll</span>(<span class="string">'.my-class a'</span>);
+          <span class="comment">// loops through all the elements with '.my-class a'</span>
+          <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; items.length; i++) {
+            <span class="comment">// finds the children of the current '.my-class a' element</span>
+            <span class="keyword">let</span> kids = items[i].children;
+            <span class="comment">// loops through the children of the current '.my-class a' element</span>
+            <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; kids.length; j++) {
+              <span class="comment">// checks if the child element is a span tag</span>
+              <span class="keyword">if</span> (kids[j].tagName == <span class="string">'SPAN'</span>) {
+                kids[j].style.color = <span class="string">'blue'</span>;
+              }
             }
           }
-        }
-      </code>
-    </pre>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/children">.children property</a>
@@ -277,18 +299,20 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">parent</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Selects the parent elements of ALL elements with 'my-class a' on the page.</span>
-        
-        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">parent</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Selects the parent elements of ALL elements with 'my-class a' on the page.</span>
+          
+          <span class="symbol">$</span>(<span class="string">'.my-class a'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/parent/">.parent() method</a>
@@ -298,20 +322,22 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">/* Syntax */</span>
-        Node.parentNode;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Selects the parent of the FIRST element with 'my-class a' on the page (for the sake of less repetition)</span>
-        <span class="comment">// For looping through all '.my-class a' elements, use the looping solution and querySelectorAll() from the two examples above.</span>
-        
-        <span class="keyword">let</span> item = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>);
-        item.parentNode;
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">/* Syntax */</span>
+          Node.parentNode;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Selects the parent of the FIRST element with 'my-class a' on the page (for the sake of less repetition)</span>
+          <span class="comment">// For looping through all '.my-class a' elements, use the looping solution and querySelectorAll() from the two examples above.</span>
+          
+          <span class="keyword">let</span> item = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.my-class a'</span>);
+          item.parentNode;
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">.parentNode property.</a>
@@ -323,18 +349,20 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span>.</span><span class="function">siblings</span><span>();</span>
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Selects the siblings of ALL elements with the 'find-siblings' class on the page.</span>
-        
-        <span class="symbol">$</span>(<span class="string">'.find-siblings'</span>).<span class="function">siblings</span>();
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span>.</span><span class="function">siblings</span><span>();</span>
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Selects the siblings of ALL elements with the 'find-siblings' class on the page.</span>
+          
+          <span class="symbol">$</span>(<span class="string">'.find-siblings'</span>).<span class="function">siblings</span>();
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/siblings/">.siblings() method.</a>
@@ -344,22 +372,24 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        Node.parentNode.<span class="function">querySelectorAll</span>(<span class="string">":not(#elem)"</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Selects the siblings of the FIRST element with the 'find-siblings' class.</span>
-        <span class="comment">// For looping through all 'find-siblings' elements, see examples #3</span>
-        <span class="comment">// and #4 the ':scope' pseudoclass is necessary for preventing the child elements</span>
-        <span class="comment">// of 'item' from being selected (otherwise querySelectorAll() searches through all descendants </span>
-        <span class="comment">// of 'item', with ':scope &gt;' it loops through just the first level).</span>
-        <span class="keyword">let</span> item = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.find-siblings'</span>);
-        <span class="keyword">let</span> siblings = item.parentNode.<span class="function">querySelectorAll</span>(<span class="string">':scope &gt; :not(.find-siblings)'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          Node.parentNode.<span class="function">querySelectorAll</span>(<span class="string">":not(#elem)"</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Selects the siblings of the FIRST element with the 'find-siblings' class.</span>
+          <span class="comment">// For looping through all 'find-siblings' elements, see examples #3</span>
+          <span class="comment">// and #4 the ':scope' pseudoclass is necessary for preventing the child elements</span>
+          <span class="comment">// of 'item' from being selected (otherwise querySelectorAll() searches through all descendants </span>
+          <span class="comment">// of 'item', with ':scope &gt;' it loops through just the first level).</span>
+          <span class="keyword">let</span> item = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">'.find-siblings'</span>);
+          <span class="keyword">let</span> siblings = item.parentNode.<span class="function">querySelectorAll</span>(<span class="string">':scope &gt; :not(.find-siblings)'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs: <a
         href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">.parentNode property</a>,
@@ -373,17 +403,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">//Syntax</span>
-        .<span class="function">next</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Selects the next siblings of all elements with 'my-class a' on the page.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">next</span>();
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">//Syntax</span>
+          .<span class="function">next</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Selects the next siblings of all elements with 'my-class a' on the page.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class a'</span>).<span class="function">next</span>();
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more-in-the-jquery-api-docs-next-method-https-api-jquery-com-next-">See more in the jQuery API docs:
       <a href="https://api.jquery.com/next/">.next() method.</a>
@@ -393,18 +425,20 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">//Syntax</span>
-        <span class="function">nonDocumentTypeChildNode</span>.<span class="function">nextElementSibling</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable by selecting elements with</span>
-        <span class="comment">// 'my-class a' on the page, see examples #3, #4, #5.</span>
-        <span class="function">item</span>.<span class="function">nextElementSibling</span>;
-    </code>
-  </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">//Syntax</span>
+          <span class="function">nonDocumentTypeChildNode</span>.<span class="function">nextElementSibling</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable by selecting elements with</span>
+          <span class="comment">// 'my-class a' on the page, see examples #3, #4, #5.</span>
+          <span class="function">item</span>.<span class="function">nextElementSibling</span>;
+      </code>
+    </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/nextElementSibling">.nextElementSibling
@@ -417,17 +451,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">prev</span><span>()</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Selects the previous siblings of all elements with 'my-class a' on the page.</span>
-        <span class="symbol">$</span><span class="string">('.my-class a')</span>.<span class="function">prev</span><span class="comment">()</span>;
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">prev</span><span>()</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Selects the previous siblings of all elements with 'my-class a' on the page.</span>
+          <span class="symbol">$</span><span class="string">('.my-class a')</span>.<span class="function">prev</span><span class="comment">()</span>;
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/prev/">.prev() method.</a>
@@ -437,17 +473,19 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">nonDocumentTypeChildNode</span>.<span class="function">previousElementSibling</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable by selecting elements with 'my-class a' on the page, see examples examples #3, #4, #5.</span>
-        <span class="function">item</span>.<span class="function">previousElementSibling</span>;
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">nonDocumentTypeChildNode</span>.<span class="function">previousElementSibling</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable by selecting elements with 'my-class a' on the page, see examples examples #3, #4, #5.</span>
+          <span class="function">item</span>.<span class="function">previousElementSibling</span>;
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/previousElementSibling">.previousElementSibling
@@ -460,17 +498,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span>.</span><span class="function">addClass</span><span>();</span>
-
-        <span class="comment">// Example</span>
-        <span class="comment">// Adds the 'second-class' class to every 'my-class' element.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">addClass</span>(<span class="string">'second-class'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span>.</span><span class="function">addClass</span><span>();</span>
+  
+          <span class="comment">// Example</span>
+          <span class="comment">// Adds the 'second-class' class to every 'my-class' element.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">addClass</span>(<span class="string">'second-class'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/addclass/">.addClass() method.</a></h4>
@@ -479,15 +519,17 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable by selecting elements with'my-class' on the page, see examples examples #3, #4, #5.</span>
-        <span class="function">item</span>.<span class="function">classList</span>.<span class="function">add</span>(<span class="string">'second-class'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable by selecting elements with'my-class' on the page, see examples examples #3, #4, #5.</span>
+          <span class="function">item</span>.<span class="function">classList</span>.<span class="function">add</span>(<span class="string">'second-class'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -499,19 +541,21 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span>.</span><span class="function">removeClass</span><span>();</span>
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Removes the 'second-class' class from every 'my-class' element.</span>
-        <span class="comment">// Removes 'second-class', then add 'third-class' to every 'my-class' element.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>);
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>).<span class="function">addClass</span>(<span class="string">'third-class'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span>.</span><span class="function">removeClass</span><span>();</span>
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Removes the 'second-class' class from every 'my-class' element.</span>
+          <span class="comment">// Removes 'second-class', then add 'third-class' to every 'my-class' element.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>);
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">removeClass</span>(<span class="string">'second-class'</span>).<span class="function">addClass</span>(<span class="string">'third-class'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/removeclass/">.removeClass() method.</a>
@@ -521,22 +565,24 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="hljs-type">Element</span>.classList.<span class="function">remove</span>();
-
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable by selecting elements with 'my-class' on the page, see examples examples #3, #4, #5.</span>
-        
-        item.classList.<span class="function">remove</span>(<span class="string"><span>'second-class'</span>)</span>;
-        
-        <span class="comment">// To use it together with add(), you need two separate statements.</span>
-        item.classList.<span class="function">remove</span>(<span class="string"><span>'second-class</span>')</span>;
-        item.classList.<span class="function">add</span>(<span class="string"><span>'third-class</span>')</span>;
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="hljs-type">Element</span>.classList.<span class="function">remove</span>();
+  
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable by selecting elements with 'my-class' on the page, see examples examples #3, #4, #5.</span>
+          
+          item.classList.<span class="function">remove</span>(<span class="string"><span>'second-class'</span>)</span>;
+          
+          <span class="comment">// To use it together with add(), you need two separate statements.</span>
+          item.classList.<span class="function">remove</span>(<span class="string"><span>'second-class</span>')</span>;
+          item.classList.<span class="function">add</span>(<span class="string"><span>'third-class</span>')</span>;
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -548,17 +594,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">toggleClass</span>()<span>;</span>
-      
-        <span class="comment">// Example</span>
-        <span class="comment">// Adds the 'active' class to elements with 'my-class' if they don ' have it remove it if they have it.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class</span>').<span class="function">toggleClass</span>(<span class="string">'active'</span><span>);</span>
-        </code>
-      </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">toggleClass</span>()<span>;</span>
+        
+          <span class="comment">// Example</span>
+          <span class="comment">// Adds the 'active' class to elements with 'my-class' if they don ' have it remove it if they have it.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class</span>').<span class="function">toggleClass</span>(<span class="string">'active'</span><span>);</span>
+          </code>
+        </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/toggleclass/">.toggleClass() method.</a>
@@ -568,17 +616,20 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.classList</span><span>.<span class="function">toggle</span></span>();
-        
-        <span class="comment">// Example </span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.classList</span><span>.<span class="function">toggle</span></span>(<span class="string">'active'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.classList</span><span>.<span class="function">toggle</span></span>();
+          
+          <span class="comment">// Example </span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.classList</span><span>.<span class="function">toggle</span></span>(<span class="string">'active'</span>);
+        </code>
+      </pre>
+    </div>
+
     <h4 class="see-more">
       See more in the DOM API docs: <a
         href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">.classList property</a>, <a
@@ -588,19 +639,21 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax.</span>
-        .<span class="function">hasClass</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Checks if any element with 'my-class' has the 'active' class.</span>
-        <span class="comment">// Returns true or false</span>
-        <span class="comment">// If there's at least one element with 'active' it's true, otherwise false.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">hasClass</span>(<span class="string">'active</span>');
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax.</span>
+          .<span class="function">hasClass</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Checks if any element with 'my-class' has the 'active' class.</span>
+          <span class="comment">// Returns true or false</span>
+          <span class="comment">// If there's at least one element with 'active' it's true, otherwise false.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">hasClass</span>(<span class="string">'active</span>');
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/hasclass/">.hasClass() method.</a></h4>
@@ -608,19 +661,21 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        element.classList.contains();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Similar to the jQuery version, this one also checks if any element in the whole classList has the 'active' class</span>
-        <span class="comment">// If at least one element has 'active', it's true, otherwise false</span>.
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5</span>.
-        item.classList.<span class="function">contains</span>(<span class="string">'active</span>');
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          element.classList.contains();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Similar to the jQuery version, this one also checks if any element in the whole classList has the 'active' class</span>
+          <span class="comment">// If at least one element has 'active', it's true, otherwise false</span>.
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5</span>.
+          item.classList.<span class="function">contains</span>(<span class="string">'active</span>');
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -631,17 +686,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span>.</span><span class="function">attr</span>(<span class="string">'attr-name'</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Returns the value of the href property of the FIRST occurrence of an element with 'my-class'</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">attr</span>(<span class="string">'href'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span>.</span><span class="function">attr</span>(<span class="string">'attr-name'</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Returns the value of the href property of the FIRST occurrence of an element with 'my-class'</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">attr</span>(<span class="string">'href'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more-in-the-jquery-api-docs-attr-method-https-api-jquery-com-attr-">See more in the jQuery API docs:
       <a href="https://api.jquery.com/attr/">.attr() method.</a></h4>
@@ -649,17 +706,19 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">/* Syntax */</span>
-        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.<span class="function">getAttribute</span>(<span class="string">'attr-name'</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.<span class="function">getAttribute</span></span>(<span class="string">'href'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">/* Syntax */</span>
+          <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.<span class="function">getAttribute</span>(<span class="string">'attr-name'</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.<span class="function">getAttribute</span></span>(<span class="string">'href'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -669,17 +728,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">attr</span>(<span class="string">'attr-name'</span>, <span class="keyword">value</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Sets the value of the href property for ALL contact links that have the 'contact-link' class</span>
-        <span class="symbol">$</span>(<span class="string">'.contact-link'</span>).<span class="function">attr</span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">attr</span>(<span class="string">'attr-name'</span>, <span class="keyword">value</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Sets the value of the href property for ALL contact links that have the 'contact-link' class</span>
+          <span class="symbol">$</span>(<span class="string">'.contact-link'</span>).<span class="function">attr</span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in jQuery API docs:
       <a href="https://api.jquery.com/attr/">.attr() method</a> (you need to use the same <code>.attr()</code> method as
@@ -689,17 +750,19 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.<span class="function">setAttribute</span></span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.<span class="function">setAttribute</span></span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="hljs-selector-tag">Element</span><span class="hljs-selector-class">.<span class="function">setAttribute</span></span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="hljs-selector-tag">item</span><span class="hljs-selector-class">.<span class="function">setAttribute</span></span>(<span class="string">'href'</span>, <span class="string">'contact.html'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -709,17 +772,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">removeAttr</span>(<span class="string">'attr-name'</span>);
-
-        <span class="comment">// Example</span>
-        <span class="comment">// Removes 'target' attributes from contact links.</span>
-        <span class="symbol">$</span>(<span class="string">'.contact-link'</span>).<span class="function">removeAttr</span>(<span class="string">'target'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">removeAttr</span>(<span class="string">'attr-name'</span>);
+  
+          <span class="comment">// Example</span>
+          <span class="comment">// Removes 'target' attributes from contact links.</span>
+          <span class="symbol">$</span>(<span class="string">'.contact-link'</span>).<span class="function">removeAttr</span>(<span class="string">'target'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/removeAttr/">.removeAttr() method.</a>
@@ -728,17 +793,19 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Element</span><span class="function">.removeAttribute</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">item</span><span class="function">.removeAttribute</span>(<span class="string">'target'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="hljs-selector-tag">Element</span><span class="function">.removeAttribute</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="hljs-selector-tag">item</span><span class="function">.removeAttribute</span>(<span class="string">'target'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -749,17 +816,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">//Syntax</span>
-        .<span class="function">append</span>(<span class="string">'html-string'</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Appends an extra list element to the end of every ordered list on the page.</span>
-        <span class="symbol">$</span>(<span class="string">"ol"</span>).<span class="function">append</span>(<span class="string">"&lt;li&gt;"</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">//Syntax</span>
+          .<span class="function">append</span>(<span class="string">'html-string'</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Appends an extra list element to the end of every ordered list on the page.</span>
+          <span class="symbol">$</span>(<span class="string">"ol"</span>).<span class="function">append</span>(<span class="string">"&lt;li&gt;"</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API
       docs:
@@ -768,17 +837,19 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Node</span><span class="function">.appendChild</span>();
-
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">ol</span><span class="function">.appendChild</span>(<span class="function">document</span>.<span class="function">createElement</span>(<span class="string">"li"</span>));
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="hljs-selector-tag">Node</span><span class="function">.appendChild</span>();
+  
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
+          <span class="hljs-selector-tag">ol</span><span class="function">.appendChild</span>(<span class="function">document</span>.<span class="function">createElement</span>(<span class="string">"li"</span>));
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -789,17 +860,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">prepend</span>(<span class="string">'html-string'</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Prepends an extra list element to the beginning of every ordered list on the page.</span>
-        <span class="symbol">$</span>(<span class="string">"ol"</span>).<span class="function">prepend</span>(<span class="string">"&lt;li&gt;"</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">prepend</span>(<span class="string">'html-string'</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Prepends an extra list element to the beginning of every ordered list on the page.</span>
+          <span class="symbol">$</span>(<span class="string">"ol"</span>).<span class="function">prepend</span>(<span class="string">"&lt;li&gt;"</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more-in-the-jquery-api-docs-prepend-method-https-api-jquery-com-prepend-">See more in the jQuery API
       docs:
@@ -807,17 +880,20 @@
     <ul>
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="hljs-selector-tag">Node</span>.<span class="function">insertBefore</span>();
-        
-        <span class="comment">// Example </span>
-        <span class="comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
-        <span class="hljs-selector-tag">ol</span><span class="hljs-selector-class">.<span class="function">insertBefore</span></span>(<span class="function">document</span>.<span class="function">createElement</span>(<span class="string">"li"</span>), ol.firstChild);
-      </code>
-    </pre>
+
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="hljs-selector-tag">Node</span>.<span class="function">insertBefore</span>();
+          
+          <span class="comment">// Example </span>
+          <span class="comment">// For declaring the 'ol' variable, see examples #3, #4, #5.</span>
+          <span class="hljs-selector-tag">ol</span><span class="hljs-selector-class">.<span class="function">insertBefore</span></span>(<span class="function">document</span>.<span class="function">createElement</span>(<span class="string">"li"</span>), ol.firstChild);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore">.insertBefore() method</a>,
@@ -830,20 +906,22 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">html</span>();
-        .<span class="function">html</span>(<span class="string">'html-string'</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Gets the HTML content of the FIRST element that matches 'my-class'.</span>
-        <span class="comment">// Sets/resets the HTML content of EACH element that matches 'my-class'.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>();
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">html</span>();
+          .<span class="function">html</span>(<span class="string">'html-string'</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Gets the HTML content of the FIRST element that matches 'my-class'.</span>
+          <span class="comment">// Sets/resets the HTML content of EACH element that matches 'my-class'.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>();
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">html</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/html/">.html() method.</a></h4>
@@ -851,18 +929,20 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="comment">Element</span>.<span class="function">innerHTML</span>;
-
-        <span class="comment">// Example </span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        item.<span class="function">innerHTML</span>; <span class="comment">// gets the value.</span>
-        item.<span class="function">innerHTML</span> = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value.</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="comment">Element</span>.<span class="function">innerHTML</span>;
+  
+          <span class="comment">// Example </span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          item.<span class="function">innerHTML</span>; <span class="comment">// gets the value.</span>
+          item.<span class="function">innerHTML</span> = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value.</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -872,38 +952,42 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">css</span>(<span class="string">'property-name'</span>);
-        .<span class="function">css</span>(<span class="string">'property-name'</span>, <span class="keyword">value</span>);
-        
-        <span class="comment">// Example </span>
-        <span class="comment">// Gets the 'color' value of the FIRST element that has 'my-class'</span>.
-        <span class="comment">// Sets the 'color' value to 'white' for EVERY element that has 'my-class'</span>.
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>);
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'white'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span>.</span><span class="function">css</span>(<span class="string">'property-name'</span>);
+          <span>.</span><span class="function">css</span>(<span class="string">'property-name'</span>, <span class="keyword">value</span>);
+          
+          <span class="comment">// Example </span>
+          <span class="comment">// Gets the 'color' value of the FIRST element that has 'my-class'</span>.
+          <span class="comment">// Sets the 'color' value to 'white' for EVERY element that has 'my-class'</span>.
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>);
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">css</span>(<span class="string">'color'</span>, <span class="string">'white'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs: <a href="https://api.jquery.com/css/">.css() method.</a></h4>
     <ul>
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">ElementCSSInlineStyle</span>.<span class="function">style</span>.<span class="function">propertyName</span> = <span class="string">'value'</span>;
-        
-        <span class="comment">// Example </span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="function">item</span>.<span class="function">style</span>.<span class="function">color</span>; <span class="comment">// getting value</span>
-        <span class="function">item</span>.<span class="function">style</span>.<span class="function">color</span> = <span class="string">'white'</span>; <span class="comment">// setting value</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">ElementCSSInlineStyle</span>.<span class="function">style</span>.<span class="function">propertyName</span> = <span class="string">'value'</span>;
+          
+          <span class="comment">// Example </span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="function">item</span>.<span class="function">style</span>.<span class="function">color</span>; <span class="comment">// getting value</span>
+          <span class="function">item</span>.<span class="function">style</span>.<span class="function">color</span> = <span class="string">'white'</span>; <span class="comment">// setting value</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style">.style
@@ -916,20 +1000,22 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">text</span>();
-        .<span class="function">text</span>(<span class="string">'text'</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Gets the text content of the FIRST element (and all of its descendants) that matches 'my-class'.</span>
-        <span class="comment">// Sets/resets the text content of EACH element that matches 'my-class'.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">text</span>();
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">text</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">text</span>();
+          .<span class="function">text</span>(<span class="string">'text'</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Gets the text content of the FIRST element (and all of its descendants) that matches 'my-class'.</span>
+          <span class="comment">// Sets/resets the text content of EACH element that matches 'my-class'.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">text</span>();
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">text</span>(<span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/text/">.text() method.</a></h4>
@@ -937,18 +1023,20 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">Element</span>.<span class="function">textContent</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="function">item</span>.<span class="function">textContent</span>; <span class="comment">// gets the value</span>
-        <span class="function">item</span>.<span class="function">textContent</span> = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">Element</span>.<span class="function">textContent</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="function">item</span>.<span class="function">textContent</span>; <span class="comment">// gets the value</span>
+          <span class="function">item</span>.<span class="function">textContent</span> = <span class="string">'&lt;em&gt;Hello&lt;/em&gt;'</span>; <span class="comment">// sets the value</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent">.textContent property.</a>
@@ -958,38 +1046,42 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">val</span>();
-        .<span class="function">val</span>(<span class="keyword">val</span>);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Gets the value of the input with the 'name' name.</span>
-        <span class="comment">// Sets/resets the value of the input with the 'name' name.</span>
-        <span class="symbol">$</span>(<span class="string">'input[name=name]'</span>).<span class="function">val</span>();
-        <span class="symbol">$</span>(<span class="string">'input[name=name]'</span>).<span class="function">val</span>(<span class="string">'Marilyn Monroe'</span>);
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">val</span>();
+          .<span class="function">val</span>(<span class="keyword">val</span>);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Gets the value of the input with the 'name' name.</span>
+          <span class="comment">// Sets/resets the value of the input with the 'name' name.</span>
+          <span class="symbol">$</span>(<span class="string">'input[name=name]'</span>).<span class="function">val</span>();
+          <span class="symbol">$</span>(<span class="string">'input[name=name]'</span>).<span class="function">val</span>(<span class="string">'Marilyn Monroe'</span>);
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs: <a href="https://api.jquery.com/val/">.val() method.</a></h4>
     <ul>
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">HTMLInputElement</span>.<span class="keyword">value</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'input' variable, see examples #3, #4, #5.</span>
-        <span class="function">input</span>.<span class="keyword">value</span>; <span class="comment">// gets the value</span>
-        <span class="function">input</span>.<span class="keyword">value</span> = <span class="string">'Marilyn Monroe'</span>; <span class="comment">// sets the value</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">HTMLInputElement</span>.<span class="keyword">value</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'input' variable, see examples #3, #4, #5.</span>
+          <span class="function">input</span>.<span class="keyword">value</span>; <span class="comment">// gets the value</span>
+          <span class="function">input</span>.<span class="keyword">value</span> = <span class="string">'Marilyn Monroe'</span>; <span class="comment">// sets the value</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement">.value
@@ -1000,17 +1092,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">hide</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Hides all elements with 'my-class'.</span>
-        <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">hide</span>();
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">hide</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Hides all elements with 'my-class'.</span>
+          <span class="symbol">$</span>(<span class="string">'.my-class'</span>).<span class="function">hide</span>();
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/hide/">.hide() method.</a></h4>
@@ -1018,17 +1112,19 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">ElementCSSInlineStyle</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'none'</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'none'</span>;
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">ElementCSSInlineStyle</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'none'</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'none'</span>;
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style">.style
@@ -1038,17 +1134,19 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span>.</span><span class="function">show</span><span>()</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Displays all elements with 'my-class'.</span>
-        <span class="symbol">$</span><span class="string">('.my-class')</span>.<span class="function">show</span><span class="comment">()</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span>.</span><span class="function">show</span><span>()</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Displays all elements with 'my-class'.</span>
+          <span class="symbol">$</span><span class="string">('.my-class')</span>.<span class="function">show</span><span class="comment">()</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs:
       <a href="https://api.jquery.com/show/">.show() method.</a></h4>
@@ -1056,19 +1154,21 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        ElementCSSInlineStyle.style.<span class="hljs-built_in">display</span> = <span class="string">''</span>;
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
-        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">''</span>; <span class="comment">// resets default.</span>
-        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'block'</span>; <span class="comment">// sets display as block.</span>
-        <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'flex'</span>; <span class="comment">// sets display as flex.</span>
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          ElementCSSInlineStyle.style.<span class="hljs-built_in">display</span> = <span class="string">''</span>;
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// For declaring the 'item' variable, see examples #3, #4, #5.</span>
+          <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">''</span>; <span class="comment">// resets default.</span>
+          <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'block'</span>; <span class="comment">// sets display as block.</span>
+          <span class="function">item</span>.<span class="function">style</span>.<span class="function">display</span> = <span class="string">'flex'</span>; <span class="comment">// sets display as flex.</span>
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -1078,42 +1178,46 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">on</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Adds or removes the 'active' class to/from all elements with '.submenu' when #toggle is clicked.</span>
-        <span class="symbol">$</span>(<span class="string">'#toggle'</span>).<span class="function">on</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>)</span>{
-          <span class="symbol">$</span>(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
-        });
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">on</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Adds or removes the 'active' class to/from all elements with '.submenu' when #toggle is clicked.</span>
+          <span class="symbol">$</span>(<span class="string">'#toggle'</span>).<span class="function">on</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="symbol">$</span>(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
+          });
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs: <a href="https://api.jquery.com/on/">.on() method</a></h4>
     <ul>
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">EventTarget</span>.<span class="function">addEventListener</span>(<span class="string">'event'</span>, functionName);
-        
-        <span class="comment">// Example  </span>
-        <span class="comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
-        <span class="comment">// To select all submenus, use the 'for' loop in // Example #3 and #4.</span>
-        <span class="keyword">let</span> toggle = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
-        <span class="keyword">let</span> submenu = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
-        
-        <span class="function">toggle</span>.<span class="function">addEventListener</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>) </span>{
-          <span class="function">submenu</span>.<span class="function">classList</span>.<span class="function">toggle</span>(<span class="string">'active'</span>); 
-        });
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">EventTarget</span>.<span class="function">addEventListener</span>(<span class="string">'event'</span>, functionName);
+          
+          <span class="comment">// Example  </span>
+          <span class="comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
+          <span class="comment">// To select all submenus, use the 'for' loop in // Example #3 and #4.</span>
+          <span class="keyword">let</span> toggle = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
+          <span class="keyword">let</span> submenu = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
+          
+          <span class="function">toggle</span>.<span class="function">addEventListener</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="function">submenu</span>.<span class="function">classList</span>.<span class="function">toggle</span>(<span class="string">'active'</span>); 
+          });
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">
       See more in the DOM API docs: <a
@@ -1124,19 +1228,21 @@
       <li><strong><em>jQuery:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        .<span class="function">off</span>();
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// Removes the listed event handler when #toggle is clicked.</span>
-        <span class="symbol">$</span>(<span class="string">'#toggle'</span>).<span class="function">off</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>)</span>{
-          <span class="symbol">$</span>(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
-        });
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          .<span class="function">off</span>();
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// Removes the listed event handler when #toggle is clicked.</span>
+          <span class="symbol">$</span>(<span class="string">'#toggle'</span>).<span class="function">off</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="symbol">$</span>(<span class="string">'.submenu'</span>).<span class="function">toggleClass</span>(<span class="string">'active'</span>);
+          });
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the jQuery API docs: <a href="https://api.jquery.com/off/">.off() method.</a>
     </h4>
@@ -1144,23 +1250,25 @@
       <li><strong><em>JavaScript:</em></strong></li>
     </ul>
 
-    <pre class="code">
-      <i class="fa-solid fa-copy"></i>
-      <code class="lang-javascript">
-        <span class="comment">// Syntax</span>
-        <span class="function">EventTarget</span>.<span class="function">removeEventListener</span>(<span class="string">'event'</span>, functionName);
-        
-        <span class="comment">// Example</span>
-        <span class="comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
-        <span class="comment">// To select all submenus, use the 'for' loop in Example #3 and #4.</span>
-        <span class="keyword">let</span> toggle = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
-        <span class="keyword">let</span> submenu = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
-        
-        <span class="function">toggle</span>.<span class="function">removeEventListener</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>) </span>{
-          <span class="function">submenu.classList</span>.<span class="function">toggle</span>(<span class="string">'active'</span>);
-        });
-      </code>
-    </pre>
+    <div class="code-wrapper">
+      <div class="copy-to-clipboard-icon"><i class="fa-solid fa-copy"></i></div>
+      <pre class="code">
+        <code class="lang-javascript">
+          <span class="comment">// Syntax</span>
+          <span class="function">EventTarget</span>.<span class="function">removeEventListener</span>(<span class="string">'event'</span>, functionName);
+          
+          <span class="comment">// Example</span>
+          <span class="comment">// The code below only selects the FIRST element with the 'submenu' class.</span>
+          <span class="comment">// To select all submenus, use the 'for' loop in Example #3 and #4.</span>
+          <span class="keyword">let</span> toggle = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">"#toggle"</span>);
+          <span class="keyword">let</span> submenu = <span class="function">document</span>.<span class="function">querySelector</span>(<span class="string">".submenu"</span>);
+          
+          <span class="function">toggle</span>.<span class="function">removeEventListener</span>(<span class="string">'click'</span>, <span class="hljs-function"><span class="function">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="function">submenu.classList</span>.<span class="function">toggle</span>(<span class="string">'active'</span>);
+          });
+        </code>
+      </pre>
+    </div>
 
     <h4 class="see-more">See more in the DOM API docs:
       <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener">.removeEventListener()
