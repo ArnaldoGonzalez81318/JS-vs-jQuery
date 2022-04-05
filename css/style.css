@@ -301,11 +301,6 @@ option {
 	padding: 0 20px;
 }
 
-.documentation-body a {
-	color: #0379AE;
-	text-decoration: none;
-}
-
 .documentation-body a:hover {
 	text-decoration: underline;
 }
@@ -399,6 +394,16 @@ option {
 	padding: 0 3px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+}
+
+.jquery-link {
+	color: #0379AE;
+	text-decoration: none;
+}
+
+.javascript-link {
+	color: #e0c608;
+	text-decoration: none;
 }
 
 .lang-javascript {
