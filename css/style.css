@@ -401,6 +401,7 @@ pre[class*=language-] {
 	color: #707070;
 	background-color: #eee;
 	font-family: courier, monospace;
+	font-size: .8em;
 	padding: 0 3px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
@@ -430,6 +431,11 @@ pre[class*=language-] {
 	line-height: 1.5rem;
 	margin: 10px 0;
 	padding: 0 20px;
+}
+
+.see-more a {
+	color: #0379AE;
+	text-decoration: none;
 }
 
 .comment {
@@ -462,4 +468,22 @@ pre[class*=language-] {
 	margin: 20px 0;
 	padding: 0 20px;
 	text-align: center;
+}
+
+@media only screen and (max-width: 430px) {
+	.js-vs-jquery {
+		text-align: center;
+	}
+
+	.documentation-body h2,
+	.documentation-body h3,
+	.documentation-body h5 {
+		font-size: 1.2rem;
+		margin: 0 0 10px 0;
+	}
+
+	.paragraph {
+		font-size: 1rem;
+		margin: 10px 0 20px 0;
+	}
 }
