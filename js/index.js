@@ -26,3 +26,16 @@ async function copyCode(event) {
     button.className = copyButtonLabel;
   }, 1000);
 }
+
+$(function () {
+  $('.documentation-body h3').each(function () {
+    let $this = $(this);
+    let text = $this.text();
+    let sidebar = $('.sidebar-nav ul');
+    let li = $('<li class="nav-item"><a class="nav-link" href="#' + $this.text().toLowerCase().replace(/ /g, '-') + '">' + text + '</a></li>');
+
+    console.log(text);
+
+    sidebar.append(li);
+  });
+});

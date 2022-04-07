@@ -275,10 +275,60 @@ pre[class*=language-] {
 	font-size: .8em;
 }
 
-.documentation-body {
-	max-width: 1200px;
+.page {
+	max-width: 1700px;
 	margin: 0 auto;
-	padding: 50px 20px;
+	height: 100%;
+}
+
+.documentation-book {
+	display: grid;
+	grid-template-areas: "sidebar documentation documentation";
+	grid-template-columns: 300px 1fr 1fr;
+	gap: 20px;
+	padding: 20px;
+}
+
+/* Sidebar Style */
+.sidebar {
+	height: max-content;
+	grid-area: sidebar;
+	background-color: #f7f7f7;
+	padding: 20px;
+	border-radius: 10px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 20px;
+	overflow-y: hidden;
+}
+
+.sidebar-nav {
+	padding-left: 10px;
+	overflow-y: auto;
+}
+
+.nav-item {
+	margin-bottom: 10px;
+}
+
+.nav-link {
+	color: #444444;
+	font: 400 0.875rem/1.25rem "Roboto", sans-serif;
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+	padding: 5px 15px;
+}
+
+.nav-link:hover {
+	background-color: #0086b3;
+	color: #fff;
+	transition: .15s;
+}
+
+/* End Sidebar Style */
+
+.documentation-body {
+	grid-area: documentation;
 }
 
 .documentation-body strong {
@@ -316,9 +366,12 @@ pre[class*=language-] {
 }
 
 .images-jquery-vs-javascript {
-	margin: 0 auto;
-	padding: 0 20px;
-	text-align: center;
+	background-image: url(../images/jquery-and-js-books.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 500px;
+	border-radius: 10px;
 }
 
 .js-vs-jquery {
