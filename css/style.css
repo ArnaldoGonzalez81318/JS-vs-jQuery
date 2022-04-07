@@ -305,7 +305,8 @@ pre[class*=language-] {
 	padding: 0 20px;
 }
 
-.documentation-body ul {
+.jquery,
+.javascript {
 	margin: 0 0 20px 0;
 	padding: 0 20px;
 }
