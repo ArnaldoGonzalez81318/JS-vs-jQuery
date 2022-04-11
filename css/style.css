@@ -293,7 +293,7 @@ pre[class*=language-] {
 .sidebar {
 	height: max-content;
 	grid-area: sidebar;
-	background-color: #f7f7f7;
+	background-color: #fff;
 	padding: 20px;
 	border-radius: 10px;
 	position: -webkit-sticky;
