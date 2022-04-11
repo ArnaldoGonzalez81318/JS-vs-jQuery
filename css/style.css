@@ -283,7 +283,7 @@ pre[class*=language-] {
 
 .documentation-book {
 	display: grid;
-	grid-template-areas: "sidebar documentation documentation";
+	grid-template-areas: "sidebar document document";
 	grid-template-columns: 300px 1fr 1fr;
 	gap: 20px;
 	padding: 20px;
@@ -327,8 +327,8 @@ pre[class*=language-] {
 
 /* End Sidebar Style */
 
-.documentation-body {
-	grid-area: documentation;
+.document {
+	grid-area: document;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 10px;
