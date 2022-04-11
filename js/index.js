@@ -32,10 +32,23 @@ $(function () {
     let $this = $(this);
     let text = $this.text();
     let sidebar = $('.sidebar-nav ul');
-    let li = $('<li class="nav-item"><a class="nav-link" href="#' + $this.text().toLowerCase().replace(/ /g, '-') + '">' + text + '</a></li>');
+    let li = $('<li class="nav-item"><a class="nav-link" href="' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>');
 
     console.log(text);
 
     sidebar.append(li);
+  });
+
+  $(".nav-link").click(function (e) {
+    e.preventDefault();
+
+    let target = $(this).attr("href");
+
+    $('.nav-link').removeClass('active-link');
+    $(this).addClass('active-link');
+
+    $('#documentation-body').animate({
+      scrollTop: target.top - 20
+    }, 500);
   });
 });

@@ -528,6 +528,11 @@ pre[class*=language-] {
 	text-align: center;
 }
 
+.active-link {
+	background-color: #0086b3;
+	color: #fff;
+}
+
 @media only screen and (max-width: 430px) {
 	.js-vs-jquery {
 		text-align: center;
