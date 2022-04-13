@@ -34,12 +34,25 @@ $(function () {
     let $this = $(this); // current h3.
     let text = $this.text(); // text of h3.
     let sidebar = $('.sidebar-nav ul'); // sidebar ul.
+    let dropdown = $('.dropdown-menu ul'); // dropdown menu.
     let li = $('<li class="nav-item"><a class="nav-link" href="#' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>'); // create li.
+    let dropdownItem = $('<li class="nav-item"><a class="nav-link" href="#' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>'); // create dropdown li.
 
     console.log(text);
 
     // add li to sidebar.
     sidebar.append(li);
+    // add li to dropdown.
+    dropdown.append(dropdownItem);
+  });
+
+  //Stop scroll when dropdown is open.
+  $('.dropdown-btn').on('click', function (e) {
+    $('.dropdown-menu').slideToggle(500);
+
+    if ($('.dropdown-menu').is(':visible')) {
+      e.stopPropagation();
+    }
   });
 
   $('section').each(function () {
