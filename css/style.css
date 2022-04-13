@@ -621,6 +621,7 @@ pre[class*=language-] {
 
 @media only screen and (max-width: 430px) {
 	.js-vs-jquery {
+		font-size: 2rem;
 		text-align: center;
 	}
 
