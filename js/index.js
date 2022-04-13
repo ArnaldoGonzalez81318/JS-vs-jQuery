@@ -48,7 +48,7 @@ $(function () {
 
   //Stop scroll when dropdown is open.
   $('.dropdown-btn').on('click', function (e) {
-    $('.dropdown-menu').slideToggle(500);
+    $('.dropdown-menu').slideToggle(300);
 
     if ($('.dropdown-menu').is(':visible')) {
       e.preventDefault();
