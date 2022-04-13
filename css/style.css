@@ -533,6 +533,21 @@ pre[class*=language-] {
 	color: #fff;
 }
 
+@media screen and (max-width: 770px) {
+	.sidebar {
+		display: none;
+	}
+
+	.documentation-book {
+		grid-template-areas: "document document";
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.images-jquery-vs-javascript {
+		height: 200px;
+	}
+}
+
 @media only screen and (max-width: 430px) {
 	.js-vs-jquery {
 		text-align: center;
@@ -552,5 +567,11 @@ pre[class*=language-] {
 
 	.footer-disclaimer {
 		font-size: 0.65rem;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.images-jquery-vs-javascript {
+		height: 150px;
 	}
 }
