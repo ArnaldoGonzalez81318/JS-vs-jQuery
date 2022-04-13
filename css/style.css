@@ -289,6 +289,14 @@ pre[class*=language-] {
 	padding: 20px;
 }
 
+.navigation-bar {
+	display: grid;
+	grid-template-areas: "left right";
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	padding: 20px;
+}
+
 /* Sidebar Style */
 .sidebar {
 	height: max-content;
@@ -539,7 +547,8 @@ pre[class*=language-] {
 	}
 
 	.documentation-book {
-		grid-template-areas: "document document";
+		grid-template-areas: "header header"
+			"document document";
 		grid-template-columns: 1fr 1fr;
 	}
 
