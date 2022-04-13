@@ -65,16 +65,17 @@ $(function () {
   })
 
   $('.nav-link').click(function () {
+    let $this = $(this); // current section.
     let scrollAnchor = $(this).attr('id');
-    let scrollPoint = $('section[id="' + scrollAnchor + '"]').offset().top - 125;
+    let scrollPoint = $('section[id="' + scrollAnchor + '"]').offset().top - 50;
     // scroll to section.
     $('.document').animate({
       scrollTop: scrollPoint
     }, 1000);
 
     // add active class to anchor.
-    $('.nav-link').removeClass('active');
-    $(this).addClass('active');
+    $('.nav-link').removeClass('active-link');
+    $this.addClass('active-link');
 
     return false;
   });
