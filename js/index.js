@@ -56,19 +56,14 @@ $(function () {
   });
 
   //Stop scroll when dropdown is open.
-  $('.dropdown-menu').click(function (e) {
-    if ($('.dropdown-menu').is(':visible')) {
-      // Prevent default action.
-      e.preventDefault();
-      e.stopPropagation();
-      $('body').css('overflow', 'hidden');
-    } else {
-      $('body').css('overflow', 'auto');
-    }
-  });
+  if ($('.dropdown-menu').is(':visible')) {
+    $('body').css('overflow', 'hidden');
+  } else {
+    $('body').css('overflow', 'auto');
+  }
 
   // Hide dropdown menu on click anchor.
-  $('.dropdown-menu a').click(function () {
+  $('.nav-link').click(function () {
     $('.dropdown-menu').slideUp(300);
     $('body').css('overflow', 'auto');
   });
