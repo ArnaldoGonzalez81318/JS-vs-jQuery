@@ -46,15 +46,37 @@ $(function () {
     dropdown.append(dropdownItem);
   });
 
-  //Stop scroll when dropdown is open.
-  $('.dropdown-btn').on('click', function (e) {
+  // Show dropdown menu on click.
+  $('.dropdown-btn').click(function (e) {
+    // Prevent default action.
+    e.preventDefault();
+    e.stopPropagation();
+    // Toggle dropdown menu.
     $('.dropdown-menu').slideToggle(300);
+  });
 
+  //Stop scroll when dropdown is open.
+  $('.dropdown-menu').click(function (e) {
     if ($('.dropdown-menu').is(':visible')) {
+      // Prevent default action.
       e.preventDefault();
       e.stopPropagation();
       $('body').css('overflow', 'hidden');
+    } else {
+      $('body').css('overflow', 'auto');
     }
+  });
+
+  // Hide dropdown menu on click anchor.
+  $('.dropdown-menu a').click(function () {
+    $('.dropdown-menu').slideUp(300);
+    $('body').css('overflow', 'auto');
+  });
+
+  // Hide dropdown menu on click outside.
+  $(document).click(function () {
+    $('.dropdown-menu').slideUp(300);
+    $('body').css('overflow', 'auto');
   });
 
   $('section').each(function () {
@@ -67,7 +89,7 @@ $(function () {
   $('.nav-link').click(function () {
     let $this = $(this); // current section.
     let scrollAnchor = $(this).attr('id');
-    let scrollPoint = $('section[id="' + scrollAnchor + '"]').offset().top - 50;
+    let scrollPoint = $('section[id="' + scrollAnchor + '"]').offset().top - 70;
     // scroll to section.
     $('.document').animate({
       scrollTop: scrollPoint
