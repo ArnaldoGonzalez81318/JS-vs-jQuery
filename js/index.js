@@ -91,12 +91,19 @@ $(function () {
 
     // Check if the section exists.
     if (section.length) {
-      let scrollPoint = section.offset().top - 70;
-      console.log(scrollPoint);
-      // scroll to section.
-      $('.document').animate({
-        scrollTop: scrollPoint
-      }, 1000);
+      // check window width to scroll to the right place.
+      if ($(window).width() <= 770) {
+        $('html, body').animate({
+          scrollTop: section.offset().top - 100
+        }, 500);
+      } else {
+        let scrollPoint = section.offset().top - 30;
+        console.log(scrollPoint);
+        // scroll to section.
+        $('html, body').animate({
+          scrollTop: scrollPoint
+        }, 1000);
+      }
     }
 
     // add active class to anchor.
