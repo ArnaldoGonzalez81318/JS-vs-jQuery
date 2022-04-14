@@ -281,7 +281,6 @@ pre[class*=language-] {
 	height: 100%;
 }
 
-/* HEADER STYLE */
 .navigation-bar {
 	display: none;
 }
@@ -324,8 +323,6 @@ pre[class*=language-] {
 	display: none;
 }
 
-/* END HEADER STYLE */
-
 .documentation-book {
 	display: grid;
 	grid-template-areas: "sidebar document document";
@@ -334,7 +331,6 @@ pre[class*=language-] {
 	padding: 20px;
 }
 
-/* Sidebar Style */
 .sidebar {
 	display: grid;
 	height: max-content;
@@ -370,8 +366,6 @@ pre[class*=language-] {
 	color: #fff;
 	transition: .15s;
 }
-
-/* End Sidebar Style */
 
 .document {
 	grid-area: document;
