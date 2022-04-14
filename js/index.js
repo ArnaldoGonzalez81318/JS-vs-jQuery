@@ -35,10 +35,10 @@ $(function () {
     let text = $this.text(); // text of h3.
     let sidebar = $('.sidebar-nav ul'); // sidebar ul.
     let dropdown = $('.dropdown-menu ul'); // dropdown menu.
-    let li = $('<li class="nav-item"><a class="nav-link" href="#' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>'); // create li.
-    let dropdownItem = $('<li class="nav-item"><a class="nav-link" href="#' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>'); // create dropdown li.
+    let li = $('<li class="nav-item"><a class="nav-link" id="' + $this.text().replace(/ /g, '') + '" href="#' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>'); // create li.
+    let dropdownItem = $('<li class="nav-item"><a class="nav-link" id="' + $this.text().replace(/ /g, '') + '" href="#' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>'); // create dropdown li.
 
-    console.log(text);
+    // console.log(text); // log text.
 
     // add li to sidebar.
     sidebar.append(li);
@@ -86,11 +86,13 @@ $(function () {
     let scrollAnchor = $(this).attr('id'); // get id of h3.
     let section = $('section[id="' + scrollAnchor + '"]'); // get section with id.
 
+    console.log(scrollAnchor);
     console.log(section.length);
 
     // Check if the section exists.
     if (section.length) {
       let scrollPoint = section.offset().top - 70;
+      console.log(scrollPoint);
       // scroll to section.
       $('.document').animate({
         scrollTop: scrollPoint
