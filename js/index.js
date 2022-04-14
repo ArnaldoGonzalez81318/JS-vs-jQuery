@@ -76,19 +76,26 @@ $(function () {
 
   $('section').each(function () {
     let $this = $(this); // current section.
-    let text = $this.find('h3').text(); // text of h2.
+    let text = $this.find('h3').text(); // text of h3.
 
-    $(this).attr('id', text.replace(/ /g, '')); // add id to h3.
+    $(this).attr('id', text.replace(/ /g, '')); // add id to section.
   })
 
   $('.nav-link').click(function () {
     let $this = $(this); // current section.
-    let scrollAnchor = $(this).attr('id');
-    let scrollPoint = $('section[id="' + scrollAnchor + '"]').offset().top - 70;
-    // scroll to section.
-    $('.document').animate({
-      scrollTop: scrollPoint
-    }, 1000);
+    let scrollAnchor = $(this).attr('id'); // get id of h3.
+    let section = $('section[id="' + scrollAnchor + '"]'); // get section with id.
+
+    console.log(section.length);
+
+    // Check if the section exists.
+    if (section.length) {
+      let scrollPoint = section.offset().top - 70;
+      // scroll to section.
+      $('.document').animate({
+        scrollTop: scrollPoint
+      }, 1000);
+    }
 
     // add active class to anchor.
     $('.nav-link').removeClass('active-link');
