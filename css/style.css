@@ -333,7 +333,7 @@ pre[class*=language-] {
 
 .sidebar {
 	display: grid;
-	height: max-content;
+	height: 100vh;
 	grid-area: sidebar;
 	background-color: #fff;
 	padding: 20px;
