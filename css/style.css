@@ -368,21 +368,10 @@ pre[class*=language-] {
 }
 
 .document {
-	display: grid;
 	grid-area: document;
-	height: 100vh;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 10px;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 20px;
-	overflow-y: hidden;
-}
-
-.documentation-body {
-	padding: 20px;
-	overflow-y: auto;
 }
 
 .documentation-body strong {
