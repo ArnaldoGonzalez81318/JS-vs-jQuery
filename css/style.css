@@ -37,6 +37,7 @@ body {
 	color: #000000;
 	background-color: #EAEDED;
 	text-align: left;
+	letter-spacing: 1px;
 	min-width: 300px;
 }
 
@@ -530,7 +531,7 @@ pre[class*=language-] {
 
 .paragraph {
 	font-weight: 300;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	line-height: 1.5rem;
 	margin: 10px 0;
 	padding: 0 20px;
@@ -583,10 +584,28 @@ pre[class*=language-] {
 	display: block;
 }
 
+/* LIGHT MODE */
+@media (prefers-color-scheme: light) {}
+
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
 	body {
 		background-color: #121212;
+		color: #fff;
+	}
+
+	.navigation-bar {
+		background-color: #333;
+		color: #fff;
+	}
+
+	.dropdown-btn {
+		background-color: #333;
+		color: #fff;
+	}
+
+	.dropdown-menu {
+		background-color: #333;
 		color: #fff;
 	}
 
@@ -632,7 +651,6 @@ pre[class*=language-] {
 @media screen and (max-width: 770px) {
 	.navigation-bar {
 		height: 70px;
-		background-color: #fff;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
