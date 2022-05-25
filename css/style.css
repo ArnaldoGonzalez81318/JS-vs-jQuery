@@ -585,7 +585,12 @@ pre[class*=language-] {
 }
 
 /* LIGHT MODE */
-@media (prefers-color-scheme: light) {}
+@media (prefers-color-scheme: light) {
+	.navigation-bar {
+		background-color: #fff;
+		color: #000;
+	}
+}
 
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
