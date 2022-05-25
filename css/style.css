@@ -393,7 +393,6 @@ pre[class*=language-] {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	font-size: 1rem;
-	color: #575757;
 	margin: 0 0 20px 0;
 	padding: 0 20px;
 }
@@ -402,6 +401,11 @@ pre[class*=language-] {
 .javascript {
 	margin: 0 0 20px 0;
 	padding: 0 20px;
+}
+
+.see-more {
+	font-size: 0.8rem;
+	color: #575757;
 }
 
 .documentation-body a:hover {
@@ -445,7 +449,6 @@ pre[class*=language-] {
 	font-family: courier, monospace;
 	padding: 0 3px;
 	margin: 0 20px 20px 20px;
-	border: 1px solid #ccc;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
 	-webkit-box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 20%);
@@ -578,6 +581,52 @@ pre[class*=language-] {
 
 .show {
 	display: block;
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #121212;
+		color: #fff;
+	}
+
+	.sidebar {
+		background-color: #333;
+	}
+
+	.nav-link {
+		color: #fff;
+	}
+
+	.document {
+		background-color: #333;
+		color: #fff;
+	}
+
+	.see-more {
+		color: #fff;
+	}
+
+	.jquery-link {
+		color: #0379AE;
+	}
+
+	.javascript-link {
+		color: #e0c608;
+	}
+
+	.lang-javascript {
+		color: #fff;
+	}
+
+	.footer-disclaimer {
+		color: #999;
+	}
+
+	.active-link {
+		background-color: #0086b3;
+		color: #fff;
+	}
 }
 
 @media screen and (max-width: 770px) {
