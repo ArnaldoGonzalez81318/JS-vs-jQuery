@@ -282,14 +282,18 @@ pre[class*=language-] {
 	height: 100%;
 }
 
-.progress-container {
+.progress-bar-container {
+	position: fixed;
+	left: 0;
+	right: 0;
 	width: 100%;
-	height: 8px;
-	background: #ccc;
+	height: 5px;
+	background: transparent;
+	z-index: 100;
 }
 
 .progress-bar {
-	height: 8px;
+	height: 5px;
 	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 	width: 0%;
 }
