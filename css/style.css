@@ -287,15 +287,17 @@ pre[class*=language-] {
 	left: 0;
 	right: 0;
 	width: 100%;
-	height: 5px;
+	height: 8px;
 	background: transparent;
 	z-index: 100;
 }
 
 .progress-bar {
-	height: 5px;
-	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 	width: 0%;
+	height: 8px;
+	background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .navigation-bar {
