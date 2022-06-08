@@ -447,6 +447,14 @@ pre[class*=language-] {
 	font-weight: 500;
 	font-size: 3rem;
 	line-height: 3.5rem;
+	background: #2575AC;
+	background: -webkit-linear-gradient(to right, #C9D706 0%, #2575AC 25%);
+	background: -moz-linear-gradient(to right, #C9D706 0%, #2575AC 25%);
+	background: linear-gradient(to right, #C9D706 0%, #2575AC 25%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+
 }
 
 .copy-to-clipboard {
