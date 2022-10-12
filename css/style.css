@@ -529,7 +529,7 @@ pre[class*=language-] {
 	background-color: #eee;
 	font-family: courier, monospace;
 	font-size: .8em;
-	padding: 0 3px;
+	padding: 3px 5px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 }
