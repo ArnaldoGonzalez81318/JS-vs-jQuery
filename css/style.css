@@ -295,7 +295,7 @@ pre[class*=language-] {
 
 .progress-bar {
 	width: 0%;
-	height: 8px;
+	height: 5px;
 	background-image: linear-gradient(60deg, #3d3393 0%, #2b76b9 37%, #2cacd1 65%, #35eb93 100%);
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
