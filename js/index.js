@@ -109,6 +109,13 @@ $(function () {
     // Add active class to anchor.
     $('.nav-link').removeClass('active-link');
     $this.addClass('active-link');
+    // Add emoji to clicked anchor.
+    $('.nav-link').html(function () {
+      return $(this).text().replace('👉 ', '');
+    });
+    $this.html(function () {
+      return $(this).text().replace('', '👉 ');
+    });
 
     return false;
   });
