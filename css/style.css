@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 * {
 	margin: 0;
@@ -35,7 +36,7 @@ body {
 	font-weight: 400;
 	font-style: normal;
 	color: #000000;
-	background-color: #EAEDED;
+	background-color: #ffffff;
 	text-align: left;
 	letter-spacing: 1px;
 	min-width: 300px;
@@ -355,8 +356,8 @@ pre[class*=language-] {
 	display: grid;
 	height: 100vh;
 	grid-area: sidebar;
-	background-color: #fff;
-	padding: 20px;
+	background-color: #f0f0f0;
+	padding: 20px 10px;
 	border-radius: 10px;
 	position: -webkit-sticky;
 	position: sticky;
@@ -370,22 +371,23 @@ pre[class*=language-] {
 }
 
 .nav-link {
+	width: 100%;
 	color: #444444;
-	font: 400 0.875rem/1.25rem "Roboto", sans-serif;
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px;
-	padding: 5px 15px;
+	font: 500 0.875rem/1.25rem 'Inconsolata', monospace;
+	letter-spacing: 0;
+	border-radius: 5px;
+	padding: 3px 5px;
 }
 
 .nav-link:hover {
-	background-color: #0086b3;
-	color: #fff;
+	background-color: #ffffff;
+	color: #000;
 	transition: .15s;
 }
 
 .document {
 	grid-area: document;
-	background-color: #fff;
+	background-color: #f0f0f0;
 	padding: 20px;
 	border-radius: 10px;
 }
@@ -455,7 +457,7 @@ pre[class*=language-] {
 }
 
 .copy-to-clipboard {
-	background-color: #eee;
+	background-color: #ffffff;
 	margin: 0 20px;
 	padding: 10px;
 	display: flex;
@@ -599,8 +601,8 @@ pre[class*=language-] {
 }
 
 .active-link {
-	background-color: #0086b3;
-	color: #fff;
+	background-color: #fff;
+	color: #0053a5;
 }
 
 .show {
