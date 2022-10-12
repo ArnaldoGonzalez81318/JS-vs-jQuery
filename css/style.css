@@ -242,6 +242,7 @@ input[type="datetime-local"] {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
+	appearance: none;
 	margin: 0;
 }
 
@@ -366,10 +367,6 @@ pre[class*=language-] {
 .sidebar-nav {
 	padding-left: 10px;
 	overflow-y: auto;
-}
-
-.nav-item {
-	margin-bottom: 10px;
 }
 
 .nav-link {
