@@ -1,10 +1,10 @@
 const copyButtonLabel = "fa-solid fa-copy";
 
-// you can use a class selector instead if you, or the syntax highlighting library adds one to the 'pre'.
+// You can use a class selector instead if you, or the syntax highlighting library adds one to the 'pre'.
 let blocks = document.querySelectorAll(".copy-to-clipboard");
 
 blocks.forEach((block) => {
-  // only add button if browser supports Clipboard API.
+  // Only add button if browser supports Clipboard API.
   if (navigator.clipboard) {
     let button = document.createElement("icon");
     button.className = copyButtonLabel;
@@ -13,7 +13,7 @@ blocks.forEach((block) => {
   }
 });
 
-// copy code to clipboard function.
+// Copy code to clipboard function.
 async function copyCode(event) {
   const button = event.srcElement;
   const pre = button.parentElement.parentElement;
@@ -23,7 +23,7 @@ async function copyCode(event) {
 
   button.className = "fa-solid fa-circle-check";
 
-  // reset button after 1 seconds.
+  // Reset button after 1 seconds.
   setTimeout(() => {
     button.className = copyButtonLabel;
   }, 1000);
@@ -40,9 +40,9 @@ $(function () {
 
     // console.log(text); // log text.
 
-    // add li to sidebar.
+    // Add li to sidebar.
     sidebar.append(li);
-    // add li to dropdown.
+    // Add li to dropdown.
     dropdown.append(dropdownItem);
   });
 
@@ -91,7 +91,7 @@ $(function () {
 
     // Check if the section exists.
     if (section.length) {
-      // check window width to scroll to the right place.
+      // Check window width to scroll to the right place.
       if ($(window).width() <= 770) {
         $('html, body').animate({
           scrollTop: section.offset().top - 100
@@ -106,7 +106,7 @@ $(function () {
       }
     }
 
-    // add active class to anchor.
+    // Add active class to anchor.
     $('.nav-link').removeClass('active-link');
     $this.addClass('active-link');
 
