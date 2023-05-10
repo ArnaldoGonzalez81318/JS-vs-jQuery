@@ -597,7 +597,7 @@ pre[class*=language-] {
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
 	body {
-		background-color: #101010;
+		background-color: #0b101f;
 		color: #fff;
 	}
 
@@ -617,7 +617,7 @@ pre[class*=language-] {
 	}
 
 	.sidebar {
-		background-color: #222;
+		background-color: #101b2e;
 	}
 
 	.nav-link {
@@ -625,7 +625,7 @@ pre[class*=language-] {
 	}
 
 	.document {
-		background-color: #222;
+		background-color: #101b2e;
 		color: #fff;
 	}
 
@@ -652,6 +652,15 @@ pre[class*=language-] {
 	.active-link {
 		background-color: #0086b3;
 		color: #fff;
+	}
+
+	.small-code {
+		color: #A3DFFD;
+		background-color: #0b101f;
+	}
+
+	.copy-to-clipboard {
+		background-color: #0b101f;
 	}
 }
 
