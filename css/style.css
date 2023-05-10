@@ -597,7 +597,7 @@ pre[class*=language-] {
 /* DARK MODE */
 @media (prefers-color-scheme: dark) {
 	body {
-		background-color: #121212;
+		background-color: #101010;
 		color: #fff;
 	}
 
@@ -617,7 +617,7 @@ pre[class*=language-] {
 	}
 
 	.sidebar {
-		background-color: #333;
+		background-color: #222;
 	}
 
 	.nav-link {
@@ -625,7 +625,7 @@ pre[class*=language-] {
 	}
 
 	.document {
-		background-color: #333;
+		background-color: #222;
 		color: #fff;
 	}
 
