@@ -309,7 +309,7 @@ pre[class*=language-] {
 
 .fa-js-square {
 	color: #F7DF1E;
-	font-size: 3rem
+	font-size: 2rem;
 }
 
 .fa-bars {
@@ -602,12 +602,12 @@ pre[class*=language-] {
 	}
 
 	.navigation-bar {
-		background-color: #333;
+		background-color: #101b2e;
 		color: #fff;
 	}
 
 	.dropdown-btn {
-		background-color: #333;
+		background-color: transparent;
 		color: #fff;
 	}
 
