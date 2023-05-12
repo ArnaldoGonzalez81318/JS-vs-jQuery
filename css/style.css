@@ -432,11 +432,11 @@ pre[class*=language-] {
 }
 
 .images-jquery-vs-javascript {
-	background-image: url(../images/jquery-and-js-books.jpg);
+	background-image: url(../images/jquery-and-js-books.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height: 500px;
+	height: 650px;
 	border-radius: 10px;
 }
 
@@ -538,12 +538,12 @@ pre[class*=language-] {
 }
 
 .jquery-link {
-	color: #0379AE;
+	color: #005e88;
 	text-decoration: none;
 }
 
 .javascript-link {
-	color: #e0c608;
+	color: #065c00;
 	text-decoration: none;
 }
 
@@ -564,7 +564,8 @@ pre[class*=language-] {
 }
 
 .see-more a {
-	color: #0379AE;
+	color: #005e88;
+	font-weight: 500;
 	text-decoration: none;
 }
 
