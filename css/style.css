@@ -319,7 +319,7 @@ pre[class*=language-] {
 }
 
 .dropdown-btn {
-	background-color: #fff;
+	background-color: transparent;
 	border: none;
 	padding: 0;
 }
@@ -590,7 +590,7 @@ pre[class*=language-] {
 /* LIGHT MODE */
 @media (prefers-color-scheme: light) {
 	.navigation-bar {
-		background-color: #fff;
+		background-color: #f0f0f0;
 		color: #000;
 	}
 }
