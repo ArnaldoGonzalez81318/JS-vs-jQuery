@@ -102,7 +102,7 @@ $(function () {
         // scroll to section.
         $('html, body').animate({
           scrollTop: scrollPoint
-        }, 1000);
+        }, 5000);
       }
     }
 
