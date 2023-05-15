@@ -436,7 +436,8 @@ pre[class*=language-] {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height: 650px;
+	/* height: 650px; */
+	height: calc(100vh - 500px);
 	border-radius: 10px;
 }
 
@@ -670,6 +671,12 @@ pre[class*=language-] {
 	}
 }
 
+@media screen and (max-width: 1030px) {
+	.images-jquery-vs-javascript {
+		/* height: 313px; */
+	}
+}
+
 @media screen and (max-width: 770px) {
 	.navigation-bar {
 		height: 70px;
@@ -698,7 +705,7 @@ pre[class*=language-] {
 	}
 
 	.images-jquery-vs-javascript {
-		height: 200px;
+		/* height: 345px; */
 	}
 }
 
@@ -727,6 +734,6 @@ pre[class*=language-] {
 
 @media screen and (max-width: 320px) {
 	.images-jquery-vs-javascript {
-		height: 150px;
+		/* height: 150px; */
 	}
 }
