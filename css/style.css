@@ -400,7 +400,7 @@ pre[class*=language-] {
 
 .documentation-body h2,
 .documentation-body h3,
-.documentation-body h5 {
+.documentation-body h4 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	font-size: 2rem;
@@ -408,7 +408,7 @@ pre[class*=language-] {
 	padding: 0 20px;
 }
 
-.documentation-body h4 {
+.documentation-body h5 {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	font-size: 1rem;
