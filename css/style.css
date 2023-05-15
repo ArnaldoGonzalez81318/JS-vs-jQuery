@@ -716,7 +716,7 @@ pre[class*=language-] {
 
 	.documentation-body h2,
 	.documentation-body h3,
-	.documentation-body h5 {
+	.documentation-body h4 {
 		font-size: 1.2rem;
 		margin: 0 0 10px 0;
 	}
