@@ -674,6 +674,7 @@ pre[class*=language-] {
 @media screen and (max-width: 1030px) {
 	.images-jquery-vs-javascript {
 		/* height: 313px; */
+		height: calc(100vw * 0.3);
 	}
 }
 
@@ -706,6 +707,7 @@ pre[class*=language-] {
 
 	.images-jquery-vs-javascript {
 		/* height: 345px; */
+		height: calc(100vw * 0.4);
 	}
 }
 
@@ -735,5 +737,6 @@ pre[class*=language-] {
 @media screen and (max-width: 320px) {
 	.images-jquery-vs-javascript {
 		/* height: 150px; */
+		height: calc(100vw * 0.2);
 	}
 }
