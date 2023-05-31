@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if ($(window).width() <= 770) {
           $('html, body').animate({
             scrollTop: section.offset().top - 100
-          }, 500);
+          }, 5000);
         } else {
           let scrollPoint = section.offset().top - 30;
           console.log(scrollPoint);
