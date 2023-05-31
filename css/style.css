@@ -130,14 +130,6 @@
 	padding: 0 20px;
 }
 
-.documentation-body h5 {
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	font-size: 1rem;
-	margin: 0 0 20px 0;
-	padding: 0 20px;
-}
-
 .jquery,
 .javascript {
 	margin: 0 0 20px 0;
@@ -145,8 +137,12 @@
 }
 
 .see-more {
-	font-size: 0.8rem;
 	color: #575757;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 1rem;
+	margin: 0 0 20px 0;
+	padding: 0 20px;
 }
 
 .documentation-body a:hover {
