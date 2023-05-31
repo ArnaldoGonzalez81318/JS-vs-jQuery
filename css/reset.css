@@ -29,7 +29,7 @@ html {
 body {
   font-size: 1.6em;
   line-height: 1.15;
-  letter-spacing: .5px;
+  letter-spacing: 1px;
   word-spacing: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -37,7 +37,6 @@ body {
   color: #000000;
   background-color: #ffffff;
   text-align: left;
-  letter-spacing: 1px;
   min-width: 300px;
 }
 
