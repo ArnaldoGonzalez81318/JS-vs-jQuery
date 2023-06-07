@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let $this = $(this); // current h3.
       let text = $this.text(); // text of h3.
       let sidebar = $('.sidebar-nav ul'); // sidebar ul.
-      let dropdown = $('.dropdown-menu ul'); // dropdown menu.
+      let dropdown = $('.navigation-bar-header-menu-items ul'); // dropdown menu.
       let li = $('<li class="nav-item"><a class="nav-link" id="' + $this.text().replace(/ /g, '') + '" href="#' + $this.text().replace(/ /g, '') + '">' + text + '</a></li>'); // create li.
       let dropdownItem = $('<li class="nav-item"><a class="nav-link" id="' + $this.text().replace(/ /g, '') + '" href="#' + $this.text()
         .replace(/ /g, '') + '">' + text + '</a></li>'); // create dropdown li.
@@ -80,25 +80,27 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       e.stopPropagation();
       // Toggle dropdown menu.
-      $('.dropdown-menu').slideToggle(300);
+      $('.navigation-bar-header-menu-items').slideToggle(300);
     });
 
     //Stop scroll when dropdown is open.
-    if ($('.dropdown-menu').is(':visible')) {
+    if ($('.navigation-bar-header-menu-items').is(':visible')) {
+      console.log('visible');
       $('body').css('overflow', 'hidden');
     } else {
+      console.log('hidden');
       $('body').css('overflow', 'auto');
     }
 
     // Hide dropdown menu on click anchor.
     $('.nav-link').click(function () {
-      $('.dropdown-menu').slideUp(300);
+      $('.navigation-bar-header-menu-items').slideUp(300);
       $('body').css('overflow', 'auto');
     });
 
     // Hide dropdown menu on click outside.
     $(document).click(function () {
-      $('.dropdown-menu').slideUp(300);
+      $('.navigation-bar-header-menu-items').slideUp(300);
       $('body').css('overflow', 'auto');
     });
 
