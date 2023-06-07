@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   const copyButtonLabel = "fa-solid fa-copy";
 
-  // You can use a class selector instead if you, or the syntax highlighting library adds one to the 'pre'.
+  // Add copy to clipboard button to code blocks.
   let blocks = document.querySelectorAll(".copy-to-clipboard");
 
   blocks.forEach((block) => {
-    // Only add button if browser supports Clipboard API.
+    // Check if navigator.clipboard is supported. If so, add copy button.
     if (navigator.clipboard) {
       let button = document.createElement("icon");
       button.className = copyButtonLabel;
@@ -20,14 +20,40 @@ document.addEventListener("DOMContentLoaded", function () {
     const pre = button.parentElement.parentElement;
     let code = pre.querySelector("code");
     let text = code.innerText;
+
     await navigator.clipboard.writeText(text);
 
     button.className = "fa-solid fa-circle-check";
+    // Add fade in animation to button without adding a class.
+    button.animate(
+      [{
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+      },
+      ], {
+      duration: 500,
+    }
+    );
 
     // Reset button after 1 seconds.
     setTimeout(() => {
       button.className = copyButtonLabel;
-    }, 1000);
+
+      // Add fade in animation to button without adding a class.
+      button.animate(
+        [{
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        },
+        ], {
+        duration: 500,
+      }
+      );
+    }, 500);
   }
 
   $(function () {
@@ -124,10 +150,11 @@ document.addEventListener("DOMContentLoaded", function () {
     progressIndicator();
   };
 
+  // Progress indicator function.
   function progressIndicator() {
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrolled = (winScroll / height) * 100;
-    document.getElementById("progressBar").style.width = scrolled + "%";
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop; // Get scroll position.
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight; // Get height of page.
+    let scrolled = (winScroll / height) * 100; // Calculate scrolled percentage.
+    document.getElementById("progressBar").style.width = scrolled + "%"; // Set width of progress bar.
   }
 });
