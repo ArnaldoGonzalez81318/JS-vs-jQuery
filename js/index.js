@@ -146,9 +146,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Scroll to top button.
+  let scrollToTopButton = document.getElementById("scrollToTopButton");
+
+  // Run functions on scroll.
   window.onscroll = function () {
+    fadeInOnScroll();
     progressIndicator();
   };
+
+  // Scroll to top when button is clicked.
+  scrollToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  // Fade in 'scroll to top' button when user scrolls down 500px from top of document.
+  function fadeInOnScroll() {
+    let distanceFromTop = 500;
+    let scrollTop = document.documentElement.scrollTop;
+
+    if (scrollTop > distanceFromTop) {
+      scrollToTopButton.style.display = "flex";
+      scrollToTopButton.style.opacity = "1";
+      scrollToTopButton.style.visibility = "visible";
+      scrollToTopButton.style.animation = "fadeIn 0.3s";
+    } else {
+      scrollToTopButton.style.display = "none";
+      scrollToTopButton.style.opacity = "0";
+      scrollToTopButton.style.visibility = "hidden";
+      scrollToTopButton.style.animation = "fadeOut 0.3s";
+    }
+  }
 
   // Progress indicator function.
   function progressIndicator() {
