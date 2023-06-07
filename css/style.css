@@ -306,6 +306,25 @@
 	text-align: center;
 }
 
+.back-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+}
+
 .active-link {
 	background-color: #fff;
 	color: #0053a5;
@@ -324,6 +343,12 @@
 
 	.section {
 		border-bottom: 1px solid #a5a5a5;
+	}
+
+	.back-to-top {
+		background-color: #f0f0f0;
+		color: #000;
+		border: 2px solid #a5a5a5;
 	}
 }
 
@@ -403,6 +428,12 @@
 
 	.copy-to-clipboard {
 		background-color: #0b101f;
+	}
+
+	.back-to-top {
+		background-color: #101b2e;
+		color: #005eff;
+		border: 2px solid #005eff;
 	}
 }
 
