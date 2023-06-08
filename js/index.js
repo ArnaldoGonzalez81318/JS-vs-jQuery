@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const copyButtonLabel = "fa-solid fa-copy";
 
+  let currentYear = new Date().getFullYear();
+  let footer = document.querySelector("footer");
+  let footerText = footer.querySelector(".footer-disclaimer");
+
+  footerText.innerHTML = `© 2020 - ${currentYear} Vanilla JS vs jQuery Documentation. All rights reserved.`;
+
   // Add copy to clipboard button to code blocks.
   let blocks = document.querySelectorAll(".copy-to-clipboard");
 
