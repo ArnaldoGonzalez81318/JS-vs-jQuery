@@ -111,7 +111,7 @@
 
 .navigation-bar-header-menu-items {
 	position: absolute;
-	height: 100vh;
+	height: calc(100vh - 70px);
 	top: 70px;
 	right: 0;
 	left: 0;
