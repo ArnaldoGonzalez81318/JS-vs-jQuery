@@ -153,6 +153,10 @@
 	overflow-y: auto;
 }
 
+.sidebar-nav::-webkit-scrollbar {
+	display: none;
+}
+
 .nav-link {
 	width: 100%;
 	color: #444444;
@@ -406,6 +410,22 @@
 
 /* LIGHT MODE */
 @media (prefers-color-scheme: light) {
+	.page::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	.page::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	.page::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+
+	.page::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+
 	.navigation-bar {
 		background-color: #f0f0f0;
 		color: #000;
@@ -431,6 +451,22 @@
 	body {
 		background-color: #0b101f;
 		color: #fff;
+	}
+
+	.page::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	.page::-webkit-scrollbar-track {
+		background: #005eff;
+	}
+
+	.page::-webkit-scrollbar-thumb {
+		background: #101b2e;
+	}
+
+	.page::-webkit-scrollbar-thumb:hover {
+		background: #5cecce;
 	}
 
 	.navigation-bar {
