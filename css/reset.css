@@ -40,9 +40,9 @@ body {
   min-width: 300px;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none
-}
+} */
 
 article,
 aside,
