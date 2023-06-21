@@ -159,35 +159,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Run functions on scroll.
   window.onscroll = function () {
-    fadeInOnScroll();
     progressIndicator();
   };
+
+  // Check if window is scrolled down 500px. If so, fade in button. If not, fade out button.
+  $(window).scroll(function () {
+    if ($(this).scrollTop() >= 500) {
+      $(scrollToTopButton).fadeIn();
+    } else {
+      $(scrollToTopButton).fadeOut();
+    }
+  });
 
   // Scroll to top when button is clicked.
   scrollToTopButton.addEventListener("click", function () {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   });
-
-  // Fade in 'scroll to top' button when user scrolls down 500px from top of document.
-  function fadeInOnScroll() {
-    let distanceFromTop = 500;
-    let scrollTop = document.documentElement.scrollTop;
-
-    if (scrollTop > distanceFromTop) {
-      scrollToTopButton.style.display = "flex";
-      scrollToTopButton.style.opacity = "1";
-      scrollToTopButton.style.visibility = "visible";
-      scrollToTopButton.style.animation = "fadeIn 0.3s";
-    } else {
-      scrollToTopButton.style.display = "none";
-      scrollToTopButton.style.opacity = "0";
-      scrollToTopButton.style.visibility = "hidden";
-      scrollToTopButton.style.animation = "fadeOut 0.3s";
-    }
-  }
 
   // Progress indicator function.
   function progressIndicator() {
