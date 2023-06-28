@@ -522,8 +522,12 @@
 		color: #fff;
 	}
 
+	.footer {
+		background-color: #101b2e;
+	}
+
 	.footer-disclaimer {
-		color: #999;
+		color: #fff;
 	}
 
 	.active-link {
