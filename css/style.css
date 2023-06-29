@@ -406,19 +406,21 @@
 
 /* LIGHT MODE */
 @media (prefers-color-scheme: light) {
-	.page::-webkit-scrollbar {
+	::-webkit-scrollbar {
 		width: 10px;
 	}
 
-	.page::-webkit-scrollbar-track {
+	::-webkit-scrollbar-track {
 		background: #f1f1f1;
+		border-radius: 10px;
 	}
 
-	.page::-webkit-scrollbar-thumb {
+	::-webkit-scrollbar-thumb {
 		background: #888;
+		border-radius: 10px;
 	}
 
-	.page::-webkit-scrollbar-thumb:hover {
+	::-webkit-scrollbar-thumb:hover {
 		background: #555;
 	}
 
@@ -449,19 +451,21 @@
 		color: #fff;
 	}
 
-	.page::-webkit-scrollbar {
+	::-webkit-scrollbar {
 		width: 10px;
 	}
 
-	.page::-webkit-scrollbar-track {
+	::-webkit-scrollbar-track {
+		background: #0b101f;
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
 		background: #005eff;
+		border-radius: 10px;
 	}
 
-	.page::-webkit-scrollbar-thumb {
-		background: #101b2e;
-	}
-
-	.page::-webkit-scrollbar-thumb:hover {
+	::-webkit-scrollbar-thumb:hover {
 		background: #5cecce;
 	}
 
@@ -542,6 +546,12 @@
 
 	.copy-to-clipboard {
 		background-color: #0b101f;
+		border: 1px solid #005eff;
+	}
+
+	pre[class*=language-] {
+		background-color: #0b101f;
+		border: 1px solid #005eff;
 	}
 
 	.back-to-top {
