@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (navigator.clipboard) {
       let button = document.createElement("icon");
       button.className = copyButtonLabel;
+      button.setAttribute("tabindex", "0");
       button.addEventListener("click", copyCode);
       block.prepend(button);
     }
