@@ -438,6 +438,10 @@
 		background: #555;
 	}
 
+	:focus {
+		outline: 2px solid #0053a5;
+	}
+
 	.navigation-bar {
 		background-color: #f0f0f0;
 		color: #000;
@@ -481,6 +485,10 @@
 
 	::-webkit-scrollbar-thumb:hover {
 		background: #5cecce;
+	}
+
+	:focus {
+		outline: 2px solid #05b0ff;
 	}
 
 	.navigation-bar {
