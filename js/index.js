@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   const copyButtonLabel = "fa-solid fa-copy";
 
+  let consoleMessage = "Vanilla JS vs jQuery";
+  let consoleMessageStyle = "font-size: 2rem; font-weight: bold; color: #006bff; text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;";
   let currentYear = new Date().getFullYear();
   let footer = document.querySelector("footer");
   let footerText = footer.querySelector(".footer-disclaimer");
@@ -187,4 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let scrolled = (winScroll / height) * 100; // Calculate scrolled percentage.
     document.getElementById("progressBar").style.width = scrolled + "%"; // Set width of progress bar.
   }
+
+  console.log("%c" + consoleMessage, consoleMessageStyle);
 });
