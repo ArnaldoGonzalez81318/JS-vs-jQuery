@@ -131,14 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if ($(window).width() <= 770) {
           $('html, body').animate({
             scrollTop: section.offset().top - 100
-          }, 5000);
+          }, 3000);
         } else {
-          let scrollPoint = section.offset().top - 30;
+          let scrollPoint = section.offset().top - 90;
           console.log(scrollPoint);
           // scroll to section.
           $('html, body').animate({
             scrollTop: scrollPoint
-          }, 5000);
+          }, 3000);
         }
       }
 
