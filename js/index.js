@@ -2,7 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const copyButtonLabel = "fa-solid fa-copy";
 
   let consoleMessage = "Vanilla JS vs jQuery";
-  let consoleMessageStyle = "font-size: 2rem; font-weight: bold; color: #006bff; text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;";
+  let consoleMessageStyle = `
+    background-color: #000;
+    color: #fff;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #000;
+  `;
   let currentYear = new Date().getFullYear();
   let footer = document.querySelector("footer");
   let footerText = footer.querySelector(".footer-disclaimer");
@@ -20,6 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
       button.setAttribute("tabindex", "0");
       button.addEventListener("click", copyCode);
       block.prepend(button);
+    } else {
+      // If not, add message.
+      let message = document.createElement("p");
+      message.className = "copy-to-clipboard-message";
+      message.innerHTML = "Copy to clipboard is not supported by your browser.";
+      block.prepend(message);
     }
   });
 
