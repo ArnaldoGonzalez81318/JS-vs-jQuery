@@ -177,7 +177,7 @@
 }
 
 .fa-moon {
-	color: #fff;
+	color: #444444;
 }
 
 .fa-sun {
@@ -185,7 +185,7 @@
 }
 
 .checkbox:checked+.checkbox-label {
-	background-color: #f0f0f0;
+	background-color: #05b0ff;
 }
 
 .checkbox:checked+.checkbox-label .checkbox-button {
