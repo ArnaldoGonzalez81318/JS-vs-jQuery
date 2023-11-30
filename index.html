@@ -30,6 +30,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js" defer></script>
   <script src="./js/index.js" defer></script>
+  <script src="./js/themeSwitcher.js" defer></script>
 </head>
 
 <body>
@@ -54,11 +55,21 @@
             <h1>JS vs jQuery</h1>
           </div>
         </div>
-        <div class="navigation-bar-header-skip-to-content">
-          <ul class="skip-to-content">
-            <li><a href="#documentation-body">Documentation</a></li>
-            <li><a href="#footer">Footer</a></li>
-          </ul>
+        <div class="navigation-bar-header-right">
+          <div class="navigation-bar-header-skip-to-content">
+            <ul class="skip-to-content">
+              <li><a href="#documentation-body">Documentation</a></li>
+              <li><a href="#footer">Footer</a></li>
+            </ul>
+          </div>
+          <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="checkbox-label">
+              <i class="fa-solid fa-moon"></i>
+              <i class="fa-solid fa-sun"></i>
+              <span class="checkbox-button"></span>
+            </label>
+          </div>
         </div>
         <div class="navigation-bar-header-menu">
           <button class="dropdown-btn">
