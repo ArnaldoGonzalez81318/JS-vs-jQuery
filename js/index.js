@@ -3,7 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let consoleMessage = "Vanilla JS vs jQuery";
   let consoleMessageStyle = `
-    background-color: #000;
+    background: rgb(239,219,80);
+    background: -moz-linear-gradient(90deg, rgba(239,219,80,1) 0%, rgba(126,161,128,1) 50%, rgba(17,105,174,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(239,219,80,1) 0%, rgba(126,161,128,1) 50%, rgba(17,105,174,1) 100%);
+    background: linear-gradient(90deg, rgba(239,219,80,1) 0%, rgba(126,161,128,1) 50%, rgba(17,105,174,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efdb50",endColorstr="#1169ae",GradientType=1);
     color: #fff;
     font-size: 24px;
     padding: 10px;
