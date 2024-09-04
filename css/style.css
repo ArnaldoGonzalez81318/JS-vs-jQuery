@@ -279,7 +279,7 @@
 
 .sidebar {
 	display: grid;
-	height: 100vh;
+	height: calc(100vh - 110px);
 	grid-area: sidebar;
 	background-color: #f0f0f0;
 	padding: 20px 10px;
