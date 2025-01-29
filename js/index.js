@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const copyButtonLabel = "fa-solid fa-copy";
 
-  let consoleMessage = "Vanilla JS vs jQuery";
+  let consoleMessage = "Welcome to Vanilla JS vs jQuery Documentation!";
   let consoleMessageStyle = `
     background: rgb(239,219,80);
     background: -moz-linear-gradient(90deg, rgba(239,219,80,1) 0%, rgba(126,161,128,1) 50%, rgba(17,105,174,1) 100%);
@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
     background: linear-gradient(90deg, rgba(239,219,80,1) 0%, rgba(126,161,128,1) 50%, rgba(17,105,174,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#efdb50",endColorstr="#1169ae",GradientType=1);
     color: #fff;
-    font-size: 24px;
+    font-size: 20px;
     padding: 10px;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
-    font-weight: 700;
+    font-weight: bold;
     text-transform: uppercase;
-    text-shadow: 1px 1px 1px #000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
   `;
   let currentYear = new Date().getFullYear();
   let footer = document.querySelector("footer");
