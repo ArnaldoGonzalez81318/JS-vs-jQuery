@@ -201,8 +201,9 @@ document.addEventListener("DOMContentLoaded", function () {
       $("#scrollToTopButton").fadeOut();
     }
 
-    // Adjust background fill based on scroll progress
-    $("#scrollToTopButton").css("background", `linear-gradient(to top, #007bff ${scrollPercent}%, transparent ${scrollPercent}%)`);
+    // Change border color dynamically
+    let borderColor = `hsl(${scrollPercent}, 100%, 50%)`; // Generates a gradient effect from red to green
+    $("#scrollToTopButton").css("border-color", borderColor);
   });
 
   // Scroll to top when button is clicked.
