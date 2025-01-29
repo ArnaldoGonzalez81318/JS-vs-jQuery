@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
   }
 
+  // Add active class to navigation links.
   $(function () {
     $('.documentation-body h3').each(function () {
       let $this = $(this); // current h3.
@@ -187,11 +188,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Check if window is scrolled down 500px. If so, fade in button. If not, fade out button.
   $(window).scroll(function () {
-    if ($(this).scrollTop() >= 500) {
-      $(scrollToTopButton).fadeIn();
+    let scrollTop = $(this).scrollTop();
+    let docHeight = $(document).height();
+    let winHeight = $(window).height();
+
+    // Calculate scroll percentage
+    let scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+
+    if (scrollTop >= 500) {
+      $("#scrollToTopButton").fadeIn();
     } else {
-      $(scrollToTopButton).fadeOut();
+      $("#scrollToTopButton").fadeOut();
     }
+
+    // Adjust background fill based on scroll progress
+    $("#scrollToTopButton").css("background", `linear-gradient(to top, #007bff ${scrollPercent}%, transparent ${scrollPercent}%)`);
   });
 
   // Scroll to top when button is clicked.
