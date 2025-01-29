@@ -384,7 +384,7 @@
 	font-weight: 500;
 	font-size: 3.5rem;
 	line-height: 1.5;
-	letter-spacing: 0.025rem;
+	letter-spacing: -0.1rem;
 	background: #2575AC;
 	background: -webkit-linear-gradient(to right, #C9D706 0%, #2575AC 25%);
 	background: -moz-linear-gradient(to right, #C9D706 0%, #2575AC 25%);
