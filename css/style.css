@@ -510,10 +510,10 @@
 	-webkit-animation-duration: 0.3s;
 	-moz-animation-duration: 0.3s;
 	-o-animation-duration: 0.3s;
-	transition: background 0.3s ease-in-out;
-	-webkit-transition: background 0.3s ease-in-out;
-	-moz-transition: background 0.3s ease-in-out;
-	-o-transition: background 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out;
+	-webkit-transition: border-color 0.3s ease-in-out;
+	-moz-transition: border-color 0.3s ease-in-out;
+	-o-transition: border-color 0.3s ease-in-out;
 }
 
 .back-to-top:hover {
