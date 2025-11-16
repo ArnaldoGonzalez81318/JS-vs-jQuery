@@ -1060,6 +1060,7 @@ pre code {
 		align-items: center;
 		text-align: center;
 		gap: 18px;
+		max-width: 100%;
 	}
 
 	.doc-hero-badge {
@@ -1071,6 +1072,7 @@ pre code {
 	.doc-hero-highlights {
 		grid-template-columns: 1fr;
 		width: 100%;
+		gap: 12px;
 	}
 
 	.hero-highlight {
@@ -1079,23 +1081,24 @@ pre code {
 	}
 
 	.hero-highlight-icon {
-		width: 40px;
-		height: 40px;
-		font-size: 1rem;
-	}
-
-	.hero-highlight-title {
+		width: 38px;
+		height: 38px;
 		font-size: 0.95rem;
 	}
 
+	.hero-highlight-title {
+		font-size: 0.92rem;
+	}
+
 	.hero-highlight-copy p:not(.hero-highlight-title) {
-		font-size: 0.9rem;
+		font-size: 0.88rem;
 	}
 
 	.hero-actions {
 		justify-content: center;
 		flex-wrap: wrap;
 		gap: 10px;
+		width: 100%;
 	}
 
 	.hero-footnote {
@@ -1103,7 +1106,7 @@ pre code {
 	}
 
 	.doc-hero-visual {
-		max-width: 280px;
+		max-width: min(280px, 90%);
 	}
 
 	.doc-stats {
@@ -1111,15 +1114,18 @@ pre code {
 	}
 
 	.documentation-body {
-		padding: 22px;
+		padding: 20px;
+		gap: 28px;
 	}
 
 	.section {
 		padding: 16px;
+		gap: 14px;
 	}
 
 	pre.code {
-		font-size: 0.9rem;
+		font-size: 0.88rem;
+		padding: 18px;
 	}
 
 	.back-to-top {
@@ -1140,16 +1146,16 @@ pre code {
 	}
 
 	.hero-visual-shell {
-		padding: 16px;
+		padding: 14px;
 	}
 
 	.hero-visual-card {
-		bottom: 14px;
-		left: 14px;
+		bottom: 12px;
+		left: 12px;
 	}
 
 	.documentation-body {
-		gap: 32px;
+		gap: 28px;
 	}
 
 	.stat-card {
@@ -1163,26 +1169,28 @@ pre code {
 
 @media (max-width: 480px) {
 	.doc-title {
-		font-size: 1.9rem;
+		font-size: 1.85rem;
 	}
 
 	.hero-actions {
 		width: 100%;
 		flex-direction: column;
 		align-items: stretch;
+		gap: 12px;
 	}
 
 	.hero-action {
 		flex: 1 1 auto;
 		width: 100%;
 		justify-content: center;
+		padding: 12px;
 	}
 
 	.hero-visual-card {
-		left: 12px;
-		bottom: 12px;
-		padding: 10px 14px;
-		min-width: 140px;
+		left: 10px;
+		bottom: 10px;
+		padding: 9px 12px;
+		min-width: 132px;
 	}
 
 	.stats-grid {
@@ -1191,6 +1199,7 @@ pre code {
 
 	.documentation-body {
 		padding: 18px;
+		gap: 26px;
 	}
 
 	.section {
@@ -1199,21 +1208,21 @@ pre code {
 
 	pre.code {
 		padding: 16px;
-		font-size: 0.88rem;
+		font-size: 0.86rem;
 	}
 }
 
 @media (max-width: 360px) {
 	.doc-hero {
-		padding: 20px;
+		padding: 18px;
 	}
 
 	.doc-title {
-		font-size: clamp(1.7rem, 5vw, 1.85rem);
+		font-size: clamp(1.68rem, 5vw, 1.82rem);
 	}
 
 	.doc-subtitle {
-		font-size: 0.95rem;
+		font-size: 0.92rem;
 	}
 
 	.doc-hero-badge {
@@ -1222,13 +1231,13 @@ pre code {
 	}
 
 	.hero-highlight {
-		padding: 12px;
+		padding: 10px;
 	}
 
 	.hero-highlight-icon {
-		width: 36px;
-		height: 36px;
-		font-size: 0.95rem;
+		width: 32px;
+		height: 32px;
+		font-size: 0.85rem;
 	}
 
 	.hero-actions {
@@ -1237,11 +1246,11 @@ pre code {
 
 	.hero-action {
 		font-size: 0.9rem;
-		padding: 9px 14px;
+		padding: 9px 12px;
 	}
 
 	.hero-footnote {
-		font-size: 0.75rem;
+		font-size: 0.72rem;
 	}
 
 	.stat-card {
@@ -1249,7 +1258,7 @@ pre code {
 	}
 
 	pre.code {
-		font-size: 0.85rem;
+		font-size: 0.83rem;
 	}
 }
 
