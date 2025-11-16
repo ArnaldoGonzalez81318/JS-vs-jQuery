@@ -1,28 +1,46 @@
 const toggleSwitch = document.getElementById('checkbox');
+const themePreferenceKey = 'js-vs-jquery-theme';
+const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-// Function to set the initial theme based on system preferences
-function setInitialTheme() {
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    // Dark mode preferred
-    toggleSwitch.checked = true;
-    document.documentElement.setAttribute('data-theme', 'dark');
-  } else {
-    // Light mode preferred
-    toggleSwitch.checked = false;
-    document.documentElement.setAttribute('data-theme', 'light');
+function setTheme(theme, persist = true) {
+  document.documentElement.setAttribute('data-theme', theme);
+  if (toggleSwitch) {
+    toggleSwitch.checked = theme === 'dark';
+  }
+  if (persist) {
+    localStorage.setItem(themePreferenceKey, theme);
   }
 }
 
-// Event listener for theme switch toggle
-toggleSwitch.addEventListener('change', function () {
-  if (this.checked) {
-    console.log('Dark theme');
-    document.documentElement.setAttribute('data-theme', 'dark');
-  } else {
-    console.log('Light theme');
-    document.documentElement.setAttribute('data-theme', 'light');
-  }
-});
+function getStoredTheme() {
+  return localStorage.getItem(themePreferenceKey);
+}
 
-// Set initial theme
+function setInitialTheme() {
+  const storedTheme = getStoredTheme();
+  if (storedTheme) {
+    setTheme(storedTheme, false);
+  } else {
+    setTheme(themeMediaQuery.matches ? 'dark' : 'light', false);
+  }
+}
+
+if (toggleSwitch) {
+  toggleSwitch.addEventListener('change', () => {
+    setTheme(toggleSwitch.checked ? 'dark' : 'light');
+  });
+}
+
+const mediaQueryListener = (event) => {
+  if (!getStoredTheme()) {
+    setTheme(event.matches ? 'dark' : 'light', false);
+  }
+};
+
+if (typeof themeMediaQuery.addEventListener === 'function') {
+  themeMediaQuery.addEventListener('change', mediaQueryListener);
+} else if (typeof themeMediaQuery.addListener === 'function') {
+  themeMediaQuery.addListener(mediaQueryListener);
+}
+
 setInitialTheme();
