@@ -28,7 +28,6 @@
 
   <title>Vanilla JavaScript vs jQuery Documentation</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js" defer></script>
   <script src="./js/index.js" defer></script>
   <script src="./js/themeSwitcher.js" defer></script>
@@ -73,12 +72,21 @@
           </div>
         </div>
         <div class="navigation-bar-header-menu">
-          <button class="dropdown-btn">
-            <i class="fa-solid fa-bars"></i>
+          <button class="dropdown-btn" id="dropdownToggle" aria-expanded="false" aria-controls="mobileNav">
+            <span class="sr-only">Toggle table of contents</span>
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
           </button>
         </div>
-        <div class="navigation-bar-header-menu-items">
-          <ul></ul>
+        <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents">
+          <div class="mobile-search-wrapper">
+            <label class="toc-search" for="toc-search-mobile">
+              <span class="sr-only">Filter sections</span>
+              <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false"
+                autocomplete="off">
+            </label>
+          </div>
+          <ul class="toc-list"></ul>
+          <p class="toc-empty" data-context="mobile">No matching sections yet.</p>
         </div>
       </div>
     </header>
@@ -87,21 +95,47 @@
     <div class="documentation-book">
       <!-- Documentation Sidebar Nav -->
       <div class="sidebar" id="sidebar">
-        <nav class="sidebar-nav">
-          <ul></ul>
-        </nav>
+        <div class="sidebar-inner">
+          <div class="sidebar-header">
+            <h2 class="sidebar-title">On this page</h2>
+            <label class="toc-search" for="toc-search">
+              <span class="sr-only">Filter sections</span>
+              <input type="search" id="toc-search" placeholder="Filter sections" spellcheck="false" autocomplete="off">
+            </label>
+          </div>
+          <nav class="sidebar-nav" aria-label="Table of contents">
+            <ul class="toc-list"></ul>
+            <p class="toc-empty" data-context="sidebar">No matching sections yet.</p>
+          </nav>
+        </div>
       </div>
       <!-- End Documentation Sidebar Nav -->
 
       <!-- Documentation Body -->
       <div class="document">
-        <div class="images-jquery-vs-javascript">
-          <img src="./Images/jquery-and-js-books.png" alt="jQuery vs JavaScript">
-        </div>
+        <section class="doc-hero" aria-label="Introduction">
+          <div class="doc-hero-body">
+            <div class="doc-hero-text">
+              <p class="eyebrow">Cheat Sheet Companion</p>
+              <h1 class="doc-title">JavaScript vs jQuery Documentation</h1>
+              <p class="doc-subtitle">Compare popular jQuery helpers with their vanilla JavaScript equivalents,
+                explore the DOM APIs, and level up your reasoning about what the framework is doing for you.</p>
+              <div class="hero-actions">
+                <a class="hero-action" href="#convert-javascript-to-jquery">Start exploring</a>
+                <button class="hero-action secondary" type="button" id="expandSectionsBtn">Expand all sections</button>
+              </div>
+            </div>
+            <div class="doc-hero-visual" aria-hidden="true">
+              <img src="./Images/jquery-and-js-books.png" alt="Books arranged for JavaScript and jQuery" loading="lazy">
+            </div>
+          </div>
+        </section>
+        <section class="doc-stats" aria-label="Quick facts">
+          <div class="stats-grid" id="doc-stats"></div>
+        </section>
         <main id="documentation-body" class="documentation-body">
-          <div>
-            <h1 class="js-vs-jquery">JavaScript vs jQuery Documentation</h1>
-            <p class="paragraph">
+          <div class="intro-wrapper">
+            <p class="paragraph lead">
               JavaScript & jQuery Docs aid developers to improve web development skills. Providing detailed explanations
               about syntax and code examples.
             </p>
@@ -187,7 +221,7 @@
             <code class="small-code">querySelectorAll()</code>.
           </p>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="program">Program</h3>
             <div class="code-wrapper">
               <div class="copy-to-clipboard"></div>
@@ -253,7 +287,7 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="select-first-element">Select First Element</h3>
             <div class="jquery">jQuery:</div>
 
@@ -295,7 +329,7 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="find-elements">Find Elements</h3>
 
             <div class="jquery">jQuery:</div>
@@ -362,7 +396,7 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="select-children">Select Children</h3>
 
             <div class="jquery">jQuery:</div>
@@ -423,7 +457,7 @@ parentNode.children;
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="select-parent">Select Parent</h3>
 
             <div class="jquery">jQuery:</div>
@@ -471,7 +505,7 @@ item.parentNode;
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="select-siblings">Select Siblings</h3>
 
             <div class="jquery">jQuery:</div>
@@ -524,7 +558,7 @@ Node.parentNode.<span class="function">querySelectorAll</span>(<span class="stri
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="select-next-sibling">Select Next Sibling</h3>
 
             <div class="jquery">jQuery:</div>
@@ -569,7 +603,7 @@ Node.parentNode.<span class="function">querySelectorAll</span>(<span class="stri
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="select-previous-sibling">Select Previous Sibling</h3>
 
             <div class="jquery">jQuery:</div>
@@ -614,7 +648,7 @@ Node.parentNode.<span class="function">querySelectorAll</span>(<span class="stri
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="add-class">Add Class</h3>
 
             <div class="jquery">jQuery:</div>
@@ -658,7 +692,7 @@ Node.parentNode.<span class="function">querySelectorAll</span>(<span class="stri
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="remove-class">Remove Class</h3>
             <div class="jquery">jQuery:</div>
 
@@ -710,7 +744,7 @@ item.classList.<span class="function">add</span>(<span class="string"><span>'thi
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="toggle-class">Toggle Class</h3>
 
             <div class="jquery">jQuery:</div>
@@ -756,7 +790,7 @@ item.classList.<span class="function">add</span>(<span class="string"><span>'thi
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="has-class">Has Class</h3>
             <div class="jquery">jQuery:</div>
 
@@ -804,7 +838,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="get-attribute">Get Attribute</h3>
             <div class="jquery">jQuery:</div>
 
@@ -848,7 +882,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="set-attribute">Set Attribute</h3>
             <div class="jquery">jQuery:</div>
 
@@ -893,7 +927,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="remove-attribute">Remove Attribute</h3>
             <div class="jquery">jQuery:</div>
 
@@ -938,7 +972,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="append-a-new-child-element">Append a New Child Element</h3>
             <div class="jquery">jQuery:</div>
 
@@ -985,7 +1019,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="prepend-a-new-child-element">Prepend a New Child Element</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1030,7 +1064,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="get-or-set-html-content">Get or Set HTML Content</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1077,7 +1111,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="get-or-set-css-property">Get or Set CSS Property</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1125,7 +1159,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="get-or-set-text-of-an-element-and-its-desc">Get or Set Text of an Element and Its Desc</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1171,7 +1205,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="get-or-set-input-values">Get or Set Input Values</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1220,7 +1254,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="hide-element">Hide Element</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1263,7 +1297,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="show-element">Show Element</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1308,7 +1342,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="add-event-listener">Add Event Listener</h3>
             <div class="jquery">jQuery:</div>
 
@@ -1359,7 +1393,7 @@ item.classList.<span class="function">contains</span>(<span class="string">'acti
             </div>
           </section>
 
-          <section class="section">
+          <section class="section collapsible" data-collapsed="true">
             <h3 class="remove-event-listener">Remove Event Listener</h3>
             <div class="jquery">jQuery:</div>
 
