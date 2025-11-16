@@ -982,6 +982,7 @@ pre code {
 	align-items: center;
 	justify-content: center;
 	transition: transform var(--transition-fast), box-shadow var(--transition-fast), border var(--transition-fast);
+	z-index: 1100;
 }
 
 .back-to-top:hover,
@@ -997,6 +998,16 @@ pre code {
 
 .back-to-top.is-visible {
 	display: flex;
+}
+
+.back-to-top.is-visible {
+	display: flex;
+	opacity: 1;
+}
+
+.back-to-top.is-visible:focus-visible {
+	outline: 3px solid var(--color-accent);
+	outline-offset: 4px;
 }
 
 @media (max-width: 1080px) {
@@ -1044,6 +1055,39 @@ pre code {
 
 	.skip-to-content {
 		display: none;
+	}
+}
+
+@media (min-width: 1080px) {
+	.doc-hero-body {
+		flex-direction: row;
+		align-items: stretch;
+		gap: clamp(36px, 6vw, 56px);
+		width: 100%;
+	}
+
+	.doc-hero-visual {
+		flex: 0 0 clamp(320px, 28vw, 380px);
+		max-width: none;
+		margin: 0;
+	}
+
+	.doc-hero-text {
+		max-width: min(640px, 60%);
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	.doc-hero-highlights {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.hero-actions {
+		justify-content: flex-start;
+	}
+
+	.hero-footnote {
+		text-align: left;
 	}
 }
 
