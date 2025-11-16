@@ -1017,7 +1017,7 @@ pre code {
 	}
 
 	.doc-hero-text {
-		max-width: clamp(520px, 80vw, 680px);
+		max-width: min(100%, 680px);
 		align-items: center;
 		text-align: center;
 	}
