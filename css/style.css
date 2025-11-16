@@ -462,6 +462,7 @@ a:focus-visible {
 	flex-direction: column;
 	gap: clamp(28px, 5vw, 40px);
 	width: 100%;
+	min-width: 0;
 }
 
 .doc-hero {
