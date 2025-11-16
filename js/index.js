@@ -254,7 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!scrollToTopButton) return;
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 360 : 0;
+    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+    const progressAngle = Math.min(360, Math.max(0, progress * 360));
 
     if (scrollTop > 360) {
       scrollToTopButton.classList.add('is-visible');
@@ -262,8 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollToTopButton.classList.remove('is-visible');
     }
 
-    const hue = Math.min(360, Math.max(0, Math.round(scrollPercent)));
-    scrollToTopButton.style.borderColor = `hsl(${hue}, 80%, 60%)`;
+    scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
   }
 
   /** Mobile navigation */
