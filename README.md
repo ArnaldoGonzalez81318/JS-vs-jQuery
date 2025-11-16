@@ -1,7 +1,8 @@
- # ![Image](./Images/jquery-vs-javascript.jpeg)
+# JS-vs-JQuery
 
-# JS-vs-jQuery
- To help people, here’s a jQuery to JavaScript cheat sheet that includes the JavaScript equivalents to the most frequently used jQuery functionality.
+![JavaScript vs jQuery illustration](./Images/jquery-vs-javascript.jpeg)
+
+To help people, here’s a jQuery to JavaScript cheat sheet that includes the JavaScript equivalents to the most frequently used jQuery functionality.
 
 ## Convert JavaScript to jQuery
 
@@ -10,7 +11,7 @@
 
 ### How to convert JavaScript to jQuery ?
 
-**Selection:** In ***jQuery***, to select any element, we simply use the`$()`sign, but in JavaScript, to select any element, we can use`querySelector()`or`querySelectorAll()`.
+**Selection:** In ***jQuery***, to select any element, we simply use the `$()` sign, but in JavaScript, to select any element, we can use `querySelector()` or `querySelectorAll()`.
 
 #### Program
 
@@ -47,7 +48,7 @@ $("html") // To select the entire html.
 $("body") // To select the entire html body.
 ```
 
-#### See more in the jQuery API docs:[jQuery() global function](https://api.jquery.com/jQuery/)
+#### See more in the jQuery API docs: [jQuery() global function](https://api.jquery.com/jQuery/)
 
 * ***JavaScript:***
 
@@ -836,4 +837,3 @@ Please make sure to update tests as appropriate.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
