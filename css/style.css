@@ -76,8 +76,6 @@ pre.code {
 	scrollbar-color: var(--color-accent) var(--scrollbar-track);
 }
 
-}
-
 *::-webkit-scrollbar {
 	width: 12px;
 	height: 12px;
@@ -182,13 +180,13 @@ a:focus-visible {
 }
 
 .navigation-bar-header-content {
-	max-width: 1200px;
+	width: min(1200px, 100%);
 	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 14px 24px;
-	gap: 32px;
+	padding: clamp(12px, 2vw, 18px) clamp(16px, 4vw, 28px);
+	gap: clamp(20px, 4vw, 32px);
 }
 
 .navigation-bar-header {
@@ -343,13 +341,15 @@ a:focus-visible {
 	margin-bottom: 8px;
 }
 
+
 .documentation-book {
-	max-width: 1200px;
-	margin: 40px auto;
+	width: min(1200px, 100%);
+	margin: clamp(32px, 6vw, 48px) auto clamp(72px, 8vw, 96px);
 	display: grid;
-	grid-template-columns: 290px minmax(0, 1fr);
-	gap: 32px;
-	padding: 0 24px 80px;
+	grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+	gap: clamp(24px, 5vw, 40px);
+	padding: 0 clamp(16px, 4vw, 24px);
+	align-items: start;
 }
 
 .sidebar {
@@ -1001,15 +1001,32 @@ pre code {
 @media (max-width: 1080px) {
 	.documentation-book {
 		grid-template-columns: 1fr;
+		padding: 0 clamp(14px, 4vw, 20px);
+		gap: clamp(24px, 5vw, 36px);
+	}
+
+	.document {
+		align-items: stretch;
+		gap: clamp(24px, 5vw, 40px);
 	}
 
 	.doc-hero-body {
 		align-items: center;
-		gap: 36px;
+		gap: clamp(24px, 5vw, 36px);
 	}
 
 	.doc-hero-text {
-		max-width: 100%;
+		max-width: clamp(520px, 80vw, 680px);
+		align-items: center;
+		text-align: center;
+	}
+
+	.hero-actions {
+		justify-content: center;
+	}
+
+	.hero-footnote {
+		text-align: center;
 	}
 
 	.doc-hero-visual {
@@ -1076,7 +1093,7 @@ pre code {
 
 	.hero-actions {
 		justify-content: center;
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
 		gap: 10px;
 	}
 
