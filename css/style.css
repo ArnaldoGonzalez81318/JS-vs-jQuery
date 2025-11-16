@@ -969,11 +969,10 @@ pre code {
 	position: fixed;
 	bottom: 32px;
 	right: 32px;
-	display: none;
 	width: 56px;
 	height: 56px;
 	border-radius: 50%;
-	border: 2px solid var(--color-accent-light);
+	border: 2px solid transparent;
 	background: var(--color-surface);
 	color: var(--color-accent);
 	cursor: pointer;
@@ -983,6 +982,34 @@ pre code {
 	justify-content: center;
 	transition: transform var(--transition-fast), box-shadow var(--transition-fast), border var(--transition-fast);
 	z-index: 1100;
+	--progress-angle: 0deg;
+	--progress-track-color: color-mix(in srgb, var(--color-border) 55%, transparent);
+}
+
+.back-to-top::before,
+.back-to-top::after {
+	content: '';
+	position: absolute;
+	inset: -4px;
+	border-radius: inherit;
+	pointer-events: none;
+}
+
+.back-to-top::before {
+	background: radial-gradient(farthest-side, transparent calc(100% - 4px), var(--progress-track-color) calc(100% - 3px));
+}
+
+.back-to-top::after {
+	background: conic-gradient(from -90deg,
+			#22d3ee 0deg,
+			#22d3ee calc(var(--progress-angle) * 0.55),
+			var(--color-accent) calc(var(--progress-angle) * 0.55),
+			var(--color-accent) calc(var(--progress-angle) * 0.85),
+			#a855f7 var(--progress-angle),
+			transparent var(--progress-angle),
+			transparent 360deg);
+	mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
 }
 
 .back-to-top:hover,
@@ -1060,34 +1087,41 @@ pre code {
 
 @media (min-width: 1080px) {
 	.doc-hero-body {
-		flex-direction: row;
-		align-items: stretch;
-		gap: clamp(36px, 6vw, 56px);
-		width: 100%;
+		max-width: min(960px, 100%);
+		margin: 0 auto;
+		gap: clamp(32px, 5vw, 52px);
 	}
 
 	.doc-hero-visual {
-		flex: 0 0 clamp(320px, 28vw, 380px);
-		max-width: none;
-		margin: 0;
+		width: clamp(360px, 42vw, 520px);
+		margin: 0 auto;
 	}
 
 	.doc-hero-text {
-		max-width: min(640px, 60%);
-		align-items: flex-start;
-		text-align: left;
+		max-width: min(720px, 100%);
+		align-items: center;
+		text-align: center;
+		margin: 0 auto;
 	}
 
 	.doc-hero-highlights {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+		max-width: min(720px, 100%);
 	}
 
 	.hero-actions {
-		justify-content: flex-start;
+		justify-content: center;
 	}
 
 	.hero-footnote {
-		text-align: left;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: min(720px, 100%);
+	}
+
+	.doc-hero-badge {
+		align-self: center;
 	}
 }
 
