@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const footerDisclaimer = document.querySelector('.footer-disclaimer');
-  let backToTopButton = document.getElementById('backToTopButton');
+  const scrollToTopButton = ensureScrollToTopButton();
   const progressBar = document.getElementById('progressBar');
   const mobileNav = document.getElementById('mobileNav');
   const mobileToggle = document.getElementById('dropdownToggle');
@@ -21,44 +21,52 @@ document.addEventListener('DOMContentLoaded', () => {
   buildNavigation();
   initCollapsibles();
   initSectionObserver();
-  ensureBackToTopButton();
   initScrollFeatures();
   initMobileMenu();
   initSearchInputs();
   initStats();
   announceConsoleMessage();
-  function ensureBackToTopButton() {
-    if (backToTopButton && document.body.contains(backToTopButton)) {
-      normaliseScrollButton(backToTopButton);
-      return;
+  function ensureScrollToTopButton() {
+    let button = document.getElementById('scrollToTopButton');
+
+    if (!button) {
+      button = document.createElement('button');
+      button.type = 'button';
+      button.id = 'scrollToTopButton';
+      button.className = 'back-to-top';
+      button.setAttribute('aria-label', 'Scroll to top');
+      button.title = 'Scroll to top';
+      button.innerHTML = '<i class="fa-solid fa-chevron-up fa-lg"></i>';
+      document.body.append(button);
+    } else if (!document.body.contains(button)) {
+      document.body.append(button);
     }
 
-    backToTopButton?.remove();
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.id = 'backToTopButton';
-    button.className = 'back-to-top';
-    button.setAttribute('aria-label', 'Scroll to top');
-    button.title = 'Scroll to top';
-    button.innerHTML = '<i class="fa-solid fa-chevron-up fa-lg"></i>';
-    normaliseScrollButton(button);
-    document.body.append(button);
-    backToTopButton = button;
+    stabiliseScrollButton(button);
+    return button;
   }
 
-  function normaliseScrollButton(button) {
+  function stabiliseScrollButton(button) {
     button.hidden = false;
     button.removeAttribute('hidden');
     button.classList.add('back-to-top');
     if (!button.style.getPropertyValue('--progress-angle')) {
       button.style.setProperty('--progress-angle', '0deg');
     }
-    setScrollButtonDisplay(button, 'none');
+    applyScrollButtonDisplay(button, false);
   }
 
-  function setScrollButtonDisplay(button, value) {
-    button.style.setProperty('display', value, 'important');
+  function applyScrollButtonDisplay(button, visible) {
+    const nextDisplay = visible ? 'flex' : 'none';
+    button.style.setProperty('display', nextDisplay, 'important');
+    if (visible) {
+      const computedDisplay = window.getComputedStyle(button).display;
+      if (computedDisplay === 'none') {
+        // fallback: remove inline block and force reflow
+        button.style.removeProperty('display');
+        button.style.setProperty('display', 'flex', 'important');
+      }
+    }
   }
 
 
@@ -266,9 +274,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** Scroll features */
   function initScrollFeatures() {
-    if (backToTopButton) {
-      backToTopButton.hidden = false;
-      backToTopButton.removeAttribute('hidden');
+    if (scrollToTopButton) {
+      scrollToTopButton.hidden = false;
+      scrollToTopButton.removeAttribute('hidden');
+      scrollToTopButton.classList.add('back-to-top');
     }
 
     const handleScroll = () => {
@@ -279,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    backToTopButton?.addEventListener('click', () => {
+    scrollToTopButton?.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
         behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
@@ -310,23 +319,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateScrollButton() {
-    if (!backToTopButton) return;
+    if (!scrollToTopButton) return;
     const { scrollTop, distance } = getScrollMetrics();
     const progress = distance > 0 ? scrollTop / distance : 0;
     const progressAngle = Math.min(360, Math.max(0, progress * 360));
 
     if (scrollTop > 280) {
-      backToTopButton.classList.add('is-visible');
-      if (backToTopButton.hidden) {
-        backToTopButton.hidden = false;
+      scrollToTopButton.classList.add('is-visible');
+      if (scrollToTopButton.hidden) {
+        scrollToTopButton.hidden = false;
       }
-      setScrollButtonDisplay(backToTopButton, 'flex');
+      applyScrollButtonDisplay(scrollToTopButton, true);
     } else {
-      backToTopButton.classList.remove('is-visible');
-      setScrollButtonDisplay(backToTopButton, 'none');
+      scrollToTopButton.classList.remove('is-visible');
+      applyScrollButtonDisplay(scrollToTopButton, false);
     }
 
-    backToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
+    scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
   }
 
   /** Mobile navigation */
