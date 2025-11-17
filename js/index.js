@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollToTopButton.hidden = false;
       scrollToTopButton.removeAttribute('hidden');
       scrollToTopButton.style.setProperty('display', 'flex', 'important');
-      scrollToTopButton.classList.add('back-to-top');
+      scrollToTopButton.classList.add('scroll-top-control');
       scrollToTopButton.classList.remove('is-visible');
       scrollToTopButton.style.setProperty('--progress-angle', '0deg');
       scrollToTopButton.style.visibility = 'hidden';
