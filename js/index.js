@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!button.style.getPropertyValue('--progress-angle')) {
       button.style.setProperty('--progress-angle', '0deg');
     }
-    button.style.removeProperty('display');
+    button.style.display = 'none';
   }
 
 
@@ -316,8 +316,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (scrollToTopButton.hidden) {
         scrollToTopButton.hidden = false;
       }
+      scrollToTopButton.style.display = 'flex';
     } else {
       scrollToTopButton.classList.remove('is-visible');
+      scrollToTopButton.style.display = 'none';
     }
 
     scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
