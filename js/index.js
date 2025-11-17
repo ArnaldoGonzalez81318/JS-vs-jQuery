@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCollapsibles();
   initSectionObserver();
   initScrollFeatures();
+  monitorScrollButtonOverrides();
   initMobileMenu();
   initSearchInputs();
   initStats();
@@ -300,6 +301,39 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
+  }
+
+  function monitorScrollButtonOverrides() {
+    if (!scrollToTopButton) return;
+
+    const enforceDisplay = () => {
+      const computed = window.getComputedStyle(scrollToTopButton).display;
+      if (computed === 'none') {
+        scrollToTopButton.style.setProperty('display', 'flex', 'important');
+        scrollToTopButton.dataset.overrideDetected = 'true';
+      }
+    };
+
+    enforceDisplay();
+
+    const observer = new MutationObserver((mutations) => {
+      if (!scrollToTopButton.isConnected) return;
+      for (const mutation of mutations) {
+        if (mutation.type === 'attributes') {
+          enforceDisplay();
+        }
+      }
+    });
+
+    observer.observe(scrollToTopButton, {
+      attributes: true,
+      attributeFilter: ['style', 'class', 'hidden'],
+    });
+
+    window.addEventListener('visibilitychange', enforceDisplay);
+    window.addEventListener('resize', enforceDisplay);
+
+    setInterval(enforceDisplay, 1200);
   }
 
   /** Mobile navigation */
