@@ -966,82 +966,6 @@ pre code {
 	font-size: 0.95rem;
 }
 
-.scroll-top-control {
-	position: fixed;
-	bottom: 32px;
-	right: 32px;
-	width: 56px;
-	height: 56px;
-	border-radius: 50%;
-	border: 2px solid transparent;
-	background: var(--color-surface);
-	color: var(--color-accent);
-	cursor: pointer;
-	box-shadow: var(--shadow-sm);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: transform var(--transition-fast), box-shadow var(--transition-fast), border var(--transition-fast), opacity var(--transition-fast);
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	z-index: 1100;
-	--progress-angle: 0deg;
-	--progress-track-color: color-mix(in srgb, var(--color-border) 55%, transparent);
-}
-
-html body #scrollToTopButton.scroll-top-control {
-	display: flex !important;
-}
-
-.scroll-top-control::before,
-.scroll-top-control::after {
-	content: '';
-	position: absolute;
-	inset: -4px;
-	border-radius: inherit;
-	pointer-events: none;
-}
-
-.scroll-top-control::before {
-	background: radial-gradient(farthest-side, transparent calc(100% - 4px), var(--progress-track-color) calc(100% - 3px));
-}
-
-.scroll-top-control::after {
-	background: conic-gradient(from -90deg,
-			#22d3ee 0deg,
-			#22d3ee calc(var(--progress-angle) * 0.55),
-			var(--color-accent) calc(var(--progress-angle) * 0.55),
-			var(--color-accent) calc(var(--progress-angle) * 0.85),
-			#a855f7 var(--progress-angle),
-			transparent var(--progress-angle),
-			transparent 360deg);
-	mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
-	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
-}
-
-.scroll-top-control:hover,
-.scroll-top-control:focus-visible {
-	transform: translateY(-2px);
-	box-shadow: var(--shadow-lg);
-	border-color: var(--color-accent);
-}
-
-.scroll-top-control i {
-	pointer-events: none;
-}
-
-.scroll-top-control.is-visible {
-	opacity: 1;
-	visibility: visible;
-	pointer-events: auto;
-}
-
-.scroll-top-control.is-visible:focus-visible {
-	outline: 3px solid var(--color-accent);
-	outline-offset: 4px;
-}
-
 @media (max-width: 1080px) {
 	.documentation-book {
 		grid-template-columns: 1fr;
@@ -1211,12 +1135,6 @@ html body #scrollToTopButton.scroll-top-control {
 		padding: 18px;
 	}
 
-	.scroll-top-control {
-		bottom: 18px;
-		right: 18px;
-		width: 48px;
-		height: 48px;
-	}
 }
 
 @media (max-width: 620px) {
