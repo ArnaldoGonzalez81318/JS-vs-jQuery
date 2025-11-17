@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const footerDisclaimer = document.querySelector('.footer-disclaimer');
-  const scrollToTopButton = document.getElementById('scrollToTopButton');
   const progressBar = document.getElementById('progressBar');
   const mobileNav = document.getElementById('mobileNav');
   const mobileToggle = document.getElementById('dropdownToggle');
@@ -21,8 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildNavigation();
   initCollapsibles();
   initSectionObserver();
-  initScrollFeatures();
-  monitorScrollButtonOverrides();
+  initScrollProgress();
   initMobileMenu();
   initSearchInputs();
   initStats();
@@ -231,34 +229,14 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach((section) => observer.observe(section));
   }
 
-  /** Scroll features */
-  function initScrollFeatures() {
-    if (scrollToTopButton) {
-      scrollToTopButton.hidden = false;
-      scrollToTopButton.removeAttribute('hidden');
-      scrollToTopButton.style.setProperty('display', 'flex', 'important');
-      scrollToTopButton.classList.add('scroll-top-control');
-      scrollToTopButton.classList.remove('is-visible');
-      scrollToTopButton.style.setProperty('--progress-angle', '0deg');
-      scrollToTopButton.style.visibility = 'hidden';
-      scrollToTopButton.style.opacity = '0';
-      scrollToTopButton.style.pointerEvents = 'none';
-    }
-
+  /** Scroll progress */
+  function initScrollProgress() {
     const handleScroll = () => {
       updateProgressBar();
-      updateScrollButton();
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-
-    scrollToTopButton?.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
-      });
-    });
   }
 
   function getScrollMetrics() {
@@ -278,63 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     progressBar.style.width = `${percent}%`;
   }
 
-  function updateScrollButton() {
-    if (!scrollToTopButton) return;
-    const { scrollTop, distance } = getScrollMetrics();
-    const progress = distance > 0 ? scrollTop / distance : 0;
-    const progressAngle = Math.min(360, Math.max(0, progress * 360));
-
-    if (scrollTop > 280) {
-      scrollToTopButton.classList.add('is-visible');
-      if (scrollToTopButton.hidden) {
-        scrollToTopButton.hidden = false;
-      }
-      scrollToTopButton.style.setProperty('display', 'flex', 'important');
-      scrollToTopButton.style.visibility = 'visible';
-      scrollToTopButton.style.opacity = '1';
-      scrollToTopButton.style.pointerEvents = 'auto';
-    } else {
-      scrollToTopButton.classList.remove('is-visible');
-      scrollToTopButton.style.visibility = 'hidden';
-      scrollToTopButton.style.opacity = '0';
-      scrollToTopButton.style.pointerEvents = 'none';
-    }
-
-    scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
-  }
-
-  function monitorScrollButtonOverrides() {
-    if (!scrollToTopButton) return;
-
-    const enforceDisplay = () => {
-      const computed = window.getComputedStyle(scrollToTopButton).display;
-      if (computed === 'none') {
-        scrollToTopButton.style.setProperty('display', 'flex', 'important');
-        scrollToTopButton.dataset.overrideDetected = 'true';
-      }
-    };
-
-    enforceDisplay();
-
-    const observer = new MutationObserver((mutations) => {
-      if (!scrollToTopButton.isConnected) return;
-      for (const mutation of mutations) {
-        if (mutation.type === 'attributes') {
-          enforceDisplay();
-        }
-      }
-    });
-
-    observer.observe(scrollToTopButton, {
-      attributes: true,
-      attributeFilter: ['style', 'class', 'hidden'],
-    });
-
-    window.addEventListener('visibilitychange', enforceDisplay);
-    window.addEventListener('resize', enforceDisplay);
-
-    setInterval(enforceDisplay, 1200);
-  }
 
   /** Mobile navigation */
   function initMobileMenu() {
