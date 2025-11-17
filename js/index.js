@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const footerDisclaimer = document.querySelector('.footer-disclaimer');
-  const scrollToTopButton = document.getElementById('scrollToTopButton');
+  let scrollToTopButton = document.getElementById('scrollToTopButton');
   const progressBar = document.getElementById('progressBar');
   const mobileNav = document.getElementById('mobileNav');
   const mobileToggle = document.getElementById('dropdownToggle');
@@ -21,11 +21,42 @@ document.addEventListener('DOMContentLoaded', () => {
   buildNavigation();
   initCollapsibles();
   initSectionObserver();
+  ensureScrollToTopButton();
   initScrollFeatures();
   initMobileMenu();
   initSearchInputs();
   initStats();
   announceConsoleMessage();
+  function ensureScrollToTopButton() {
+    if (scrollToTopButton && document.body.contains(scrollToTopButton)) {
+      normaliseScrollButton(scrollToTopButton);
+      return;
+    }
+
+    scrollToTopButton?.remove();
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.id = 'scrollToTopButton';
+    button.className = 'back-to-top';
+    button.setAttribute('aria-label', 'Scroll to top');
+    button.title = 'Scroll to top';
+    button.innerHTML = '<i class="fa-solid fa-chevron-up fa-lg"></i>';
+    normaliseScrollButton(button);
+    document.body.append(button);
+    scrollToTopButton = button;
+  }
+
+  function normaliseScrollButton(button) {
+    button.hidden = false;
+    button.removeAttribute('hidden');
+    button.classList.add('back-to-top');
+    if (!button.style.getPropertyValue('--progress-angle')) {
+      button.style.setProperty('--progress-angle', '0deg');
+    }
+    button.style.removeProperty('display');
+  }
+
 
   /** Utilities */
   function createLiveRegion() {
