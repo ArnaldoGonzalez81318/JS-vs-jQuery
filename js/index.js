@@ -231,6 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** Scroll features */
   function initScrollFeatures() {
+    if (scrollToTopButton) {
+      scrollToTopButton.hidden = false;
+      scrollToTopButton.removeAttribute('hidden');
+    }
+
     const handleScroll = () => {
       updateProgressBar();
       updateScrollButton();
@@ -277,6 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (scrollTop > 280) {
       scrollToTopButton.classList.add('is-visible');
+      if (scrollToTopButton.hidden) {
+        scrollToTopButton.hidden = false;
+      }
     } else {
       scrollToTopButton.classList.remove('is-visible');
     }
