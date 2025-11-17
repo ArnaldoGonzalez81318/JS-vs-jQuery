@@ -205,7 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** Intersection observer */
   function initSectionObserver() {
-    if (!sections.length) return;
+    if (!sections.length || typeof window.IntersectionObserver !== 'function') {
+      if (sections[0]) {
+        setActiveSection(sections[0].id);
+      }
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -242,22 +247,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function getScrollMetrics() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.documentElement.clientHeight
+    );
+    const clientHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    const distance = scrollHeight - clientHeight;
+
+    return { scrollTop, scrollHeight, clientHeight, distance };
+  }
+
   function updateProgressBar() {
     if (!progressBar) return;
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    const distance = scrollHeight - clientHeight;
+    const { scrollTop, distance } = getScrollMetrics();
     const percent = distance > 0 ? (scrollTop / distance) * 100 : 0;
     progressBar.style.width = `${percent}%`;
   }
 
   function updateScrollButton() {
     if (!scrollToTopButton) return;
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+    const { scrollTop, distance } = getScrollMetrics();
+    const progress = distance > 0 ? scrollTop / distance : 0;
     const progressAngle = Math.min(360, Math.max(0, progress * 360));
 
-    if (scrollTop > 360) {
+    if (scrollTop > 280) {
       scrollToTopButton.classList.add('is-visible');
     } else {
       scrollToTopButton.classList.remove('is-visible');
