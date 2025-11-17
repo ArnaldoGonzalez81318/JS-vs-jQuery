@@ -966,49 +966,6 @@ pre code {
 	font-size: 0.95rem;
 }
 
-.scroll-top-button {
-	position: fixed;
-	bottom: 32px;
-	right: 32px;
-	width: 56px;
-	height: 56px;
-	display: grid;
-	place-items: center;
-	border-radius: 50%;
-	border: 2px solid color-mix(in srgb, var(--color-border) 65%, transparent);
-	background: var(--color-surface);
-	color: var(--color-accent);
-	box-shadow: var(--shadow-sm);
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	transition: opacity var(--transition-base), transform var(--transition-fast), box-shadow var(--transition-fast), border var(--transition-fast), visibility 0s linear 0.22s;
-	z-index: 1200;
-}
-
-.scroll-top-button:hover,
-.scroll-top-button:focus-visible {
-	transform: translateY(-4px);
-	box-shadow: var(--shadow-lg);
-	border-color: var(--color-accent);
-}
-
-.scroll-top-button:focus-visible {
-	outline: 3px solid var(--color-accent);
-	outline-offset: 4px;
-}
-
-.scroll-top-button i {
-	pointer-events: none;
-}
-
-.scroll-top-button.is-visible {
-	opacity: 1;
-	visibility: visible;
-	pointer-events: auto;
-	transition-delay: 0s;
-}
-
 @media (max-width: 1080px) {
 	.documentation-book {
 		grid-template-columns: 1fr;
@@ -1157,13 +1114,6 @@ pre code {
 
 	.doc-hero-visual {
 		max-width: min(280px, 90%);
-	}
-
-	.scroll-top-button {
-		bottom: 18px;
-		right: 18px;
-		width: 48px;
-		height: 48px;
 	}
 
 	.doc-stats {
