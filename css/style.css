@@ -1025,11 +1025,7 @@ pre code {
 }
 
 .back-to-top.is-visible {
-	display: flex;
-}
-
-.back-to-top.is-visible {
-	display: flex;
+	display: flex !important;
 	opacity: 1;
 }
 
