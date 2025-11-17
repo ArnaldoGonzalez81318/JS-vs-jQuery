@@ -966,7 +966,7 @@ pre code {
 	font-size: 0.95rem;
 }
 
-.back-to-top {
+.scroll-top-control {
 	position: fixed;
 	bottom: 32px;
 	right: 32px;
@@ -990,12 +990,12 @@ pre code {
 	--progress-track-color: color-mix(in srgb, var(--color-border) 55%, transparent);
 }
 
-html body #scrollToTopButton.back-to-top {
+html body #scrollToTopButton.scroll-top-control {
 	display: flex !important;
 }
 
-.back-to-top::before,
-.back-to-top::after {
+.scroll-top-control::before,
+.scroll-top-control::after {
 	content: '';
 	position: absolute;
 	inset: -4px;
@@ -1003,11 +1003,11 @@ html body #scrollToTopButton.back-to-top {
 	pointer-events: none;
 }
 
-.back-to-top::before {
+.scroll-top-control::before {
 	background: radial-gradient(farthest-side, transparent calc(100% - 4px), var(--progress-track-color) calc(100% - 3px));
 }
 
-.back-to-top::after {
+.scroll-top-control::after {
 	background: conic-gradient(from -90deg,
 			#22d3ee 0deg,
 			#22d3ee calc(var(--progress-angle) * 0.55),
@@ -1020,24 +1020,24 @@ html body #scrollToTopButton.back-to-top {
 	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
 }
 
-.back-to-top:hover,
-.back-to-top:focus-visible {
+.scroll-top-control:hover,
+.scroll-top-control:focus-visible {
 	transform: translateY(-2px);
 	box-shadow: var(--shadow-lg);
 	border-color: var(--color-accent);
 }
 
-.back-to-top i {
+.scroll-top-control i {
 	pointer-events: none;
 }
 
-.back-to-top.is-visible {
+.scroll-top-control.is-visible {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
 }
 
-.back-to-top.is-visible:focus-visible {
+.scroll-top-control.is-visible:focus-visible {
 	outline: 3px solid var(--color-accent);
 	outline-offset: 4px;
 }
@@ -1211,7 +1211,7 @@ html body #scrollToTopButton.back-to-top {
 		padding: 18px;
 	}
 
-	.back-to-top {
+	.scroll-top-control {
 		bottom: 18px;
 		right: 18px;
 		width: 48px;
