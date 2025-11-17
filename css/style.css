@@ -990,6 +990,10 @@ pre code {
 	--progress-track-color: color-mix(in srgb, var(--color-border) 55%, transparent);
 }
 
+html body #scrollToTopButton.back-to-top {
+	display: flex !important;
+}
+
 .back-to-top::before,
 .back-to-top::after {
 	content: '';
