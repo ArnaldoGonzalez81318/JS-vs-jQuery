@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const footerDisclaimer = document.querySelector('.footer-disclaimer');
+  const scrollTopButton = document.getElementById('scrollTopButton');
   const progressBar = document.getElementById('progressBar');
   const mobileNav = document.getElementById('mobileNav');
   const mobileToggle = document.getElementById('dropdownToggle');
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCollapsibles();
   initSectionObserver();
   initScrollProgress();
+  initScrollTopButton();
   initMobileMenu();
   initSearchInputs();
   initStats();
@@ -237,6 +239,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+  }
+
+  function initScrollTopButton() {
+    if (!scrollTopButton) return;
+
+    const toggleButton = () => {
+      const { scrollTop } = getScrollMetrics();
+      scrollTopButton.classList.toggle('is-visible', scrollTop > 240);
+    };
+
+    window.addEventListener('scroll', toggleButton, { passive: true });
+    toggleButton();
+
+    scrollTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
+      });
+    });
   }
 
   function getScrollMetrics() {
