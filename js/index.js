@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scrollToTopButton) {
       scrollToTopButton.hidden = false;
       scrollToTopButton.removeAttribute('hidden');
-      scrollToTopButton.style.removeProperty('display');
+      scrollToTopButton.style.setProperty('display', 'flex', 'important');
       scrollToTopButton.classList.add('back-to-top');
       scrollToTopButton.classList.remove('is-visible');
       scrollToTopButton.style.setProperty('--progress-angle', '0deg');
@@ -261,18 +261,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getScrollMetrics() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const scrollHeight = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.documentElement.clientHeight
-    );
-    const clientHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    const distance = scrollHeight - clientHeight;
+    const doc = document.documentElement;
+    const scrollTop = window.pageYOffset || doc.scrollTop || 0;
+    const scrollHeight = doc.scrollHeight || document.body.scrollHeight || 0;
+    const clientHeight = doc.clientHeight || window.innerHeight || 0;
+    const distance = Math.max(scrollHeight - clientHeight, 0);
 
-    return { scrollTop, scrollHeight, clientHeight, distance };
+    return { scrollTop, distance };
   }
 
   function updateProgressBar() {
@@ -293,6 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (scrollToTopButton.hidden) {
         scrollToTopButton.hidden = false;
       }
+      scrollToTopButton.style.setProperty('display', 'flex', 'important');
       scrollToTopButton.style.visibility = 'visible';
       scrollToTopButton.style.opacity = '1';
       scrollToTopButton.style.pointerEvents = 'auto';
