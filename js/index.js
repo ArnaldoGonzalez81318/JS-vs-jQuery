@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const footerDisclaimer = document.querySelector('.footer-disclaimer');
-  const scrollToTopButton = createScrollToTopButton();
+  const scrollToTopButton = document.getElementById('scrollToTopButton');
   const progressBar = document.getElementById('progressBar');
   const mobileNav = document.getElementById('mobileNav');
   const mobileToggle = document.getElementById('dropdownToggle');
@@ -26,26 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSearchInputs();
   initStats();
   announceConsoleMessage();
-
-  function createScrollToTopButton() {
-    const existing = document.getElementById('scrollToTopButton');
-    if (existing) {
-      existing.remove();
-    }
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.id = 'scrollToTopButton';
-    button.className = 'back-to-top';
-    button.setAttribute('aria-label', 'Scroll to top');
-    button.title = 'Scroll to top';
-    button.innerHTML = '<i class="fa-solid fa-chevron-up fa-lg"></i>';
-    button.hidden = false;
-    button.removeAttribute('hidden');
-    button.style.setProperty('--progress-angle', '0deg');
-    document.body.append(button);
-    return button;
-  }
 
 
   /** Utilities */
@@ -255,7 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scrollToTopButton) {
       scrollToTopButton.hidden = false;
       scrollToTopButton.removeAttribute('hidden');
+      scrollToTopButton.style.removeProperty('display');
       scrollToTopButton.classList.add('back-to-top');
+      scrollToTopButton.classList.remove('is-visible');
+      scrollToTopButton.style.setProperty('--progress-angle', '0deg');
+      scrollToTopButton.style.visibility = 'hidden';
+      scrollToTopButton.style.opacity = '0';
+      scrollToTopButton.style.pointerEvents = 'none';
     }
 
     const handleScroll = () => {
@@ -307,8 +293,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (scrollToTopButton.hidden) {
         scrollToTopButton.hidden = false;
       }
+      scrollToTopButton.style.visibility = 'visible';
+      scrollToTopButton.style.opacity = '1';
+      scrollToTopButton.style.pointerEvents = 'auto';
     } else {
       scrollToTopButton.classList.remove('is-visible');
+      scrollToTopButton.style.visibility = 'hidden';
+      scrollToTopButton.style.opacity = '0';
+      scrollToTopButton.style.pointerEvents = 'none';
     }
 
     scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
