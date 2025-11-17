@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const footerDisclaimer = document.querySelector('.footer-disclaimer');
-  const scrollToTopButton = ensureScrollToTopButton();
+  const scrollToTopButton = createScrollToTopButton();
   const progressBar = document.getElementById('progressBar');
   const mobileNav = document.getElementById('mobileNav');
   const mobileToggle = document.getElementById('dropdownToggle');
@@ -26,47 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
   initSearchInputs();
   initStats();
   announceConsoleMessage();
-  function ensureScrollToTopButton() {
-    let button = document.getElementById('scrollToTopButton');
 
-    if (!button) {
-      button = document.createElement('button');
-      button.type = 'button';
-      button.id = 'scrollToTopButton';
-      button.className = 'back-to-top';
-      button.setAttribute('aria-label', 'Scroll to top');
-      button.title = 'Scroll to top';
-      button.innerHTML = '<i class="fa-solid fa-chevron-up fa-lg"></i>';
-      document.body.append(button);
-    } else if (!document.body.contains(button)) {
-      document.body.append(button);
+  function createScrollToTopButton() {
+    const existing = document.getElementById('scrollToTopButton');
+    if (existing) {
+      existing.remove();
     }
 
-    stabiliseScrollButton(button);
-    return button;
-  }
-
-  function stabiliseScrollButton(button) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.id = 'scrollToTopButton';
+    button.className = 'back-to-top';
+    button.setAttribute('aria-label', 'Scroll to top');
+    button.title = 'Scroll to top';
+    button.innerHTML = '<i class="fa-solid fa-chevron-up fa-lg"></i>';
     button.hidden = false;
     button.removeAttribute('hidden');
-    button.classList.add('back-to-top');
-    if (!button.style.getPropertyValue('--progress-angle')) {
-      button.style.setProperty('--progress-angle', '0deg');
-    }
-    applyScrollButtonDisplay(button, false);
-  }
-
-  function applyScrollButtonDisplay(button, visible) {
-    const nextDisplay = visible ? 'flex' : 'none';
-    button.style.setProperty('display', nextDisplay, 'important');
-    if (visible) {
-      const computedDisplay = window.getComputedStyle(button).display;
-      if (computedDisplay === 'none') {
-        // fallback: remove inline block and force reflow
-        button.style.removeProperty('display');
-        button.style.setProperty('display', 'flex', 'important');
-      }
-    }
+    button.style.setProperty('--progress-angle', '0deg');
+    document.body.append(button);
+    return button;
   }
 
 
@@ -329,10 +307,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (scrollToTopButton.hidden) {
         scrollToTopButton.hidden = false;
       }
-      applyScrollButtonDisplay(scrollToTopButton, true);
     } else {
       scrollToTopButton.classList.remove('is-visible');
-      applyScrollButtonDisplay(scrollToTopButton, false);
     }
 
     scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
