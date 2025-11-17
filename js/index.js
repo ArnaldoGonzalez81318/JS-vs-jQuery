@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const footerDisclaimer = document.querySelector('.footer-disclaimer');
-  let scrollToTopButton = document.getElementById('scrollToTopButton');
+  let backToTopButton = document.getElementById('backToTopButton');
   const progressBar = document.getElementById('progressBar');
   const mobileNav = document.getElementById('mobileNav');
   const mobileToggle = document.getElementById('dropdownToggle');
@@ -21,30 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
   buildNavigation();
   initCollapsibles();
   initSectionObserver();
-  ensureScrollToTopButton();
+  ensureBackToTopButton();
   initScrollFeatures();
   initMobileMenu();
   initSearchInputs();
   initStats();
   announceConsoleMessage();
-  function ensureScrollToTopButton() {
-    if (scrollToTopButton && document.body.contains(scrollToTopButton)) {
-      normaliseScrollButton(scrollToTopButton);
+  function ensureBackToTopButton() {
+    if (backToTopButton && document.body.contains(backToTopButton)) {
+      normaliseScrollButton(backToTopButton);
       return;
     }
 
-    scrollToTopButton?.remove();
+    backToTopButton?.remove();
 
     const button = document.createElement('button');
     button.type = 'button';
-    button.id = 'scrollToTopButton';
+    button.id = 'backToTopButton';
     button.className = 'back-to-top';
     button.setAttribute('aria-label', 'Scroll to top');
     button.title = 'Scroll to top';
     button.innerHTML = '<i class="fa-solid fa-chevron-up fa-lg"></i>';
     normaliseScrollButton(button);
     document.body.append(button);
-    scrollToTopButton = button;
+    backToTopButton = button;
   }
 
   function normaliseScrollButton(button) {
@@ -266,9 +266,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** Scroll features */
   function initScrollFeatures() {
-    if (scrollToTopButton) {
-      scrollToTopButton.hidden = false;
-      scrollToTopButton.removeAttribute('hidden');
+    if (backToTopButton) {
+      backToTopButton.hidden = false;
+      backToTopButton.removeAttribute('hidden');
     }
 
     const handleScroll = () => {
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    scrollToTopButton?.addEventListener('click', () => {
+    backToTopButton?.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
         behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
@@ -310,23 +310,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateScrollButton() {
-    if (!scrollToTopButton) return;
+    if (!backToTopButton) return;
     const { scrollTop, distance } = getScrollMetrics();
     const progress = distance > 0 ? scrollTop / distance : 0;
     const progressAngle = Math.min(360, Math.max(0, progress * 360));
 
     if (scrollTop > 280) {
-      scrollToTopButton.classList.add('is-visible');
-      if (scrollToTopButton.hidden) {
-        scrollToTopButton.hidden = false;
+      backToTopButton.classList.add('is-visible');
+      if (backToTopButton.hidden) {
+        backToTopButton.hidden = false;
       }
-      setScrollButtonDisplay(scrollToTopButton, 'flex');
+      setScrollButtonDisplay(backToTopButton, 'flex');
     } else {
-      scrollToTopButton.classList.remove('is-visible');
-      setScrollButtonDisplay(scrollToTopButton, 'none');
+      backToTopButton.classList.remove('is-visible');
+      setScrollButtonDisplay(backToTopButton, 'none');
     }
 
-    scrollToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
+    backToTopButton.style.setProperty('--progress-angle', `${progressAngle}deg`);
   }
 
   /** Mobile navigation */
