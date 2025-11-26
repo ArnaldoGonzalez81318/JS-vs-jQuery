@@ -19,13 +19,13 @@ To help people, here’s a jQuery to JavaScript cheat sheet that includes the Ja
 // jQuery to select all instances
 // of class "select"
 $(".select");
-  
+
 // JavaScript to select only the
 // first instance of class "select"
 document.querySelector(".select");
-  
+
 // To select all the instances
-// of class "select"  
+// of class "select"
 document.querySelectorAll(".select");
 ```
 
@@ -112,7 +112,7 @@ $('.my-class a').find('span').css('color', 'red');
 // Syntax
 // To find the first element (also if there's only one)
 document.querySelector();
- 
+
 // To find all elements
 document.querySelectorAll();
 
@@ -122,14 +122,14 @@ document.querySelectorAll();
 
 // finds all '.my-class a'
 let nodes = document.querySelectorAll('.my-class a');
- 
+
 // loops through all '.my-class a'
 for (let i = 0; i < nodes.length; i++) {
-     
-    // checks if the individual '.my-class a' element has a 
+
+    // checks if the individual '.my-class a' element has a
     // 'span' descendant to avoid 'undefined' error
     if (nodes[i].querySelector('span')) {
-         
+
       // colors span tags that are desdendants of '.my-class a'
       nodes[i].querySelector('span').style.color = 'red';
    }
@@ -170,21 +170,21 @@ parentNode.children;
 
 // selects all the elements with 'my-class a' on the page
 let items = document.querySelectorAll('.my-class a');
- 
+
 // loops through all the elements with '.my-class a'
 for (let i = 0; i < items.length; i++) {
-     
+
         // finds the children of the current '.my-class a' element
         let kids = items[i].children;
-         
+
         // loops through the children of the current '.my-class a' element
         for (let j = 0; j < kids.length; j++) {
-             
+
             // checks if the child element is a span tag
             if (kids[j].tagName == 'SPAN') {
-         
+
                   kids[j].style.color = 'blue';
-       
+
             }
         }
 }
@@ -202,7 +202,7 @@ for (let i = 0; i < items.length; i++) {
 
 // Example
 // Selects the parent elements of ALL elements with 'my-class a' on the page.
-  
+
 $('.my-class a');
 ```
 
@@ -217,7 +217,7 @@ Node.parentNode;
 // Example
 // Selects the parent of the FIRST element with 'my-class a' on the page (for the sake of less repetition)
 // For looping through all '.my-class a' elements, use the looping solution and querySelectorAll() from the two examples above.
- 
+
 let item = document.querySelector('.my-class a');
 item.parentNode;
 ```
@@ -362,9 +362,9 @@ Element.classList.remove();
 
 // Example
 // For declaring the 'item' variable by selecting elements with 'my-class' on the page, see examples examples #3, #4, #5.
-  
+
 item.classList.remove('second-class');
- 
+
 // To use it together with add(), you need two separate statements.
 item.classList.remove('second-class');
 item.classList.add('third-class');
@@ -393,7 +393,7 @@ $('.my-class').toggleClass('active');
 // Syntax
 Element.classList.toggle();
 
-// Example 
+// Example
 // For declaring the 'item' variable, see examples #3, #4, #5.
 item.classList.toggle('active');
 ```
@@ -423,7 +423,7 @@ $('.my-class').hasClass('active');
 // Syntax
 element.classList.contains();
 
-// Example 
+// Example
 // Similar to the jQuery version, this one also checks if any element in the whole classList has the 'active' class
 // If at least one element has 'active', it's true, otherwise false.
 // For declaring the 'item' variable, see examples #3, #4, #5.
@@ -548,7 +548,7 @@ ol.appendChild(document.createElement("li"));
 
 ```javascript
 // Syntax
-  
+
 .prepend('html-string');
 
 // Example
@@ -562,10 +562,10 @@ $("ol").prepend("<li>");
 
 ```javascript
 // Syntax
-  
+
 Node.insertBefore();
 
-// Example 
+// Example
 // For declaring the 'ol' variable, see examples #3, #4, #5.
 ol.insertBefore(document.createElement("li"), ol.firstChild);
 ```
@@ -595,7 +595,7 @@ $('.my-class').html('<em>Hello</em>');
 ```javascript
 // Syntax
 Element.innerHTML;
-// Example 
+// Example
 // For declaring the 'item' variable, see examples #3, #4, #5.
 item.innerHTML; // gets the value.
 item.innerHTML = '<em>Hello</em>'; // sets the value.
@@ -627,7 +627,7 @@ $('.my-class').css('color', 'white');
 // Syntax
 ElementCSSInlineStyle.style.{propertyName};
 
-// Example 
+// Example
 // For declaring the 'item' variable, see examples #3, #4, #5.
 item.style.color; // getting value
 item.style.color = 'white'; // setting value
@@ -780,14 +780,14 @@ $('#toggle').on('click', function(){
 // Syntax
 EventTarget.addEventListener('event', functionName);
 
-// Example  
+// Example
 // The code below only selects the FIRST element with the 'submenu' class.
 // To select all submenus, use the 'for' loop in // Example #3 and #4.
 let toggle = document.querySelector("#toggle");
 let submenu = document.querySelector(".submenu");
- 
+
 toggle.addEventListener('click', function() {
-   submenu.classList.toggle('active'); 
+   submenu.classList.toggle('active');
 });
 ```
 
@@ -821,9 +821,9 @@ EventTarget.removeEventListener('event', functionName);
 // To select all submenus, use the 'for' loop in Example #3 and #4.
 let toggle = document.querySelector("#toggle");
 let submenu = document.querySelector(".submenu");
-  
+
 toggle.removeEventListener('click', function() {
-   submenu.classList.toggle('active'); 
+   submenu.classList.toggle('active');
 });
 ```
 
