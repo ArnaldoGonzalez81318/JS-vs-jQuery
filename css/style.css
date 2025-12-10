@@ -275,6 +275,9 @@ a:focus-visible {
 	height: 22px;
 	border-radius: 50%;
 	background: var(--color-surface);
+	background: color-mix(in srgb, var(--color-surface) 70%, rgba(15, 23, 42, 0.35));
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
 	box-shadow: 0 6px 14px rgba(15, 23, 42, 0.25);
 	transition: transform var(--transition-fast);
 }
@@ -295,6 +298,7 @@ a:focus-visible {
 
 .navigation-bar-header-menu {
 	display: none;
+	align-items: center;
 }
 
 .dropdown-btn {
@@ -310,6 +314,14 @@ a:focus-visible {
 	transition: background var(--transition-fast), color var(--transition-fast);
 }
 
+.dropdown-btn i {
+	transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.dropdown-btn.is-open i {
+	transform: rotate(90deg);
+}
+
 .dropdown-btn:hover,
 .dropdown-btn:focus-visible {
 	background: var(--color-muted-surface);
@@ -318,9 +330,10 @@ a:focus-visible {
 .navigation-bar-header-menu-items {
 	position: fixed;
 	top: 82px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: min(420px, 92vw);
+	left: 0;
+	right: 0;
+	transform: none;
+	width: 100vw;
 	max-height: calc(100vh - 100px);
 	background: var(--color-surface);
 	border-radius: 22px;
@@ -971,6 +984,10 @@ pre code {
 		grid-template-columns: 1fr;
 		padding: 0 clamp(14px, 4vw, 20px);
 		gap: clamp(24px, 5vw, 36px);
+	}
+
+	.navigation-bar-header-menu {
+		display: flex;
 	}
 
 	.document {
