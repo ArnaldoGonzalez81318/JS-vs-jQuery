@@ -54,11 +54,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function updateToggleIcon(isOpen) {
+    if (!mobileToggle) return;
+    const icon = mobileToggle.querySelector('i');
+    if (!icon) return;
+    mobileToggle.classList.toggle('is-open', isOpen);
+    icon.classList.toggle('fa-bars', !isOpen);
+    icon.classList.toggle('fa-xmark', isOpen);
+  }
+
   function closeMobileMenu() {
     if (!mobileNav) return;
     mobileNav.classList.remove('is-open');
     document.body.classList.remove('no-scroll');
     mobileToggle?.setAttribute('aria-expanded', 'false');
+    updateToggleIcon(false);
   }
 
   /** Copy buttons */
@@ -266,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mobileNav.classList.toggle('is-open');
       document.body.classList.toggle('no-scroll', isOpen);
       mobileToggle.setAttribute('aria-expanded', String(isOpen));
+      updateToggleIcon(isOpen);
     });
 
     document.addEventListener('click', (event) => {
@@ -281,6 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMobileMenu();
       }
     });
+
+    // Ensure icon matches initial state
+    updateToggleIcon(mobileNav.classList.contains('is-open'));
   }
 
   /** TOC search */
