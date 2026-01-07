@@ -19,7 +19,15 @@
 	--transition-base: 0.22s ease-in-out;
 	--transition-fast: 0.12s ease-in-out;
 	--font-body: 'Roboto', sans-serif;
-	--font-mono: 'Inconsolata', monospace;
+	--font-mono: 'Inconsolata', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+	--code-bg: color-mix(in srgb, var(--color-muted-surface) 92%, var(--color-text));
+	--code-toolbar-bg: color-mix(in srgb, var(--code-bg) 70%, var(--color-surface));
+	--code-border: var(--color-border);
+	--code-text: var(--color-text);
+	--code-text-muted: color-mix(in srgb, var(--color-text) 62%, var(--code-bg));
+	--code-accent: var(--color-accent);
+	--code-accent-soft: color-mix(in srgb, var(--color-accent) 32%, var(--code-bg));
+	--code-selection: var(--color-highlight);
 	--scrollbar-track: color-mix(in srgb, var(--color-muted-surface) 85%, transparent);
 	--scrollbar-thumb: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(79, 70, 229, 0.85) 60%, rgba(14, 165, 233, 0.85) 100%);
 	--scrollbar-thumb-hover: linear-gradient(135deg, rgba(29, 78, 216, 0.9) 0%, rgba(49, 46, 129, 0.95) 100%);
@@ -45,6 +53,8 @@
 	--scrollbar-thumb-hover: linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(37, 99, 235, 1) 60%, rgba(14, 116, 244, 1) 100%);
 	--scrollbar-border: rgba(96, 165, 250, 0.35);
 	--scrollbar-border-hover: rgba(96, 165, 250, 0.55);
+	--code-bg: color-mix(in srgb, var(--color-muted-surface) 78%, var(--color-canvas));
+	--code-toolbar-bg: color-mix(in srgb, var(--code-bg) 74%, var(--color-canvas));
 	color-scheme: dark;
 }
 
@@ -860,23 +870,25 @@ a:focus-visible {
 	align-items: center;
 	justify-content: space-between;
 	gap: 12px;
+	position: relative;
+	padding-right: 22px;
 }
 
-.section.collapsible::after {
+.section.collapsible h3::after {
 	content: '';
 	position: absolute;
-	top: 20px;
-	right: 24px;
+	right: 0;
+	top: 50%;
 	width: 12px;
 	height: 12px;
-	border-right: 2px solid var(--color-text-muted);
-	border-bottom: 2px solid var(--color-text-muted);
-	transform: rotate(45deg);
+	border-right: 2px solid color-mix(in srgb, var(--color-text) 78%, var(--color-text-muted));
+	border-bottom: 2px solid color-mix(in srgb, var(--color-text) 78%, var(--color-text-muted));
+	transform: translateY(-55%) rotate(45deg);
 	transition: transform var(--transition-fast);
 }
 
-.section.collapsible[data-collapsed='false']::after {
-	transform: rotate(225deg);
+.section.collapsible[data-collapsed='false'] h3::after {
+	transform: translateY(-45%) rotate(225deg);
 }
 
 .section.collapsible[data-collapsed='true']>*:not(h3) {
@@ -902,15 +914,15 @@ a:focus-visible {
 .code-wrapper {
 	border-radius: var(--radius-md);
 	overflow: hidden;
-	box-shadow: inset 0 0 0 1px var(--color-border);
-	background: #1f2937;
+	box-shadow: inset 0 0 0 1px var(--code-border);
+	background: var(--code-bg);
 }
 
 .copy-to-clipboard {
 	display: flex;
 	justify-content: flex-end;
-	background: rgba(15, 23, 42, 0.9);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	background: var(--code-toolbar-bg);
+	border-bottom: 1px solid var(--code-border);
 	padding: 8px 12px;
 }
 
@@ -923,21 +935,21 @@ a:focus-visible {
 	font-size: 0.85rem;
 	font-weight: 500;
 	padding: 6px 14px;
-	background: rgba(37, 99, 235, 0.18);
-	color: #e2e8f0;
+	background: color-mix(in srgb, var(--code-accent) 40%, var(--code-bg));
+	color: var(--code-text);
 	cursor: pointer;
 	transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .copy-button:hover,
 .copy-button:focus-visible {
-	background: rgba(37, 99, 235, 0.28);
+	background: color-mix(in srgb, var(--code-accent) 42%, var(--code-bg));
 	transform: translateY(-1px);
 }
 
 .copy-button[data-state='copied'] {
-	background: rgba(34, 197, 94, 0.22);
-	color: #bbf7d0;
+	background: color-mix(in srgb, var(--code-selection) 70%, var(--code-bg));
+	color: var(--code-text);
 }
 
 .copy-button i {
@@ -953,11 +965,49 @@ pre.code {
 	padding: 20px;
 	font-size: 0.95rem;
 	line-height: 1.6;
+	tab-size: 2;
 }
 
 pre code {
 	font-family: var(--font-mono);
-	color: #e5e7eb;
+	color: var(--code-text);
+}
+
+/* Override Prism theme defaults (e.g. prism-tomorrow) so light mode stays readable. */
+.code-wrapper code[class*='language-'],
+.code-wrapper pre[class*='language-'],
+pre.code code[class*='language-'] {
+	color: var(--code-text);
+	text-shadow: none;
+}
+
+pre.code ::selection {
+	background: color-mix(in srgb, var(--code-selection) 70%, transparent);
+}
+
+pre.code .token.comment {
+	color: var(--code-text-muted);
+	font-style: italic;
+}
+
+pre.code .token.string {
+	color: color-mix(in srgb, var(--color-accent-light) 72%, var(--code-text));
+}
+
+pre.code .token.function {
+	color: var(--code-accent);
+	font-weight: 600;
+}
+
+pre.code .token.dom,
+pre.code .token.builtin,
+pre.code .token.variable {
+	color: color-mix(in srgb, var(--code-text) 88%, var(--code-accent));
+}
+
+pre.code .token.punctuation,
+pre.code .token.operator {
+	color: color-mix(in srgb, var(--code-text) 78%, var(--code-bg));
 }
 
 .small-code {
