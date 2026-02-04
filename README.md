@@ -2,7 +2,39 @@
 
 ![JavaScript vs jQuery illustration](./Images/jquery-vs-javascript.jpeg)
 
-To help people, here’s a jQuery to JavaScript cheat sheet that includes the JavaScript equivalents to the most frequently used jQuery functionality.
+A practical jQuery-to-JavaScript cheat sheet with side-by-side equivalents for common DOM tasks.
+
+## Overview
+
+This repo collects frequently used jQuery patterns and their modern JavaScript alternatives. It’s intended as a quick reference for learning or for migrating legacy jQuery code to vanilla JS.
+
+## Table of contents
+
+- [Quick start](#quick-start)
+- [Project structure](#project-structure)
+- [Cheat sheet](#convert-javascript-to-jquery)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Quick start
+
+Open [index.html](index.html) in a browser to view the styled cheat sheet. No build tools or dependencies are required.
+
+## Project structure
+
+- [index.html](index.html) – main cheat sheet page
+- [css/style.css](css/style.css) – layout and theme styles
+- [js/index.js](js/index.js) – UI interactions
+- [js/themeSwitcher.js](js/themeSwitcher.js) – theme toggling logic
+- [Images](Images) – illustrations and icons
+
+## Contributing
+
+Improvements and fixes are welcome. Keep additions consistent with the existing formatting, and prefer concise, real-world examples.
+
+## License
+
+See [LICENSE](LICENSE).
 
 ## Convert JavaScript to jQuery
 
