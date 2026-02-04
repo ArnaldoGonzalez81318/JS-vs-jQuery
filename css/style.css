@@ -366,7 +366,7 @@ a:focus-visible {
 
 
 .documentation-book {
-	width: min(1400px, 100%);
+	width: min(1800px, 100%);
 	margin: clamp(32px, 6vw, 48px) auto clamp(72px, 8vw, 96px);
 	display: grid;
 	grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
