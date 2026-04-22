@@ -26,6 +26,10 @@
             <li><a href="#footer">Footer</a></li>
           </ul>
         </div>
+        <div class="navigation-bar-header-status" aria-live="polite">
+          <p class="navigation-status-label">Current section</p>
+          <p class="navigation-status-value" id="activeSectionLabel">Overview</p>
+        </div>
         <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
           <input type="checkbox" class="checkbox" id="checkbox">
           <label for="checkbox" class="checkbox-label">
@@ -120,6 +124,26 @@
             </div>
             <p class="hero-footnote">Ideal for modernising legacy jQuery projects with confidence.</p>
           </div>
+        </div>
+      </section>
+      <section class="doc-toolbar" aria-label="Document tools">
+        <div class="doc-toolbar-main">
+          <p class="doc-toolbar-eyebrow">Quick tools</p>
+          <label class="doc-search" for="doc-search">
+            <span class="doc-search-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="search" id="doc-search" placeholder="Search sections, APIs, and examples" spellcheck="false" autocomplete="off">
+          </label>
+          <p class="doc-search-summary" id="docSearchSummary">Browse every section or press <kbd>/</kbd> to search instantly.</p>
+        </div>
+        <div class="doc-toolbar-actions">
+          <button class="toolbar-action-chip" type="button" id="jumpToActiveBtn">
+            <i class="fa-solid fa-location-arrow" aria-hidden="true"></i>
+            Jump to active section
+          </button>
+          <button class="toolbar-action-chip" type="button" id="copyPageLinkBtn">
+            <i class="fa-solid fa-link" aria-hidden="true"></i>
+            Copy page link
+          </button>
         </div>
       </section>
       <section class="doc-stats" aria-label="Quick facts">
@@ -1430,8 +1454,23 @@ toggle.removeEventListener('click', function() {
   </div>
 </div>
 
+<button class="floating-action-button" id="floatingTopButton" type="button" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+</button>
+
 <!-- Footer -->
 <footer id="footer" class="footer">
-  <div class="footer-disclaimer"></div>
+  <div class="footer-inner">
+    <div class="footer-copy">
+      <p class="footer-title">Vanilla JS vs jQuery</p>
+      <p class="footer-note">A modern single-page reference for replacing common jQuery helpers with native browser APIs.</p>
+    </div>
+    <div class="footer-links">
+      <a class="footer-link-pill" href="#documentation-body">Documentation</a>
+      <button class="footer-link-pill" type="button" data-focus-search>Focus search</button>
+      <a class="footer-link-pill" href="https://api.jquery.com/" target="_blank" rel="noreferrer">jQuery API</a>
+    </div>
+    <div class="footer-disclaimer"></div>
+  </div>
 </footer>
 <!-- End Footer -->
