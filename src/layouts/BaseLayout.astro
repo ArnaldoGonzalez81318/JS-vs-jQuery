@@ -20,6 +20,8 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ecf5f3" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#051311" />
     <meta
       name="keywords"
       content="javascript vs jquery, difference between javascript and jquery, jquery vs vanilla js, vanilla js vs jquery, js vs jquery, jquery vs js, javascript and jquery difference, jquery vs javascript examples, difference jquery and javascript, difference javascript and jquery"
@@ -49,7 +51,7 @@ const {
       document.documentElement.setAttribute('data-theme', storedTheme ?? systemTheme);
     </script>
   </head>
-  <body>
+  <body class="app-shell">
     <slot />
     <script>
       import '../scripts/docs.ts';
