@@ -2,7 +2,7 @@
 
 ![JavaScript vs jQuery illustration](./public/images/jquery-vs-javascript.jpeg)
 
-A documentation-style reference site that compares common jQuery helpers with their modern JavaScript equivalents.
+A documentation-style site with two tracks: a reference page for common jQuery-to-vanilla replacements and a migration guide for rollout patterns, examples, and refactor checklists.
 
 ## Stack
 
@@ -30,10 +30,13 @@ Open the local Astro dev server shown in the terminal.
 ## Project structure
 
 - `src/pages/index.astro` renders the main documentation page
+- `src/pages/migration-guide.astro` renders the migration guide page
 - `src/layouts/BaseLayout.astro` defines shared metadata, asset links, and client script loading
 - `src/content/legacy-page.html` stores the preserved page markup used as the source document
+- `src/content/migration-guide.html` stores the migration guide markup used as the source document
 - `src/lib/highlightLegacyHtml.ts` transforms legacy code blocks with Shiki at build time
-- `src/scripts/docs.ts` handles navigation, collapsible sections, stats, and clipboard behavior
+- `src/lib/sectionMetadata.ts` stores shared section categories, tags, and summaries for the filtering UI
+- `src/scripts/docs.ts` handles navigation, collapsible sections, category and tag filtering, stats, and clipboard behavior
 - `src/scripts/theme-switcher.ts` handles theme persistence and system-theme syncing
 - `src/styles/global.scss` contains the main site styles
 - `src/styles/_reset.scss` contains the reset layer
@@ -41,7 +44,7 @@ Open the local Astro dev server shown in the terminal.
 
 ## Notes
 
-The original single-file static page was migrated into Astro without rewriting the documentation content by hand. The page body is preserved in `src/content/legacy-page.html`, and code samples are re-highlighted during the build so the rendered output uses Shiki instead of the old Prism-based markup.
+The original single-file static page was migrated into Astro without rewriting the documentation content by hand. The page bodies are preserved in raw HTML source files, and code samples are re-highlighted during the build so the rendered output uses Shiki instead of the old Prism-based markup. The reference UI now supports category chips and tag-aware filtering, while the migration guide reuses the same rendering pipeline for longer-form patterns.
 
 ## Contributing
 
