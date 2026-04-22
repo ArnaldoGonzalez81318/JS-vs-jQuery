@@ -1,14 +1,14 @@
 type ThemeName = 'light' | 'dark';
 
-const toggleSwitch = document.getElementById('checkbox') as HTMLInputElement | null;
+const toggleSwitches = Array.from(document.querySelectorAll<HTMLInputElement>('[data-theme-toggle]'));
 const themePreferenceKey = 'js-vs-jquery-theme';
 const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 function setTheme(theme: ThemeName, persist = true) {
   document.documentElement.setAttribute('data-theme', theme);
-  if (toggleSwitch) {
+  toggleSwitches.forEach((toggleSwitch) => {
     toggleSwitch.checked = theme === 'dark';
-  }
+  });
   if (persist) {
     localStorage.setItem(themePreferenceKey, theme);
   }
@@ -31,11 +31,11 @@ function setInitialTheme() {
   }
 }
 
-if (toggleSwitch) {
+toggleSwitches.forEach((toggleSwitch) => {
   toggleSwitch.addEventListener('change', () => {
     setTheme(toggleSwitch.checked ? 'dark' : 'light');
   });
-}
+});
 
 const mediaQueryListener = (event: MediaQueryListEvent) => {
   if (!getStoredTheme()) {
