@@ -1,6 +1,6 @@
 # JS-vs-JQuery
 
-![JavaScript vs jQuery illustration](./Images/jquery-vs-javascript.jpeg)
+![JavaScript vs jQuery illustration](./images/jquery-vs-javascript.jpeg)
 
 A practical jQuery-to-JavaScript cheat sheet with side-by-side equivalents for common DOM tasks.
 
@@ -26,7 +26,7 @@ Open [index.html](index.html) in a browser to view the styled cheat sheet. No bu
 - [css/style.css](css/style.css) – layout and theme styles
 - [js/index.js](js/index.js) – UI interactions
 - [js/themeSwitcher.js](js/themeSwitcher.js) – theme toggling logic
-- [Images](Images) – illustrations and icons
+- [images](images) – illustrations and icons
 
 ## Contributing
 
