@@ -1,11 +1,22 @@
+import { resolveSectionMetadata } from '../lib/sectionMetadata';
+
 type SectionRegistryEntry = {
   section: HTMLElement;
   navLinks: HTMLAnchorElement[];
+  label: string;
+  category: string;
+  tags: string[];
+  summary: string;
 };
+
+const ALL_CATEGORY = 'all';
 
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const desktopHeader = window.matchMedia('(min-width: 1081px)');
   const footerDisclaimer = document.querySelector<HTMLElement>('.footer-disclaimer');
+  const header = document.querySelector<HTMLElement>('.navigation-bar');
+  const hero = document.querySelector<HTMLElement>('.doc-hero');
   const progressBar = document.getElementById('progressBar') as HTMLDivElement | null;
   const mobileNav = document.getElementById('mobileNav') as HTMLDivElement | null;
   const mobileToggle = document.getElementById('dropdownToggle') as HTMLButtonElement | null;
@@ -15,8 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyPageLinkButton = document.getElementById('copyPageLinkBtn') as HTMLButtonElement | null;
   const floatingTopButton = document.getElementById('floatingTopButton') as HTMLButtonElement | null;
   const toolbarSearchSummary = document.getElementById('docSearchSummary') as HTMLParagraphElement | null;
+  const headerSearchInput = document.getElementById('header-search') as HTMLInputElement | null;
+  const headerSearchSummary = document.getElementById('headerSearchSummary') as HTMLSpanElement | null;
+  const headerActiveCategoryChip = document.getElementById('headerActiveCategoryChip') as HTMLButtonElement | null;
+  const docSearchInput = document.getElementById('doc-search') as HTMLInputElement | null;
   const navLists = Array.from(document.querySelectorAll<HTMLUListElement>('.toc-list'));
-  const searchInputs = Array.from(document.querySelectorAll<HTMLInputElement>('.toc-search input, .doc-search input'));
+  const searchInputs = Array.from(document.querySelectorAll<HTMLInputElement>('.header-search input, .toc-search input, .doc-search input'));
+  const categoryFilterLists = Array.from(document.querySelectorAll<HTMLElement>('[data-category-filters]'));
   const focusSearchButtons = Array.from(document.querySelectorAll<HTMLElement>('[data-focus-search]'));
   const sections = Array.from(document.querySelectorAll<HTMLElement>('.documentation-body .section'));
   const liveRegion = createLiveRegion();
@@ -24,17 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const sectionSearchIndex = new Map<string, string>();
   let activeSectionId: string | null = null;
   let currentSearchQuery = '';
+  let activeCategory = ALL_CATEGORY;
 
   if (footerDisclaimer) {
     const currentYear = new Date().getFullYear();
     footerDisclaimer.textContent = `© 2020 - ${currentYear} Vanilla JS vs jQuery Documentation. All rights reserved.`;
   }
 
+  headerActiveCategoryChip?.addEventListener('click', () => {
+    setActiveCategory(ALL_CATEGORY);
+  });
+
   initCopyButtons();
   buildNavigation();
   initHeadingPermalinks();
   initCollapsibles();
   initSectionObserver();
+  initHeaderState();
   initScrollProgress();
   initMobileMenu();
   initSearchInputs();
@@ -82,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeMobileMenu() {
     if (!mobileNav) return;
     mobileNav.classList.remove('is-open');
+    mobileNav.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('no-scroll');
     mobileToggle?.setAttribute('aria-expanded', 'false');
     updateToggleIcon(false);
@@ -97,8 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
     liveRegion.textContent = successMessage;
   }
 
+  function getPreferredSearchInput(): HTMLInputElement | undefined {
+    const preferredInputs = [headerSearchInput, docSearchInput].filter((input): input is HTMLInputElement => Boolean(input));
+    return preferredInputs.find((input) => input.offsetParent !== null) ?? searchInputs.find((input) => input.offsetParent !== null) ?? preferredInputs[0] ?? searchInputs[0];
+  }
+
   function focusFirstSearchInput(): void {
-    const firstInput = searchInputs[0];
+    const firstInput = getPreferredSearchInput();
     if (!firstInput) return;
     firstInput.focus();
     firstInput.select();
@@ -156,11 +184,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const heading = section.querySelector<HTMLElement>('h3, h2');
       const label = heading?.textContent?.trim() || `Section ${index + 1}`;
       const sectionId = slugify(label, `section-${index + 1}`);
+      const metadata = resolveSectionMetadata(label);
+
       section.id = sectionId;
       section.dataset.collapsed = 'false';
-      sectionSearchIndex.set(sectionId, section.innerText.toLowerCase());
+      section.dataset.category = metadata.category;
+      section.dataset.tags = metadata.tags.join(', ');
+      if (metadata.summary) {
+        section.dataset.summary = metadata.summary;
+      }
 
-      const entry = sectionRegistry.get(sectionId) || { section, navLinks: [] };
+      sectionSearchIndex.set(
+        sectionId,
+        [label, metadata.category, metadata.tags.join(' '), metadata.summary, section.innerText].join(' ').toLowerCase()
+      );
+
+      const entry: SectionRegistryEntry = {
+        section,
+        navLinks: [],
+        label,
+        category: metadata.category,
+        tags: metadata.tags,
+        summary: metadata.summary,
+      };
 
       navLists.forEach((list) => {
         const listItem = document.createElement('li');
@@ -169,7 +215,16 @@ document.addEventListener('DOMContentLoaded', () => {
         link.href = `#${sectionId}`;
         link.dataset.sectionId = sectionId;
         link.dataset.title = label.toLowerCase();
-        link.textContent = label;
+
+        const title = document.createElement('span');
+        title.className = 'nav-link-title';
+        title.textContent = label;
+
+        const meta = document.createElement('span');
+        meta.className = 'nav-link-meta';
+        meta.textContent = metadata.category;
+
+        link.append(title, meta);
         link.addEventListener('click', (event: MouseEvent) => {
           event.preventDefault();
           section.dataset.collapsed = 'false';
@@ -184,26 +239,152 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       sectionRegistry.set(sectionId, entry);
+      hydrateSectionMeta(entry);
 
       const headingEl = heading;
       if (headingEl) {
-        headingEl.setAttribute('role', 'button');
-        headingEl.setAttribute('tabindex', '0');
-        headingEl.addEventListener('click', () => toggleSection(section));
-        headingEl.addEventListener('keydown', (event: KeyboardEvent) => {
-          if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            toggleSection(section);
-          }
-        });
+        const existingText = headingEl.textContent?.trim() || label;
+        headingEl.textContent = '';
+
+        const toggleButton = document.createElement('button');
+        toggleButton.type = 'button';
+        toggleButton.className = 'section-heading-toggle';
+        toggleButton.textContent = existingText;
+        toggleButton.setAttribute('aria-controls', sectionId);
+        toggleButton.setAttribute('aria-expanded', 'true');
+        toggleButton.addEventListener('click', () => toggleSection(section));
+
+        headingEl.append(toggleButton);
       }
     });
 
+    buildCategoryFilters();
     updateToggleAllButton();
 
     if (sections[0]) {
       setActiveSection(sections[0].id);
     }
+  }
+
+  function hydrateSectionMeta(entry: SectionRegistryEntry) {
+    const heading = entry.section.querySelector<HTMLElement>('h3, h2');
+    if (!heading) return;
+
+    let meta = entry.section.querySelector<HTMLDivElement>('.section-meta');
+    if (!meta) {
+      meta = document.createElement('div');
+      meta.className = 'section-meta';
+      heading.insertAdjacentElement('afterend', meta);
+    }
+
+    meta.innerHTML = '';
+
+    const categoryBadge = document.createElement('span');
+    categoryBadge.className = 'section-category-badge';
+    categoryBadge.textContent = entry.category;
+    meta.append(categoryBadge);
+
+    if (entry.tags.length > 0) {
+      const tagList = document.createElement('div');
+      tagList.className = 'section-tag-list';
+
+      entry.tags.forEach((tag) => {
+        const tagButton = document.createElement('button');
+        tagButton.type = 'button';
+        tagButton.className = 'section-tag-chip';
+        tagButton.textContent = tag;
+        tagButton.addEventListener('click', () => {
+          activeCategory = ALL_CATEGORY;
+          updateCategoryFilterButtons();
+          const searchInput = getPreferredSearchInput();
+          setSearchQuery(tag, searchInput);
+          searchInput?.focus();
+          searchInput?.select();
+        });
+        tagList.append(tagButton);
+      });
+
+      meta.append(tagList);
+    }
+
+    if (entry.summary) {
+      let summary = entry.section.querySelector<HTMLParagraphElement>('.section-summary');
+      if (!summary) {
+        summary = document.createElement('p');
+        summary.className = 'section-summary';
+        meta.insertAdjacentElement('afterend', summary);
+      }
+
+      summary.textContent = entry.summary;
+    }
+  }
+
+  function buildCategoryFilters() {
+    if (categoryFilterLists.length === 0) return;
+
+    const categories = Array.from(new Set(Array.from(sectionRegistry.values()).map((entry) => entry.category)));
+
+    categoryFilterLists.forEach((list) => {
+      list.innerHTML = '';
+
+      const allButton = document.createElement('button');
+      allButton.type = 'button';
+      allButton.className = 'category-filter-chip';
+      allButton.dataset.category = ALL_CATEGORY;
+      allButton.textContent = 'All categories';
+      allButton.addEventListener('click', () => setActiveCategory(ALL_CATEGORY));
+      list.append(allButton);
+
+      categories.forEach((category) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'category-filter-chip';
+        button.dataset.category = category;
+        button.textContent = category;
+        button.addEventListener('click', () => setActiveCategory(category));
+        list.append(button);
+      });
+    });
+
+    updateCategoryFilterButtons();
+  }
+
+  function setActiveCategory(category: string) {
+    activeCategory = category;
+    updateCategoryFilterButtons();
+    setSearchQuery(currentSearchQuery, getPreferredSearchInput());
+  }
+
+  function updateCategoryFilterButtons() {
+    categoryFilterLists.forEach((list) => {
+      const buttons = list.querySelectorAll<HTMLButtonElement>('.category-filter-chip');
+      buttons.forEach((button) => {
+        const isActive = (button.dataset.category ?? ALL_CATEGORY) === activeCategory;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+      });
+    });
+
+    syncHeaderCategoryChip();
+  }
+
+  function syncHeaderCategoryChip() {
+    if (!headerActiveCategoryChip) return;
+
+    if (activeCategory === ALL_CATEGORY) {
+      headerActiveCategoryChip.hidden = true;
+      headerActiveCategoryChip.textContent = '';
+      headerActiveCategoryChip.removeAttribute('aria-label');
+      headerActiveCategoryChip.removeAttribute('title');
+      headerActiveCategoryChip.removeAttribute('data-category');
+      return;
+    }
+
+    headerActiveCategoryChip.hidden = false;
+    headerActiveCategoryChip.textContent = activeCategory;
+    headerActiveCategoryChip.dataset.category = activeCategory;
+    headerActiveCategoryChip.setAttribute('aria-label', `Clear ${activeCategory} filter`);
+    headerActiveCategoryChip.setAttribute('title', `Clear ${activeCategory} filter`);
   }
 
   function setActiveSection(sectionId: string): void {
@@ -252,23 +433,42 @@ document.addEventListener('DOMContentLoaded', () => {
   function toggleSection(section: HTMLElement): void {
     const isCollapsed = section.dataset.collapsed === 'true';
     section.dataset.collapsed = isCollapsed ? 'false' : 'true';
+    syncSectionToggleState(section);
     updateToggleAllButton();
+  }
+
+  function syncSectionToggleState(section: HTMLElement): void {
+    const toggleButton = section.querySelector<HTMLButtonElement>('.section-heading-toggle');
+    if (!toggleButton) return;
+
+    toggleButton.setAttribute('aria-expanded', String(section.dataset.collapsed !== 'true'));
   }
 
   function initCollapsibles() {
     expandAllButton?.addEventListener('click', () => {
-      const shouldCollapse = sections.every((section) => section.dataset.collapsed === 'false');
-      sections.forEach((section) => {
+      const visibleSections = sections.filter((section) => !section.hidden);
+      const shouldCollapse = visibleSections.every((section) => section.dataset.collapsed === 'false');
+
+      visibleSections.forEach((section) => {
         section.dataset.collapsed = shouldCollapse ? 'true' : 'false';
+        syncSectionToggleState(section);
       });
+
       updateToggleAllButton();
     });
   }
 
   function updateToggleAllButton() {
     if (!expandAllButton) return;
-    const collapsedCount = sections.filter((section) => section.dataset.collapsed === 'true').length;
-    if (collapsedCount === sections.length) {
+    const visibleSections = sections.filter((section) => !section.hidden);
+
+    if (visibleSections.length === 0) {
+      expandAllButton.textContent = 'No matching sections';
+      return;
+    }
+
+    const collapsedCount = visibleSections.filter((section) => section.dataset.collapsed === 'true').length;
+    if (collapsedCount === visibleSections.length) {
       expandAllButton.textContent = 'Expand all sections';
     } else if (collapsedCount === 0) {
       expandAllButton.textContent = 'Collapse all sections';
@@ -304,6 +504,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /** Scroll progress */
+  function initHeaderState() {
+    if (!header) return;
+
+    const updateHeaderState = () => {
+      if (!desktopHeader.matches) {
+        header.classList.remove('is-condensed');
+        return;
+      }
+
+      const shouldCondense = hero
+        ? hero.getBoundingClientRect().bottom <= header.offsetHeight + 36
+        : window.pageYOffset > 80;
+
+      header.classList.toggle('is-condensed', shouldCondense);
+    };
+
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    window.addEventListener('resize', updateHeaderState);
+    desktopHeader.addEventListener('change', updateHeaderState);
+    updateHeaderState();
+  }
+
   function initScrollProgress() {
     const handleScroll = () => {
       updateProgressBar();
@@ -335,9 +557,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function initMobileMenu() {
     if (!mobileNav || !mobileToggle) return;
 
+    const desktopNavigation = window.matchMedia('(min-width: 1081px)');
+    mobileNav.setAttribute('aria-hidden', String(!mobileNav.classList.contains('is-open')));
+
     mobileToggle.addEventListener('click', (event) => {
       event.preventDefault();
       const isOpen = mobileNav.classList.toggle('is-open');
+      mobileNav.setAttribute('aria-hidden', String(!isOpen));
       document.body.classList.toggle('no-scroll', isOpen);
       mobileToggle.setAttribute('aria-expanded', String(isOpen));
       updateToggleIcon(isOpen);
@@ -356,6 +582,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
+        closeMobileMenu();
+      }
+    });
+
+    desktopNavigation.addEventListener('change', (event) => {
+      if (event.matches) {
         closeMobileMenu();
       }
     });
@@ -391,6 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     focusSearchButtons.forEach((button) => {
       button.addEventListener('click', () => {
+        closeMobileMenu();
         focusFirstSearchInput();
       });
     });
@@ -406,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (event.key === 'Escape') {
         if (currentSearchQuery) {
-          setSearchQuery('', searchInputs[0]);
+          setSearchQuery('', getPreferredSearchInput());
           return;
         }
 
@@ -437,8 +670,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setSearchQuery(rawQuery: string, sourceInput?: HTMLInputElement) {
-    const query = rawQuery.trim().toLowerCase();
-    currentSearchQuery = query;
+    currentSearchQuery = rawQuery.trim();
+    const query = currentSearchQuery.toLowerCase();
 
     searchInputs.forEach((input) => {
       if (input !== sourceInput && input.value !== rawQuery) {
@@ -450,8 +683,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const visibleSections: HTMLElement[] = [];
 
     sections.forEach((section) => {
+      const entry = sectionRegistry.get(section.id);
       const searchIndex = sectionSearchIndex.get(section.id) ?? section.innerText.toLowerCase();
-      const matches = query.length === 0 || searchIndex.includes(query);
+      const matchesQuery = query.length === 0 || searchIndex.includes(query);
+      const matchesCategory = activeCategory === ALL_CATEGORY || entry?.category === activeCategory;
+      const matches = matchesQuery && matchesCategory;
 
       section.hidden = !matches;
       section.classList.toggle('section-match', query.length > 0 && matches);
@@ -461,6 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
         visibleSections.push(section);
         if (query.length > 0 && section.dataset.collapsed === 'true') {
           section.dataset.collapsed = 'false';
+          syncSectionToggleState(section);
         }
       }
     });
@@ -488,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateToggleAllButton();
-    updateSearchSummary(visibleCount, query);
+    updateSearchSummary(visibleCount, currentSearchQuery);
 
     if (query.length > 0) {
       const nextActiveSection = visibleSections.find((section) => section.id === activeSectionId) ?? visibleSections[0];
@@ -508,21 +745,45 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateSearchSummary(visibleCount: number, query: string) {
-    if (!toolbarSearchSummary) return;
+    const hasCategoryFilter = activeCategory !== ALL_CATEGORY;
+    const escapedCategory = escapeHtml(activeCategory);
+    let toolbarHtml = '';
+    let headerText = `${visibleCount} total`;
+    let headerState: 'default' | 'filtered' | 'empty' = 'default';
 
-    if (!query) {
-      toolbarSearchSummary.innerHTML = 'Browse every section or press <kbd>/</kbd> to search instantly.';
-      return;
+    if (!query && !hasCategoryFilter) {
+      toolbarHtml = 'Browse every section, filter by API category, or press <kbd>/</kbd> to search instantly.';
+      headerText = `${visibleCount} total`;
+    } else {
+      const escapedQuery = escapeHtml(query);
+
+      if (!query && hasCategoryFilter) {
+        const label = visibleCount === 1 ? 'section' : 'sections';
+        toolbarHtml = `Showing <strong>${visibleCount}</strong> ${label} in <span class="search-query-label">${escapedCategory}</span>.`;
+        headerText = `${visibleCount} in ${activeCategory}`;
+        headerState = 'filtered';
+      } else if (visibleCount === 0) {
+        const categorySuffix = hasCategoryFilter ? ` in <span class="search-query-label">${escapedCategory}</span>` : '';
+        toolbarHtml = `No sections match <span class="search-query-label">${escapedQuery}</span>${categorySuffix}. Press <kbd>Esc</kbd> to clear.`;
+        headerText = 'No matches';
+        headerState = 'empty';
+      } else {
+        const label = visibleCount === 1 ? 'section' : 'sections';
+        const categorySuffix = hasCategoryFilter ? ` in <span class="search-query-label">${escapedCategory}</span>` : '';
+        toolbarHtml = `Showing <strong>${visibleCount}</strong> matching ${label} for <span class="search-query-label">${escapedQuery}</span>${categorySuffix}.`;
+        headerText = hasCategoryFilter ? `${visibleCount} in ${activeCategory}` : `${visibleCount} result${visibleCount === 1 ? '' : 's'}`;
+        headerState = 'filtered';
+      }
     }
 
-    const escapedQuery = escapeHtml(query);
-    if (visibleCount === 0) {
-      toolbarSearchSummary.innerHTML = `No sections match <span class="search-query-label">${escapedQuery}</span>. Press <kbd>Esc</kbd> to clear.`;
-      return;
+    if (toolbarSearchSummary) {
+      toolbarSearchSummary.innerHTML = toolbarHtml;
     }
 
-    const label = visibleCount === 1 ? 'section' : 'sections';
-    toolbarSearchSummary.innerHTML = `Showing <strong>${visibleCount}</strong> matching ${label} for <span class="search-query-label">${escapedQuery}</span>.`;
+    if (headerSearchSummary) {
+      headerSearchSummary.textContent = headerText;
+      headerSearchSummary.dataset.state = headerState;
+    }
   }
 
   /** Document stats */
@@ -568,7 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'border-radius: 999px',
       'font-size: 14px',
       'font-weight: 600',
-      'font-family: "Roboto", sans-serif',
+      'font-family: "Space Grotesk", sans-serif',
       'text-transform: uppercase',
       'letter-spacing: 0.08em',
     ].join(';');
