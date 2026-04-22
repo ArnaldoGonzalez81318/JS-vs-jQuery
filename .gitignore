@@ -1,2 +1,7 @@
 # macOS Finder metadata
 .DS_Store
+
+# Node and Astro build artifacts
+node_modules/
+.astro/
+dist/
