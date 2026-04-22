@@ -10,11 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNav = document.getElementById('mobileNav') as HTMLDivElement | null;
   const mobileToggle = document.getElementById('dropdownToggle') as HTMLButtonElement | null;
   const expandAllButton = document.getElementById('expandSectionsBtn') as HTMLButtonElement | null;
+  const activeSectionLabel = document.getElementById('activeSectionLabel') as HTMLParagraphElement | null;
+  const jumpToActiveButton = document.getElementById('jumpToActiveBtn') as HTMLButtonElement | null;
+  const copyPageLinkButton = document.getElementById('copyPageLinkBtn') as HTMLButtonElement | null;
+  const floatingTopButton = document.getElementById('floatingTopButton') as HTMLButtonElement | null;
+  const toolbarSearchSummary = document.getElementById('docSearchSummary') as HTMLParagraphElement | null;
   const navLists = Array.from(document.querySelectorAll<HTMLUListElement>('.toc-list'));
+  const searchInputs = Array.from(document.querySelectorAll<HTMLInputElement>('.toc-search input, .doc-search input'));
+  const focusSearchButtons = Array.from(document.querySelectorAll<HTMLElement>('[data-focus-search]'));
   const sections = Array.from(document.querySelectorAll<HTMLElement>('.documentation-body .section'));
   const liveRegion = createLiveRegion();
   const sectionRegistry = new Map<string, SectionRegistryEntry>();
+  const sectionSearchIndex = new Map<string, string>();
   let activeSectionId: string | null = null;
+  let currentSearchQuery = '';
 
   if (footerDisclaimer) {
     const currentYear = new Date().getFullYear();
@@ -23,11 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initCopyButtons();
   buildNavigation();
+  initHeadingPermalinks();
   initCollapsibles();
   initSectionObserver();
   initScrollProgress();
   initMobileMenu();
   initSearchInputs();
+  initToolbarActions();
   initStats();
   announceConsoleMessage();
 
@@ -76,6 +87,37 @@ document.addEventListener('DOMContentLoaded', () => {
     updateToggleIcon(false);
   }
 
+  async function copyText(text: string, successMessage: string): Promise<void> {
+    if (!navigator.clipboard || !window.isSecureContext) {
+      liveRegion.textContent = 'Copy not available in this browser';
+      throw new Error('Clipboard API unavailable');
+    }
+
+    await navigator.clipboard.writeText(text);
+    liveRegion.textContent = successMessage;
+  }
+
+  function focusFirstSearchInput(): void {
+    const firstInput = searchInputs[0];
+    if (!firstInput) return;
+    firstInput.focus();
+    firstInput.select();
+  }
+
+  function isEditableTarget(target: EventTarget | null): boolean {
+    if (!(target instanceof HTMLElement)) return false;
+    return target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName);
+  }
+
+  function escapeHtml(value: string): string {
+    return value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   /** Copy buttons */
   function initCopyButtons() {
     const copyBlocks = document.querySelectorAll('.copy-to-clipboard');
@@ -90,13 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = codeElement.innerText;
 
         try {
-          if (!navigator.clipboard || !window.isSecureContext) {
-            throw new Error('Clipboard API unavailable');
-          }
-
-          await navigator.clipboard.writeText(text);
-
-          liveRegion.textContent = 'Code snippet copied to clipboard';
+          await copyText(text, 'Code snippet copied to clipboard');
           button.dataset.state = 'copied';
           button.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i><span>Copied!</span>';
 
@@ -122,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const sectionId = slugify(label, `section-${index + 1}`);
       section.id = sectionId;
       section.dataset.collapsed = 'false';
+      sectionSearchIndex.set(sectionId, section.innerText.toLowerCase());
 
       const entry = sectionRegistry.get(sectionId) || { section, navLinks: [] };
 
@@ -178,7 +215,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const current = sectionRegistry.get(sectionId);
     current?.navLinks.forEach((link) => link.classList.add('active-link'));
+    const currentLabel = current?.section.querySelector<HTMLElement>('h3, h2')?.textContent?.trim() || 'Overview';
+    if (activeSectionLabel) {
+      activeSectionLabel.textContent = currentLabel;
+    }
     activeSectionId = sectionId;
+  }
+
+  function initHeadingPermalinks() {
+    sections.forEach((section) => {
+      const heading = section.querySelector<HTMLElement>('h3, h2');
+      const label = heading?.textContent?.trim();
+      if (!heading || !label || heading.querySelector('.heading-link-button')) return;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'heading-link-button';
+      button.setAttribute('aria-label', `Copy link to ${label}`);
+      button.innerHTML = '<i class="fa-solid fa-link" aria-hidden="true"></i>';
+
+      button.addEventListener('click', async (event) => {
+        event.stopPropagation();
+
+        try {
+          await copyText(`${window.location.origin}${window.location.pathname}#${section.id}`, `Link copied for ${label}`);
+        } catch (error) {
+          console.error('Copy link failed', error);
+        }
+      });
+
+      heading.append(button);
+    });
   }
 
   /** Collapsibles */
@@ -297,33 +364,165 @@ document.addEventListener('DOMContentLoaded', () => {
     updateToggleIcon(mobileNav.classList.contains('is-open'));
   }
 
-  /** TOC search */
-  function initSearchInputs() {
-    const inputs = document.querySelectorAll<HTMLInputElement>('.toc-search input');
-    inputs.forEach((input) => {
-      const context = input.closest('.sidebar-inner, .navigation-bar-header-menu-items');
-      const list = context?.querySelector<HTMLUListElement>('.toc-list');
-      const emptyState = context?.querySelector<HTMLElement>('.toc-empty');
-      if (!list) return;
+  function initToolbarActions() {
+    jumpToActiveButton?.addEventListener('click', () => {
+      if (!activeSectionId) return;
+      const activeEntry = sectionRegistry.get(activeSectionId);
+      if (!activeEntry) return;
 
-      input.addEventListener('input', () => {
-        const query = input.value.trim().toLowerCase();
-        const links = list.querySelectorAll<HTMLAnchorElement>('.nav-link');
-        let visibleCount = 0;
+      activeEntry.section.dataset.collapsed = 'false';
+      focusScroll(activeEntry.section);
+    });
 
-        links.forEach((link) => {
-          const matches = query.length === 0 || link.dataset.title?.includes(query);
-          if (link.parentElement) {
-            link.parentElement.style.display = matches ? '' : 'none';
-          }
-          if (matches) visibleCount += 1;
-        });
+    copyPageLinkButton?.addEventListener('click', async () => {
+      try {
+        await copyText(window.location.href.split('#')[0], 'Page link copied to clipboard');
+      } catch (error) {
+        console.error('Copy page link failed', error);
+      }
+    });
 
-        if (emptyState) {
-          emptyState.classList.toggle('is-visible', visibleCount === 0);
-        }
+    floatingTopButton?.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion.matches ? 'auto' : 'smooth',
       });
     });
+
+    focusSearchButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        focusFirstSearchInput();
+      });
+    });
+
+    const handleToolbarShortcuts = (event: KeyboardEvent) => {
+      const openSearchShortcut = event.key === '/' || ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k');
+
+      if (openSearchShortcut && !isEditableTarget(event.target)) {
+        event.preventDefault();
+        focusFirstSearchInput();
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        if (currentSearchQuery) {
+          setSearchQuery('', searchInputs[0]);
+          return;
+        }
+
+        closeMobileMenu();
+      }
+    };
+
+    window.addEventListener('keydown', handleToolbarShortcuts);
+    window.addEventListener('scroll', updateFloatingActionButton, { passive: true });
+    updateFloatingActionButton();
+  }
+
+  function updateFloatingActionButton() {
+    if (!floatingTopButton) return;
+    const shouldShow = window.pageYOffset > 640;
+    floatingTopButton.classList.toggle('is-visible', shouldShow);
+  }
+
+  /** TOC search */
+  function initSearchInputs() {
+    searchInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        setSearchQuery(input.value, input);
+      });
+    });
+
+    updateSearchSummary(sections.length, '');
+  }
+
+  function setSearchQuery(rawQuery: string, sourceInput?: HTMLInputElement) {
+    const query = rawQuery.trim().toLowerCase();
+    currentSearchQuery = query;
+
+    searchInputs.forEach((input) => {
+      if (input !== sourceInput && input.value !== rawQuery) {
+        input.value = rawQuery;
+      }
+    });
+
+    let visibleCount = 0;
+    const visibleSections: HTMLElement[] = [];
+
+    sections.forEach((section) => {
+      const searchIndex = sectionSearchIndex.get(section.id) ?? section.innerText.toLowerCase();
+      const matches = query.length === 0 || searchIndex.includes(query);
+
+      section.hidden = !matches;
+      section.classList.toggle('section-match', query.length > 0 && matches);
+
+      if (matches) {
+        visibleCount += 1;
+        visibleSections.push(section);
+        if (query.length > 0 && section.dataset.collapsed === 'true') {
+          section.dataset.collapsed = 'false';
+        }
+      }
+    });
+
+    navLists.forEach((list) => {
+      const links = list.querySelectorAll<HTMLAnchorElement>('.nav-link');
+      let listVisibleCount = 0;
+
+      links.forEach((link) => {
+        const linkedSection = link.dataset.sectionId ? sectionRegistry.get(link.dataset.sectionId)?.section : null;
+        const matches = query.length === 0 || (!!linkedSection && !linkedSection.hidden);
+
+        if (link.parentElement) {
+          link.parentElement.style.display = matches ? '' : 'none';
+        }
+
+        if (matches) {
+          listVisibleCount += 1;
+        }
+      });
+
+      const context = list.closest('.sidebar-inner, .navigation-bar-header-menu-items');
+      const emptyState = context?.querySelector<HTMLElement>('.toc-empty');
+      emptyState?.classList.toggle('is-visible', listVisibleCount === 0);
+    });
+
+    updateToggleAllButton();
+    updateSearchSummary(visibleCount, query);
+
+    if (query.length > 0) {
+      const nextActiveSection = visibleSections.find((section) => section.id === activeSectionId) ?? visibleSections[0];
+
+      if (nextActiveSection) {
+        setActiveSection(nextActiveSection.id);
+      } else if (activeSectionLabel) {
+        activeSectionLabel.textContent = 'No matches';
+      }
+      return;
+    }
+
+    const firstVisibleSection = sections.find((section) => !section.hidden);
+    if (firstVisibleSection) {
+      setActiveSection(firstVisibleSection.id);
+    }
+  }
+
+  function updateSearchSummary(visibleCount: number, query: string) {
+    if (!toolbarSearchSummary) return;
+
+    if (!query) {
+      toolbarSearchSummary.innerHTML = 'Browse every section or press <kbd>/</kbd> to search instantly.';
+      return;
+    }
+
+    const escapedQuery = escapeHtml(query);
+    if (visibleCount === 0) {
+      toolbarSearchSummary.innerHTML = `No sections match <span class="search-query-label">${escapedQuery}</span>. Press <kbd>Esc</kbd> to clear.`;
+      return;
+    }
+
+    const label = visibleCount === 1 ? 'section' : 'sections';
+    toolbarSearchSummary.innerHTML = `Showing <strong>${visibleCount}</strong> matching ${label} for <span class="search-query-label">${escapedQuery}</span>.`;
   }
 
   /** Document stats */
@@ -331,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsContainer = document.getElementById('doc-stats');
     if (!statsContainer) return;
 
-    const snippetCount = document.querySelectorAll('.documentation-body code').length;
+    const snippetCount = document.querySelectorAll('.documentation-body pre code').length;
     const linkCount = document.querySelectorAll('.documentation-body a').length;
     const totalWords = document
       .querySelector<HTMLElement>('.documentation-body')
