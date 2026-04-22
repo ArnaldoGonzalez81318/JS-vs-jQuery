@@ -61,64 +61,64 @@
               <span class="header-search-summary" id="headerSearchSummary" aria-live="polite">All sections</span>
             </label>
             <button class="header-active-filter-chip" type="button" id="headerActiveCategoryChip" hidden>Active category</button>
-            <button class="header-action-pill" type="button" data-focus-search>Search guide</button>
-            <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
-              <input type="checkbox" class="checkbox" id="theme-toggle-desktop" data-theme-toggle>
-              <label for="theme-toggle-desktop" class="checkbox-label">
-                <span class="sr-only">Toggle color theme</span>
-                <i class="fa-solid fa-moon"></i>
-                <i class="fa-solid fa-sun"></i>
-                <span class="checkbox-button"></span>
-              </label>
-            </div>
-            <div class="navigation-bar-header-menu">
-              <button class="dropdown-btn" id="dropdownToggle" aria-expanded="false" aria-controls="mobileNav">
-                <span class="sr-only">Toggle table of contents</span>
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="navigation-bar-header-skip-to-content">
-          <ul class="skip-to-content">
-            <li><a href="#documentation-body">Guide</a></li>
-            <li><a href="#footer">Footer</a></li>
-          </ul>
-        </div>
-        <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents">
-          <div class="mobile-search-wrapper">
-            <p class="mobile-nav-label">Filter sections</p>
-            <label class="toc-search" for="toc-search-mobile">
-              <span class="sr-only">Filter sections</span>
-              <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false" autocomplete="off">
-            </label>
-          </div>
-          <div class="mobile-nav-shortcuts">
-            <div class="mobile-nav-group">
-              <p class="mobile-nav-label">Tools</p>
-              <div class="mobile-nav-actions">
-                <button class="header-action-pill" type="button" data-focus-search>Search guide</button>
-                <a class="header-action-pill secondary" href="#documentation-body">Jump to guide</a>
-                <div class="navigation-bar-header-theme-switcher mobile-theme-toggle">
-                  <span class="mobile-theme-toggle-label">Theme</span>
-                  <input type="checkbox" class="checkbox" id="theme-toggle-mobile" data-theme-toggle>
-                  <label for="theme-toggle-mobile" class="checkbox-label">
-                    <span class="sr-only">Toggle color theme</span>
-                    <i class="fa-solid fa-moon"></i>
-                    <i class="fa-solid fa-sun"></i>
-                    <span class="checkbox-button"></span>
-                  </label>
-                </div>
+            <div class="mobile-nav-group mobile-nav-group-tools">
+              <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
+                <input type="checkbox" class="checkbox" id="theme-toggle-desktop" data-theme-toggle>
+                <label for="theme-toggle-desktop" class="checkbox-label">
+                  <span class="sr-only">Toggle color theme</span>
+                  <i class="fa-solid fa-moon"></i>
+                  <i class="fa-solid fa-sun"></i>
+                  <span class="checkbox-button"></span>
+                </label>
+              </div>
+              <div class="navigation-bar-header-menu">
+                <button class="dropdown-btn" id="dropdownToggle" aria-expanded="false" aria-controls="mobileNav">
+                  <span class="sr-only">Toggle table of contents</span>
+                  <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
               </div>
             </div>
           </div>
-          <div class="mobile-nav-toc-panel">
-            <p class="mobile-nav-label">On this page</p>
-            <ul class="toc-list"></ul>
-            <p class="toc-empty" data-context="mobile">No matching sections yet.</p>
+          <div class="navigation-bar-header-skip-to-content">
+            <ul class="skip-to-content">
+              <li><a href="#documentation-body">Guide</a></li>
+              <li><a href="#footer">Footer</a></li>
+            </ul>
+          </div>
+          <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents">
+            <div class="mobile-search-wrapper">
+              <p class="mobile-nav-label">Filter sections</p>
+              <label class="toc-search" for="toc-search-mobile">
+                <span class="sr-only">Filter sections</span>
+                <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false" autocomplete="off">
+              </label>
+            </div>
+            <div class="mobile-nav-shortcuts">
+              <div class="mobile-nav-group">
+                <p class="mobile-nav-label">Tools</p>
+                <div class="mobile-nav-actions">
+                  <button class="header-action-pill" type="button" data-focus-search>Search guide</button>
+                  <a class="header-action-pill secondary" href="#documentation-body">Jump to guide</a>
+                  <div class="navigation-bar-header-theme-switcher mobile-theme-toggle">
+                    <span class="mobile-theme-toggle-label">Theme</span>
+                    <input type="checkbox" class="checkbox" id="theme-toggle-mobile" data-theme-toggle>
+                    <label for="theme-toggle-mobile" class="checkbox-label">
+                      <span class="sr-only">Toggle color theme</span>
+                      <i class="fa-solid fa-moon"></i>
+                      <i class="fa-solid fa-sun"></i>
+                      <span class="checkbox-button"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-nav-toc-panel">
+              <p class="mobile-nav-label">On this page</p>
+              <ul class="toc-list"></ul>
+              <p class="toc-empty" data-context="mobile">No matching sections yet.</p>
+            </div>
           </div>
         </div>
-      </div>
     </nav>
   </header>
 
