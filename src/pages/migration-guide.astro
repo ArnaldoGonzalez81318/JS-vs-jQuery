@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { highlightLegacyHtml } from '../lib/highlightLegacyHtml';
+import rawHtml from '../content/migration-guide.html?raw';
+
+const pageHtml = await highlightLegacyHtml(rawHtml);
+---
+
+<BaseLayout
+  title="jQuery Migration Guide | Vanilla JS vs jQuery"
+  description="Migration tips, examples, and refactor patterns for replacing jQuery incrementally with modern browser APIs."
+>
+  <Fragment set:html={pageHtml} />
+</BaseLayout>
