@@ -63,8 +63,8 @@
             <button class="header-active-filter-chip" type="button" id="headerActiveCategoryChip" hidden>Active category</button>
             <button class="header-action-pill" type="button" data-focus-search>Search guide</button>
             <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
-              <input type="checkbox" class="checkbox" id="checkbox">
-              <label for="checkbox" class="checkbox-label">
+              <input type="checkbox" class="checkbox" id="theme-toggle-desktop" data-theme-toggle>
+              <label for="theme-toggle-desktop" class="checkbox-label">
                 <span class="sr-only">Toggle color theme</span>
                 <i class="fa-solid fa-moon"></i>
                 <i class="fa-solid fa-sun"></i>
@@ -86,38 +86,31 @@
           </ul>
         </div>
         <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents">
-          <div class="mobile-nav-shortcuts">
-            <div class="mobile-nav-group">
-              <p class="mobile-nav-label">Workspace</p>
-              <div class="navigation-bar-header-links" aria-label="Mobile documentation destinations">
-                <a class="header-link-pill" href="/">
-                  <span class="header-link-pill-copy">
-                    <span class="header-link-pill-label">API reference</span>
-                    <span class="header-link-pill-meta">Native DOM map</span>
-                  </span>
-                </a>
-                <a class="header-link-pill is-active" href="/migration-guide/" aria-current="page">
-                  <span class="header-link-pill-copy">
-                    <span class="header-link-pill-label">Migration playbook</span>
-                    <span class="header-link-pill-meta">Refactor workflow</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="mobile-nav-group">
-              <p class="mobile-nav-label">Tools</p>
-              <div class="mobile-nav-actions">
-                <button class="header-action-pill" type="button" data-focus-search>Search guide</button>
-                <a class="header-action-pill secondary" href="#documentation-body">Jump to guide</a>
-              </div>
-            </div>
-          </div>
           <div class="mobile-search-wrapper">
             <p class="mobile-nav-label">Filter sections</p>
             <label class="toc-search" for="toc-search-mobile">
               <span class="sr-only">Filter sections</span>
               <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false" autocomplete="off">
             </label>
+          </div>
+          <div class="mobile-nav-shortcuts">
+            <div class="mobile-nav-group">
+              <p class="mobile-nav-label">Tools</p>
+              <div class="mobile-nav-actions">
+                <button class="header-action-pill" type="button" data-focus-search>Search guide</button>
+                <a class="header-action-pill secondary" href="#documentation-body">Jump to guide</a>
+                <div class="navigation-bar-header-theme-switcher mobile-theme-toggle">
+                  <span class="mobile-theme-toggle-label">Theme</span>
+                  <input type="checkbox" class="checkbox" id="theme-toggle-mobile" data-theme-toggle>
+                  <label for="theme-toggle-mobile" class="checkbox-label">
+                    <span class="sr-only">Toggle color theme</span>
+                    <i class="fa-solid fa-moon"></i>
+                    <i class="fa-solid fa-sun"></i>
+                    <span class="checkbox-button"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="mobile-nav-toc-panel">
             <p class="mobile-nav-label">On this page</p>
@@ -128,6 +121,21 @@
       </div>
     </nav>
   </header>
+
+  <nav class="mobile-page-switcher" aria-label="Documentation destinations">
+    <a class="header-link-pill" href="/">
+      <span class="header-link-pill-copy">
+        <span class="header-link-pill-label">API reference</span>
+        <span class="header-link-pill-meta">Native DOM map</span>
+      </span>
+    </a>
+    <a class="header-link-pill is-active" href="/migration-guide/" aria-current="page">
+      <span class="header-link-pill-copy">
+        <span class="header-link-pill-label">Migration playbook</span>
+        <span class="header-link-pill-meta">Refactor workflow</span>
+      </span>
+    </a>
+  </nav>
 
   <div class="documentation-book">
     <div class="sidebar" id="sidebar">
