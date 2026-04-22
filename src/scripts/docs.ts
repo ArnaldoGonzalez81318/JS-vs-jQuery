@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function getPreferredSearchInput(): HTMLInputElement | undefined {
-    const preferredInputs = [headerSearchInput, docSearchInput].filter((input): input is HTMLInputElement => Boolean(input));
+    const preferredInputs = [docSearchInput, headerSearchInput].filter((input): input is HTMLInputElement => Boolean(input));
     return preferredInputs.find((input) => input.offsetParent !== null) ?? searchInputs.find((input) => input.offsetParent !== null) ?? preferredInputs[0] ?? searchInputs[0];
   }
 
