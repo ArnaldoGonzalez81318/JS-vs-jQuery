@@ -1,3 +1,5 @@
+@use './reset';
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 
@@ -973,41 +975,29 @@ pre code {
 	color: var(--code-text);
 }
 
-/* Override Prism theme defaults (e.g. prism-tomorrow) so light mode stays readable. */
-.code-wrapper code[class*='language-'],
-.code-wrapper pre[class*='language-'],
-pre.code code[class*='language-'] {
-	color: var(--code-text);
-	text-shadow: none;
+pre.code.shiki {
+	background: transparent !important;
+}
+
+pre.code.shiki code {
+	display: block;
+	min-width: max-content;
+}
+
+pre.code.shiki,
+pre.code.shiki span {
+	color: var(--shiki-light);
+	background-color: var(--shiki-light-bg);
+}
+
+[data-theme='dark'] pre.code.shiki,
+[data-theme='dark'] pre.code.shiki span {
+	color: var(--shiki-dark);
+	background-color: var(--shiki-dark-bg);
 }
 
 pre.code ::selection {
 	background: color-mix(in srgb, var(--code-selection) 70%, transparent);
-}
-
-pre.code .token.comment {
-	color: var(--code-text-muted);
-	font-style: italic;
-}
-
-pre.code .token.string {
-	color: color-mix(in srgb, var(--color-accent-light) 72%, var(--code-text));
-}
-
-pre.code .token.function {
-	color: var(--code-accent);
-	font-weight: 600;
-}
-
-pre.code .token.dom,
-pre.code .token.builtin,
-pre.code .token.variable {
-	color: color-mix(in srgb, var(--code-text) 88%, var(--code-accent));
-}
-
-pre.code .token.punctuation,
-pre.code .token.operator {
-	color: color-mix(in srgb, var(--code-text) 78%, var(--code-bg));
 }
 
 .small-code {

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { highlightLegacyHtml } from '../lib/highlightLegacyHtml';
+import rawHtml from '../content/legacy-page.html?raw';
+
+const pageHtml = await highlightLegacyHtml(rawHtml);
+---
+
+<BaseLayout>
+  <Fragment set:html={pageHtml} />
+</BaseLayout>

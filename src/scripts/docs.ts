@@ -1,15 +1,20 @@
+type SectionRegistryEntry = {
+  section: HTMLElement;
+  navLinks: HTMLAnchorElement[];
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const footerDisclaimer = document.querySelector('.footer-disclaimer');
-  const progressBar = document.getElementById('progressBar');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileToggle = document.getElementById('dropdownToggle');
-  const expandAllButton = document.getElementById('expandSectionsBtn');
-  const navLists = Array.from(document.querySelectorAll('.toc-list'));
-  const sections = Array.from(document.querySelectorAll('.documentation-body .section'));
+  const footerDisclaimer = document.querySelector<HTMLElement>('.footer-disclaimer');
+  const progressBar = document.getElementById('progressBar') as HTMLDivElement | null;
+  const mobileNav = document.getElementById('mobileNav') as HTMLDivElement | null;
+  const mobileToggle = document.getElementById('dropdownToggle') as HTMLButtonElement | null;
+  const expandAllButton = document.getElementById('expandSectionsBtn') as HTMLButtonElement | null;
+  const navLists = Array.from(document.querySelectorAll<HTMLUListElement>('.toc-list'));
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('.documentation-body .section'));
   const liveRegion = createLiveRegion();
-  const sectionRegistry = new Map();
-  let activeSectionId = null;
+  const sectionRegistry = new Map<string, SectionRegistryEntry>();
+  let activeSectionId: string | null = null;
 
   if (footerDisclaimer) {
     const currentYear = new Date().getFullYear();
@@ -28,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /** Utilities */
-  function createLiveRegion() {
+  function createLiveRegion(): HTMLDivElement {
     const region = document.createElement('div');
     region.className = 'sr-only';
     region.setAttribute('aria-live', 'polite');
@@ -36,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return region;
   }
 
-  function slugify(text, fallback) {
+  function slugify(text: string, fallback: string): string {
     const slug = text
       .toLowerCase()
       .replace(/[^a-z0-9\s]/g, '')
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return slug || fallback;
   }
 
-  function focusScroll(target) {
+  function focusScroll(target: HTMLElement): void {
     const offset = 110;
     const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({
@@ -54,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function updateToggleIcon(isOpen) {
+  function updateToggleIcon(isOpen: boolean): void {
     if (!mobileToggle) return;
     const icon = mobileToggle.querySelector('i');
     if (!icon) return;
@@ -80,24 +85,16 @@ document.addEventListener('DOMContentLoaded', () => {
       button.className = 'copy-button';
       button.innerHTML = '<i class="fa-solid fa-copy" aria-hidden="true"></i><span>Copy code</span>';
       button.addEventListener('click', async () => {
-        const codeElement = block.parentElement?.querySelector('code');
+        const codeElement = block.parentElement?.querySelector<HTMLElement>('code');
         if (!codeElement) return;
         const text = codeElement.innerText;
 
         try {
-          if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(text);
-          } else {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.setAttribute('readonly', '');
-            textarea.style.position = 'absolute';
-            textarea.style.left = '-9999px';
-            document.body.append(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            textarea.remove();
+          if (!navigator.clipboard || !window.isSecureContext) {
+            throw new Error('Clipboard API unavailable');
           }
+
+          await navigator.clipboard.writeText(text);
 
           liveRegion.textContent = 'Code snippet copied to clipboard';
           button.dataset.state = 'copied';
@@ -120,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /** Navigation */
   function buildNavigation() {
     sections.forEach((section, index) => {
-      const heading = section.querySelector('h3, h2');
+      const heading = section.querySelector<HTMLElement>('h3, h2');
       const label = heading?.textContent?.trim() || `Section ${index + 1}`;
       const sectionId = slugify(label, `section-${index + 1}`);
       section.id = sectionId;
@@ -136,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.dataset.sectionId = sectionId;
         link.dataset.title = label.toLowerCase();
         link.textContent = label;
-        link.addEventListener('click', (event) => {
+        link.addEventListener('click', (event: MouseEvent) => {
           event.preventDefault();
           section.dataset.collapsed = 'false';
           focusScroll(section);
@@ -156,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headingEl.setAttribute('role', 'button');
         headingEl.setAttribute('tabindex', '0');
         headingEl.addEventListener('click', () => toggleSection(section));
-        headingEl.addEventListener('keydown', (event) => {
+        headingEl.addEventListener('keydown', (event: KeyboardEvent) => {
           if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
             toggleSection(section);
@@ -172,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function setActiveSection(sectionId) {
+  function setActiveSection(sectionId: string): void {
     if (activeSectionId === sectionId) return;
     if (activeSectionId) {
       const prev = sectionRegistry.get(activeSectionId);
@@ -185,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /** Collapsibles */
-  function toggleSection(section) {
+  function toggleSection(section: HTMLElement): void {
     const isCollapsed = section.dataset.collapsed === 'true';
     section.dataset.collapsed = isCollapsed ? 'false' : 'true';
     updateToggleAllButton();
@@ -279,15 +276,18 @@ document.addEventListener('DOMContentLoaded', () => {
       updateToggleIcon(isOpen);
     });
 
-    document.addEventListener('click', (event) => {
+    document.addEventListener('click', (event: MouseEvent) => {
       if (!mobileNav.classList.contains('is-open')) return;
+      if (!(event.target instanceof Node)) {
+        return;
+      }
       if (mobileNav.contains(event.target) || mobileToggle.contains(event.target)) {
         return;
       }
       closeMobileMenu();
     });
 
-    window.addEventListener('keydown', (event) => {
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeMobileMenu();
       }
@@ -299,21 +299,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /** TOC search */
   function initSearchInputs() {
-    const inputs = document.querySelectorAll('.toc-search input');
+    const inputs = document.querySelectorAll<HTMLInputElement>('.toc-search input');
     inputs.forEach((input) => {
       const context = input.closest('.sidebar-inner, .navigation-bar-header-menu-items');
-      const list = context?.querySelector('.toc-list');
-      const emptyState = context?.querySelector('.toc-empty');
+      const list = context?.querySelector<HTMLUListElement>('.toc-list');
+      const emptyState = context?.querySelector<HTMLElement>('.toc-empty');
       if (!list) return;
 
       input.addEventListener('input', () => {
         const query = input.value.trim().toLowerCase();
-        const links = list.querySelectorAll('.nav-link');
+        const links = list.querySelectorAll<HTMLAnchorElement>('.nav-link');
         let visibleCount = 0;
 
         links.forEach((link) => {
           const matches = query.length === 0 || link.dataset.title?.includes(query);
-          link.parentElement.style.display = matches ? '' : 'none';
+          if (link.parentElement) {
+            link.parentElement.style.display = matches ? '' : 'none';
+          }
           if (matches) visibleCount += 1;
         });
 
@@ -332,9 +334,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const snippetCount = document.querySelectorAll('.documentation-body code').length;
     const linkCount = document.querySelectorAll('.documentation-body a').length;
     const totalWords = document
-      .querySelector('.documentation-body')
+      .querySelector<HTMLElement>('.documentation-body')
       ?.innerText.trim()
-      .split(/\s+/).length || 0;
+      .split(/\s+/)
+      .filter(Boolean).length || 0;
     const readingMinutes = Math.max(2, Math.round(totalWords / 220));
 
     const stats = [
