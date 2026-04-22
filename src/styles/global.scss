@@ -3220,6 +3220,23 @@ pre.code ::selection {
 
 	.mobile-nav-shortcuts {
 		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+
+	.mobile-nav-group-tools {
+		padding: 0;
+		border: 0;
+		background: transparent;
+		box-shadow: none;
+	}
+
+	.mobile-nav-group-tools .mobile-nav-label,
+	.mobile-nav-group-tools .header-action-pill {
+		display: none;
+	}
+
+	.mobile-nav-group-tools .mobile-nav-actions {
+		gap: 0;
 	}
 
 	.doc-hero {
@@ -3485,6 +3502,14 @@ pre.code ::selection {
 
 	.mobile-nav-group {
 		padding: 12px;
+	}
+
+	.mobile-nav-group-tools {
+		padding: 0;
+	}
+
+	.mobile-nav-group-tools .mobile-nav-actions {
+		gap: 0;
 	}
 
 	.mobile-nav-group .navigation-bar-header-links {
