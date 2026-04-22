@@ -2869,6 +2869,7 @@ pre.code ::selection {
 		align-items: stretch;
 		min-width: 0;
 		padding: 12px 14px;
+		position: static;
 	}
 
 	.navigation-bar-utility-strip {
@@ -3455,6 +3456,12 @@ pre.code ::selection {
 		transform: translateX(19px);
 	}
 
+	.navigation-bar-header-menu-items {
+		width: auto;
+		padding: 16px;
+		border-radius: 22px;
+	}
+
 	.mobile-page-switcher {
 		gap: 8px;
 		margin-top: 8px;
@@ -3509,10 +3516,6 @@ pre.code ::selection {
 
 	.header-link-pill,
 	.header-action-pill {
-		width: 100%;
-	}
-
-	.navigation-bar-header-menu-items {
 		width: 100%;
 	}
 
