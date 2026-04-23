@@ -2,7 +2,7 @@ import { load } from 'cheerio';
 import { createHighlighter } from 'shiki';
 
 const highlighterPromise = createHighlighter({
-  themes: ['github-light', 'github-dark'],
+  themes: ['everforest-light', 'everforest-dark'],
   langs: ['javascript', 'typescript', 'html', 'css', 'json', 'bash', 'text'],
 });
 
@@ -40,8 +40,8 @@ export async function highlightLegacyHtml(html: string) {
     const highlighted = highlighter.codeToHtml(source, {
       lang: language,
       themes: {
-        light: 'github-light',
-        dark: 'github-dark',
+        light: 'everforest-light',
+        dark: 'everforest-dark',
       },
       defaultColor: false,
     });
