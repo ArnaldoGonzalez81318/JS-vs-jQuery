@@ -1,5 +1,5 @@
 ---
-import '../styles/global.scss';
+import "../styles/global.scss";
 
 interface Props {
   title?: string;
@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = 'Vanilla JavaScript vs jQuery Documentation',
-  description = 'JavaScript and jQuery reference documentation with side-by-side examples, improved navigation, and modern code highlighting.',
+  title = "Vanilla JavaScript vs jQuery Documentation",
+  description = "JavaScript and jQuery reference documentation with side-by-side examples, improved navigation, and modern code highlighting.",
 } = Astro.props;
 ---
 
@@ -20,8 +20,16 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ecf5f3" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#051311" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#ecf5f3"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#051311"
+    />
     <meta
       name="keywords"
       content="javascript vs jquery, difference between javascript and jquery, jquery vs vanilla js, vanilla js vs jquery, js vs jquery, jquery vs js, javascript and jquery difference, jquery vs javascript examples, difference jquery and javascript, difference javascript and jquery"
@@ -29,33 +37,67 @@ const {
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="author" content="Arnaldo Gonzalez" />
-    <meta name="generator" content={Astro.generator} />
 
     <link rel="icon" href="/images/favicons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" sizes="512x512" href="/images/favicons/android-chrome-512x512.png" />
-    <link rel="icon" sizes="192x192" href="/images/favicons/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      sizes="512x512"
+      href="/images/favicons/android-chrome-512x512.png"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="/images/favicons/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicons/favicon-16x16.png"
+    />
     <link rel="manifest" href="/images/favicons/site.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
     <title>{title}</title>
 
     <script is:inline>
-      const themePreferenceKey = 'js-vs-jquery-theme';
+      const themePreferenceKey = "js-vs-jquery-theme";
       const storedTheme = window.localStorage.getItem(themePreferenceKey);
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', storedTheme ?? systemTheme);
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      document.documentElement.setAttribute(
+        "data-theme",
+        storedTheme ?? systemTheme,
+      );
     </script>
   </head>
   <body class="app-shell">
     <slot />
     <script>
-      import '../scripts/docs.ts';
-      import '../scripts/theme-switcher.ts';
+      import "../scripts/docs.ts";
+      import "../scripts/theme-switcher.ts";
     </script>
   </body>
- </html>
+</html>
