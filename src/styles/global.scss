@@ -1,6 +1,6 @@
 @use './reset';
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 :root {
 	--color-canvas: #ecf5f3;
@@ -23,7 +23,7 @@
 	--transition-header-mode: 0.18s ease-in-out;
 	--transition-header-settle: 0.34s cubic-bezier(0.22, 1, 0.36, 1);
 	--font-body: 'Space Grotesk', sans-serif;
-	--font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+	--font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 	--code-bg: color-mix(in srgb, var(--color-muted-surface) 92%, var(--color-text));
 	--code-toolbar-bg: color-mix(in srgb, var(--code-bg) 70%, var(--color-surface));
 	--code-border: var(--color-border);
