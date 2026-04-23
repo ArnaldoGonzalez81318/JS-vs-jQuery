@@ -18,14 +18,17 @@
                   <h1>JS vs jQuery</h1>
                   <span class="navigation-bar-brand-badge">Playbook</span>
                 </div>
-                <p class="navigation-bar-header-subtitle">Move jQuery-heavy interfaces toward platform APIs in smaller, reviewable releases.</p>
+                <p class="navigation-bar-header-subtitle">Move jQuery-heavy interfaces toward platform APIs in smaller,
+                  reviewable releases.</p>
               </div>
             </div>
           </div>
           <span class="sr-only">JS vs jQuery home</span>
         </a>
         <div class="navigation-bar-switcher-panel">
-          <p class="navigation-bar-panel-label">Workspace</p>
+          <div class="navigation-bar-panel-heading">
+            <p class="navigation-bar-panel-label">Workspace</p>
+          </div>
           <div class="navigation-bar-header-links" aria-label="Documentation destinations">
             <a class="header-link-pill" href="/">
               <span class="header-link-pill-copy">
@@ -56,26 +59,33 @@
             <label class="header-search" for="header-search">
               <span class="sr-only">Search the migration playbook</span>
               <span class="header-search-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
-              <input type="search" id="header-search" placeholder="Search audits, patterns, rollout steps" spellcheck="false" autocomplete="off" enterkeyhint="search"
-                aria-describedby="headerSearchSummary">
+              <input type="search" id="header-search" placeholder="Search audits, patterns, rollout steps"
+                spellcheck="false" autocomplete="off" enterkeyhint="search" aria-describedby="headerSearchSummary">
               <span class="header-search-summary" id="headerSearchSummary" aria-live="polite">All sections</span>
             </label>
-            <button class="header-active-filter-chip" type="button" id="headerActiveCategoryChip" hidden>Active category</button>
-            <div class="mobile-nav-group mobile-nav-group-tools">
-              <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
-                <input type="checkbox" class="checkbox" id="theme-toggle-desktop" data-theme-toggle>
-                <label for="theme-toggle-desktop" class="checkbox-label">
-                  <span class="sr-only">Toggle color theme</span>
-                  <i class="fa-solid fa-moon"></i>
-                  <i class="fa-solid fa-sun"></i>
-                  <span class="checkbox-button"></span>
-                </label>
-              </div>
-              <div class="navigation-bar-header-menu">
-                <button class="dropdown-btn" id="dropdownToggle" aria-expanded="false" aria-controls="mobileNav">
-                  <span class="sr-only">Toggle table of contents</span>
-                  <i class="fa-solid fa-bars" aria-hidden="true"></i>
-                </button>
+            <div class="navigation-bar-control-cluster">
+              <button class="header-active-filter-chip" type="button" id="headerActiveCategoryChip" hidden>Active
+                category</button>
+              <div class="mobile-nav-group mobile-nav-group-tools">
+                <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
+                  <input type="checkbox" class="checkbox" id="theme-toggle-desktop" data-theme-toggle>
+                  <label for="theme-toggle-desktop" class="checkbox-label">
+                    <span class="sr-only">Toggle color theme</span>
+                    <span class="theme-toggle-icon" data-theme-icon="moon" aria-hidden="true">
+                      <i class="fa-solid fa-moon"></i>
+                    </span>
+                    <span class="theme-toggle-icon" data-theme-icon="sun" aria-hidden="true">
+                      <i class="fa-solid fa-sun"></i>
+                    </span>
+                    <span class="checkbox-button"></span>
+                  </label>
+                </div>
+                <div class="navigation-bar-header-menu">
+                  <button class="dropdown-btn" id="dropdownToggle" aria-expanded="false" aria-controls="mobileNav">
+                    <span class="sr-only">Toggle table of contents</span>
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -85,12 +95,14 @@
               <li><a href="#footer">Footer</a></li>
             </ul>
           </div>
-          <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents">
+          <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents"
+            aria-hidden="true">
             <div class="mobile-search-wrapper">
               <p class="mobile-nav-label">Filter sections</p>
               <label class="toc-search" for="toc-search-mobile">
                 <span class="sr-only">Filter sections</span>
-                <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false" autocomplete="off">
+                <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false"
+                  autocomplete="off">
               </label>
             </div>
             <div class="mobile-nav-shortcuts">
@@ -104,8 +116,12 @@
                     <input type="checkbox" class="checkbox" id="theme-toggle-mobile" data-theme-toggle>
                     <label for="theme-toggle-mobile" class="checkbox-label">
                       <span class="sr-only">Toggle color theme</span>
-                      <i class="fa-solid fa-moon"></i>
-                      <i class="fa-solid fa-sun"></i>
+                      <span class="theme-toggle-icon" data-theme-icon="moon" aria-hidden="true">
+                        <i class="fa-solid fa-moon"></i>
+                      </span>
+                      <span class="theme-toggle-icon" data-theme-icon="sun" aria-hidden="true">
+                        <i class="fa-solid fa-sun"></i>
+                      </span>
                       <span class="checkbox-button"></span>
                     </label>
                   </div>
@@ -119,6 +135,7 @@
             </div>
           </div>
         </div>
+      </div>
     </nav>
   </header>
 
@@ -168,7 +185,8 @@
                 <article class="hero-visual-panel hero-visual-panel-primary">
                   <p class="hero-visual-kicker">Audit first</p>
                   <p class="hero-visual-heading">Name the behavior before the rewrite</p>
-                  <p class="hero-visual-caption">Track selectors, delegated events, aria state, and DOM writes so the refactor has a visible contract before implementation moves.</p>
+                  <p class="hero-visual-caption">Track selectors, delegated events, aria state, and DOM writes so the
+                    refactor has a visible contract before implementation moves.</p>
                 </article>
                 <article class="hero-visual-panel hero-visual-panel-secondary">
                   <p class="hero-visual-kicker">Safe rollout</p>
@@ -199,7 +217,8 @@
             </span>
             <p class="eyebrow">Migration playbook</p>
             <h1 class="doc-title">jQuery Migration Tips and Refactor Patterns</h1>
-            <p class="doc-subtitle">Use these patterns when you want smaller, reversible steps instead of a full rewrite. Each section turns a common migration concern into an implementation
+            <p class="doc-subtitle">Use these patterns when you want smaller, reversible steps instead of a full
+              rewrite. Each section turns a common migration concern into an implementation
               pattern you can copy.</p>
             <ul class="doc-hero-highlights">
               <li class="hero-highlight">
@@ -221,7 +240,8 @@
               <a class="hero-action" href="#audit-and-plan">Open the guide</a>
               <button class="hero-action secondary" type="button" id="expandSectionsBtn">Collapse all sections</button>
             </div>
-            <p class="hero-footnote">Keep the <a href="/">reference page</a> open alongside this guide when you need the exact DOM API equivalent for a helper you are removing.</p>
+            <p class="hero-footnote">Keep the <a href="/">reference page</a> open alongside this guide when you need the
+              exact DOM API equivalent for a helper you are removing.</p>
           </div>
         </div>
       </section>
@@ -232,9 +252,12 @@
           <label class="doc-search" for="doc-search">
             <span class="sr-only">Search the migration guide</span>
             <span class="doc-search-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <input type="search" id="doc-search" placeholder="Search guide sections, patterns, or tags" spellcheck="false" autocomplete="off">
+            <input type="search" id="doc-search" placeholder="Search guide sections, patterns, or tags"
+              spellcheck="false" autocomplete="off">
           </label>
-          <p class="doc-search-summary" id="docSearchSummary">Browse every section, filter by category, or press <kbd>/</kbd> to search instantly.</p>
+          <p class="doc-search-summary" id="docSearchSummary">Browse every section, filter by category, or press
+            <kbd>/</kbd> to search instantly.
+          </p>
           <div class="category-filter-block">
             <p class="category-filter-heading">Filter by guide category</p>
             <div class="category-filter-list" data-category-filters aria-label="Guide categories"></div>
@@ -262,31 +285,38 @@
 
       <main id="documentation-body" class="documentation-body">
         <div class="intro-wrapper">
-          <p class="paragraph lead">A successful jQuery migration is less about rewriting everything and more about shrinking uncertainty one behavior at a time.</p>
-          <p class="paragraph">Use this page when the reference tells you which native API to use, but you still need a safe pattern for applying it inside an existing codebase.</p>
+          <p class="paragraph lead">A successful jQuery migration is less about rewriting everything and more about
+            shrinking uncertainty one behavior at a time.</p>
+          <p class="paragraph">Use this page when the reference tells you which native API to use, but you still need a
+            safe pattern for applying it inside an existing codebase.</p>
         </div>
 
         <div class="overview-grid">
           <article class="overview-card">
             <p class="overview-card-title">Who this helps</p>
-            <p class="overview-card-copy">Teams modernising legacy UI without stopping feature work or re-platforming the whole frontend.</p>
+            <p class="overview-card-copy">Teams modernising legacy UI without stopping feature work or re-platforming
+              the whole frontend.</p>
           </article>
           <article class="overview-card">
             <p class="overview-card-title">How to use it</p>
-            <p class="overview-card-copy">Pick one risk area, apply the pattern, validate it in production-like conditions, then move to the next slice.</p>
+            <p class="overview-card-copy">Pick one risk area, apply the pattern, validate it in production-like
+              conditions, then move to the next slice.</p>
           </article>
           <article class="overview-card">
             <p class="overview-card-title">Goal</p>
-            <p class="overview-card-copy">Make each migration step explicit enough that code review, QA, and rollback remain straightforward.</p>
+            <p class="overview-card-copy">Make each migration step explicit enough that code review, QA, and rollback
+              remain straightforward.</p>
           </article>
         </div>
 
         <h2 id="audit-and-plan">Audit and plan</h2>
-        <p class="paragraph section-lead">Treat every removal of jQuery as a behavior audit first. Capture the existing contract, then refactor the implementation behind that contract.</p>
+        <p class="paragraph section-lead">Treat every removal of jQuery as a behavior audit first. Capture the existing
+          contract, then refactor the implementation behind that contract.</p>
 
         <section class="section collapsible" data-collapsed="true">
           <h3>Inventory selectors before you refactor</h3>
-          <p class="paragraph">Before changing an implementation, list the selectors, delegated events, data attributes, and stateful class names a component already relies on. This gives
+          <p class="paragraph">Before changing an implementation, list the selectors, delegated events, data attributes,
+            and stateful class names a component already relies on. This gives
             you a concrete definition of “done” for the refactor.</p>
 
           <h4>Capture the contract</h4>
@@ -306,17 +336,20 @@ const navContract = {
           </div>
 
           <div class="see-more">See more in the platform docs:
-            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes" target="_blank" rel="noreferrer">Use data attributes</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes"
+              target="_blank" rel="noreferrer">Use data attributes</a>
           </div>
         </section>
 
         <h2 id="common-refactor-patterns">Common refactor patterns</h2>
-        <p class="paragraph section-lead">Once the behavior is mapped, move the code toward smaller named steps. The browser APIs are already there; the main work is making the flow obvious.
+        <p class="paragraph section-lead">Once the behavior is mapped, move the code toward smaller named steps. The
+          browser APIs are already there; the main work is making the flow obvious.
         </p>
 
         <section class="section collapsible" data-collapsed="true">
           <h3>Replace chained selections with explicit steps</h3>
-          <p class="paragraph">Long jQuery chains hide collection boundaries. Split them into named arrays so the query, the filtering logic, and the mutation are easy to inspect
+          <p class="paragraph">Long jQuery chains hide collection boundaries. Split them into named arrays so the query,
+            the filtering logic, and the mutation are easy to inspect
             independently.</p>
 
           <div class="jquery">Before (jQuery)</div>
@@ -351,7 +384,8 @@ readyLinks.forEach((link) =&gt; {
 
         <section class="section collapsible" data-collapsed="true">
           <h3>Move repeated DOM work into named helpers</h3>
-          <p class="paragraph">When several handlers touch the same DOM state, move that state transition into one helper. Named helpers are easier to review than repeated chains spread
+          <p class="paragraph">When several handlers touch the same DOM state, move that state transition into one
+            helper. Named helpers are easier to review than repeated chains spread
             across multiple callbacks.</p>
 
           <div class="code-wrapper">
@@ -372,14 +406,17 @@ function setButtonExpanded(button, isExpanded) {
           </div>
 
           <div class="see-more">See more in the DOM API docs:
-            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList" target="_blank" rel="noreferrer">Element.classList</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList" target="_blank"
+              rel="noreferrer">Element.classList</a>
           </div>
         </section>
 
         <section class="section collapsible" data-collapsed="true">
           <h3>Convert delegated events with closest()</h3>
-          <p class="paragraph">Most delegated jQuery handlers map cleanly to one native listener on the container plus a <code class="small-code">closest()</code> guard for the actionable
-            element.</p>
+          <p class="paragraph">Most delegated jQuery handlers map cleanly to one native listener on the container plus a
+            <code class="small-code">closest()</code> guard for the actionable
+            element.
+          </p>
 
           <div class="jquery">Before (jQuery)</div>
           <div class="code-wrapper">
@@ -414,13 +451,15 @@ results?.addEventListener('click', (event) =&gt; {
           </div>
 
           <div class="see-more">See more in the DOM API docs:
-            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest" target="_blank" rel="noreferrer">Element.closest()</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/closest" target="_blank"
+              rel="noreferrer">Element.closest()</a>
           </div>
         </section>
 
         <section class="section collapsible" data-collapsed="true">
           <h3>Swap $.ajax for fetch with explicit errors</h3>
-          <p class="paragraph">The native <code class="small-code">fetch()</code> API is usually enough, but it is more explicit: you check <code class="small-code">response.ok</code>,
+          <p class="paragraph">The native <code class="small-code">fetch()</code> API is usually enough, but it is more
+            explicit: you check <code class="small-code">response.ok</code>,
             decide how to parse the body, and surface errors intentionally.</p>
 
           <div class="jquery">Before (jQuery)</div>
@@ -465,13 +504,15 @@ loadProfile().catch(showError);
           </div>
 
           <div class="see-more">See more in the web platform docs:
-            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noreferrer">Using Fetch</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank"
+              rel="noreferrer">Using Fetch</a>
           </div>
         </section>
 
         <section class="section collapsible" data-collapsed="true">
           <h3>Use small adapters during incremental rewrites</h3>
-          <p class="paragraph">If a migration spans many files, a tiny adapter layer can reduce churn. Keep it narrow and temporary so the team does not just rebuild jQuery under a different
+          <p class="paragraph">If a migration spans many files, a tiny adapter layer can reduce churn. Keep it narrow
+            and temporary so the team does not just rebuild jQuery under a different
             name.</p>
 
           <div class="code-wrapper">
@@ -487,15 +528,18 @@ export const dom = {
             </pre>
           </div>
 
-          <p class="paragraph">Adapters work best when they encode your team’s conventions, not when they try to preserve every legacy chain exactly.</p>
+          <p class="paragraph">Adapters work best when they encode your team’s conventions, not when they try to
+            preserve every legacy chain exactly.</p>
         </section>
 
         <h2 id="release-checks">Release checks</h2>
-        <p class="paragraph section-lead">The last step is operational: verify the refactor with the same discipline you would apply to a feature release.</p>
+        <p class="paragraph section-lead">The last step is operational: verify the refactor with the same discipline you
+          would apply to a feature release.</p>
 
         <section class="section collapsible" data-collapsed="true">
           <h3>Ship each refactor with a migration checklist</h3>
-          <p class="paragraph">A migration is only complete when behavior, accessibility, and cleanup all survive review. Keep the checklist short enough that teams will actually use it.</p>
+          <p class="paragraph">A migration is only complete when behavior, accessibility, and cleanup all survive
+            review. Keep the checklist short enough that teams will actually use it.</p>
 
           <div class="code-wrapper">
             <div class="copy-to-clipboard"></div>
@@ -512,7 +556,8 @@ Migration checklist
           </div>
 
           <div class="see-more">See more in the DOM events docs:
-            <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank" rel="noreferrer">DOM events reference</a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank" rel="noreferrer">DOM events
+              reference</a>
           </div>
         </section>
       </main>
@@ -527,7 +572,8 @@ Migration checklist
     <div class="footer-inner">
       <div class="footer-copy">
         <p class="footer-title">Migration guide</p>
-        <p class="footer-note">A pattern library for replacing jQuery gradually without losing clarity, reviewability, or production confidence.</p>
+        <p class="footer-note">A pattern library for replacing jQuery gradually without losing clarity, reviewability,
+          or production confidence.</p>
       </div>
       <div class="footer-links">
         <a class="footer-link-pill" href="/">Reference page</a>
