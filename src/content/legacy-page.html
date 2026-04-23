@@ -21,14 +21,17 @@
                   <h1>JS vs jQuery</h1>
                   <span class="navigation-bar-brand-badge">Reference</span>
                 </div>
-                <p class="navigation-bar-header-subtitle">Find the native DOM APIs that replace the jQuery shortcuts still hiding inside production UI.</p>
+                <p class="navigation-bar-header-subtitle">Find the native DOM APIs that replace the jQuery shortcuts
+                  still hiding inside production UI.</p>
               </div>
             </div>
           </div>
           <span class="sr-only">JS vs jQuery home</span>
         </a>
         <div class="navigation-bar-switcher-panel">
-          <p class="navigation-bar-panel-label">Workspace</p>
+          <div class="navigation-bar-panel-heading">
+            <p class="navigation-bar-panel-label">Workspace</p>
+          </div>
           <div class="navigation-bar-header-links" aria-label="Documentation destinations">
             <a class="header-link-pill is-active" href="/" aria-current="page">
               <span class="header-link-pill-copy">
@@ -59,26 +62,33 @@
             <label class="header-search" for="header-search">
               <span class="sr-only">Search the API reference</span>
               <span class="header-search-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
-              <input type="search" id="header-search" placeholder="Search selectors, events, classes" spellcheck="false" autocomplete="off" enterkeyhint="search"
-                aria-describedby="headerSearchSummary">
+              <input type="search" id="header-search" placeholder="Search selectors, events, classes" spellcheck="false"
+                autocomplete="off" enterkeyhint="search" aria-describedby="headerSearchSummary">
               <span class="header-search-summary" id="headerSearchSummary" aria-live="polite">All sections</span>
             </label>
-            <button class="header-active-filter-chip" type="button" id="headerActiveCategoryChip" hidden>Active category</button>
-            <div class="mobile-nav-group mobile-nav-group-tools">
-              <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
-                <input type="checkbox" class="checkbox" id="theme-toggle-desktop" data-theme-toggle>
-                <label for="theme-toggle-desktop" class="checkbox-label">
-                  <span class="sr-only">Toggle color theme</span>
-                  <i class="fa-solid fa-moon"></i>
-                  <i class="fa-solid fa-sun"></i>
-                  <span class="checkbox-button"></span>
-                </label>
-              </div>
-              <div class="navigation-bar-header-menu">
-                <button class="dropdown-btn" id="dropdownToggle" aria-expanded="false" aria-controls="mobileNav">
-                  <span class="sr-only">Toggle table of contents</span>
-                  <i class="fa-solid fa-bars" aria-hidden="true"></i>
-                </button>
+            <div class="navigation-bar-control-cluster">
+              <button class="header-active-filter-chip" type="button" id="headerActiveCategoryChip" hidden>Active
+                category</button>
+              <div class="mobile-nav-group mobile-nav-group-tools">
+                <div class="navigation-bar-header-theme-switcher" id="theme-toggler">
+                  <input type="checkbox" class="checkbox" id="theme-toggle-desktop" data-theme-toggle>
+                  <label for="theme-toggle-desktop" class="checkbox-label">
+                    <span class="sr-only">Toggle color theme</span>
+                    <span class="theme-toggle-icon" data-theme-icon="moon" aria-hidden="true">
+                      <i class="fa-solid fa-moon"></i>
+                    </span>
+                    <span class="theme-toggle-icon" data-theme-icon="sun" aria-hidden="true">
+                      <i class="fa-solid fa-sun"></i>
+                    </span>
+                    <span class="checkbox-button"></span>
+                  </label>
+                </div>
+                <div class="navigation-bar-header-menu">
+                  <button class="dropdown-btn" id="dropdownToggle" aria-expanded="false" aria-controls="mobileNav">
+                    <span class="sr-only">Toggle table of contents</span>
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -88,12 +98,14 @@
               <li><a href="#footer">Footer</a></li>
             </ul>
           </div>
-          <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents">
+          <div class="navigation-bar-header-menu-items" id="mobileNav" aria-label="Mobile table of contents"
+            aria-hidden="true">
             <div class="mobile-search-wrapper">
               <p class="mobile-nav-label">Filter sections</p>
               <label class="toc-search" for="toc-search-mobile">
                 <span class="sr-only">Filter sections</span>
-                <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false" autocomplete="off">
+                <input type="search" id="toc-search-mobile" placeholder="Filter sections" spellcheck="false"
+                  autocomplete="off">
               </label>
             </div>
             <div class="mobile-nav-shortcuts">
@@ -107,8 +119,12 @@
                     <input type="checkbox" class="checkbox" id="theme-toggle-mobile" data-theme-toggle>
                     <label for="theme-toggle-mobile" class="checkbox-label">
                       <span class="sr-only">Toggle color theme</span>
-                      <i class="fa-solid fa-moon"></i>
-                      <i class="fa-solid fa-sun"></i>
+                      <span class="theme-toggle-icon" data-theme-icon="moon" aria-hidden="true">
+                        <i class="fa-solid fa-moon"></i>
+                      </span>
+                      <span class="theme-toggle-icon" data-theme-icon="sun" aria-hidden="true">
+                        <i class="fa-solid fa-sun"></i>
+                      </span>
                       <span class="checkbox-button"></span>
                     </label>
                   </div>
@@ -122,6 +138,7 @@
             </div>
           </div>
         </div>
+      </div>
     </nav>
   </header>
   <!-- End Header Navigation Bar -->
@@ -176,7 +193,8 @@
                   <p class="hero-visual-kicker">jQuery helper</p>
                   <p class="hero-visual-heading">Search, traverse, mutate</p>
                   <p class="hero-visual-code">$('.menu').find('.item').addClass('is-ready')</p>
-                  <p class="hero-visual-caption">A single chain reads quickly, but it can hide how many nodes you selected and where the DOM mutation really happens.</p>
+                  <p class="hero-visual-caption">A single chain reads quickly, but it can hide how many nodes you
+                    selected and where the DOM mutation really happens.</p>
                 </article>
                 <article class="hero-visual-panel hero-visual-panel-secondary">
                   <p class="hero-visual-kicker">Browser API</p>
@@ -207,20 +225,24 @@
               </span>
               <p class="eyebrow">Reference and migration companion</p>
               <h1 class="doc-title">Vanilla JavaScript vs jQuery Reference</h1>
-              <p class="doc-subtitle">Look up the native DOM, classList, style, and event APIs that replace the jQuery helpers most teams still inherit in legacy code.</p>
+              <p class="doc-subtitle">Look up the native DOM, classList, style, and event APIs that replace the jQuery
+                helpers most teams still inherit in legacy code.</p>
             </div>
             <div class="doc-hero-support">
               <div class="doc-hero-actions-panel">
                 <div class="hero-actions">
                   <a class="hero-action" href="#selection-and-traversal">Start exploring</a>
-                  <button class="hero-action secondary" type="button" id="expandSectionsBtn">Collapse all sections</button>
+                  <button class="hero-action secondary" type="button" id="expandSectionsBtn">Collapse all
+                    sections</button>
                 </div>
-                <p class="hero-footnote">Use the reference for fast API lookups, then open the <a href="/migration-guide/">migration guide</a> when you need rollout patterns and common
+                <p class="hero-footnote">Use the reference for fast API lookups, then open the <a
+                    href="/migration-guide/">migration guide</a> when you need rollout patterns and common
                   refactor recipes.</p>
               </div>
               <ul class="doc-hero-highlights">
                 <li class="hero-highlight">
-                  <span class="hero-highlight-icon" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                  <span class="hero-highlight-icon" aria-hidden="true"><i
+                      class="fa-solid fa-wand-magic-sparkles"></i></span>
                   <div class="hero-highlight-copy">
                     <p class="hero-highlight-title">Task-first lookup</p>
                     <p>Search by DOM task, API category, or tag to move from helper to native method faster.</p>
@@ -244,9 +266,12 @@
           <label class="doc-search" for="doc-search">
             <span class="sr-only">Search the API reference</span>
             <span class="doc-search-icon" aria-hidden="true"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <input type="search" id="doc-search" placeholder="Search APIs, patterns, or tags" spellcheck="false" autocomplete="off">
+            <input type="search" id="doc-search" placeholder="Search APIs, patterns, or tags" spellcheck="false"
+              autocomplete="off">
           </label>
-          <p class="doc-search-summary" id="docSearchSummary">Browse every section, filter by API category, or press <kbd>/</kbd> to search instantly.</p>
+          <p class="doc-search-summary" id="docSearchSummary">Browse every section, filter by API category, or press
+            <kbd>/</kbd> to search instantly.
+          </p>
           <div class="category-filter-block">
             <p class="category-filter-heading">Filter by API category</p>
             <div class="category-filter-list" data-category-filters aria-label="Reference categories"></div>
@@ -272,37 +297,48 @@
       </section>
       <main id="documentation-body" class="documentation-body">
         <div class="intro-wrapper">
-          <p class="paragraph lead">Use this reference when you want to replace familiar jQuery helpers with the browser APIs already built into modern JavaScript.</p>
-          <p class="paragraph">Every entry keeps the same rhythm: what jQuery abstracts, the native API you reach for instead, and the official documentation link you can open when edge
+          <p class="paragraph lead">Use this reference when you want to replace familiar jQuery helpers with the browser
+            APIs already built into modern JavaScript.</p>
+          <p class="paragraph">Every entry keeps the same rhythm: what jQuery abstracts, the native API you reach for
+            instead, and the official documentation link you can open when edge
             cases matter.</p>
         </div>
         <div class="overview-grid">
           <article class="overview-card">
             <p class="overview-card-title">Best for</p>
-            <p class="overview-card-copy">Incremental migrations, code reviews, and translating chained jQuery calls into explicit DOM steps.</p>
+            <p class="overview-card-copy">Incremental migrations, code reviews, and translating chained jQuery calls
+              into explicit DOM steps.</p>
           </article>
           <article class="overview-card">
             <p class="overview-card-title">What changes</p>
-            <p class="overview-card-copy">The biggest mental shift is being explicit about collections, loop boundaries, and which DOM node you mutate.</p>
+            <p class="overview-card-copy">The biggest mental shift is being explicit about collections, loop boundaries,
+              and which DOM node you mutate.</p>
           </article>
           <article class="overview-card">
             <p class="overview-card-title">Scope</p>
-            <p class="overview-card-copy">This page focuses on the helpers teams replace most often. It is a practical reference, not a full mirror of the jQuery API.</p>
+            <p class="overview-card-copy">This page focuses on the helpers teams replace most often. It is a practical
+              reference, not a full mirror of the jQuery API.</p>
           </article>
         </div>
         <h2 id="how-to-use-this-reference">How to use this reference</h2>
-        <p class="paragraph">Search by task, API name, or tag, then narrow the list with the category chips. Keep the matching section open while you replace one behavior at a time in your
+        <p class="paragraph">Search by task, API name, or tag, then narrow the list with the category chips. Keep the
+          matching section open while you replace one behavior at a time in your
           own component or template.</p>
-        <p class="paragraph"><strong>Tip:</strong> If the jQuery version operates on many elements, decide first whether the vanilla version should still touch all matches or whether you
+        <p class="paragraph"><strong>Tip:</strong> If the jQuery version operates on many elements, decide first whether
+          the vanilla version should still touch all matches or whether you
           really only need the first node.</p>
         <h2 id="core-mental-model">Core mental model</h2>
-        <p class="paragraph"><a class="javascript-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"
-            rel="noreferrer"><strong><em>JavaScript</em></strong></a> works directly with DOM nodes and browser APIs. <a class="jquery-link" href="https://releases.jquery.com/"
-            target="_blank" rel="noreferrer"><strong><em>jQuery</em></strong></a> wraps those nodes in a chainable collection API that used to smooth over browser inconsistencies.</p>
-        <p class="paragraph">When you migrate away from jQuery, the main shift is to be explicit: query the element, choose the DOM property or method you need, and loop only when you truly
+        <p class="paragraph"><a class="javascript-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+            target="_blank" rel="noreferrer"><strong><em>JavaScript</em></strong></a> works directly with DOM nodes and
+          browser APIs. <a class="jquery-link" href="https://releases.jquery.com/" target="_blank"
+            rel="noreferrer"><strong><em>jQuery</em></strong></a> wraps those nodes in a chainable collection API that
+          used to smooth over browser inconsistencies.</p>
+        <p class="paragraph">When you migrate away from jQuery, the main shift is to be explicit: query the element,
+          choose the DOM property or method you need, and loop only when you truly
           have multiple matches.</p>
         <h2 id="selection-and-traversal">Selection and traversal</h2>
-        <p class="paragraph section-lead">Start here when you need to locate elements, move through parents and siblings, or narrow a set of matches before changing the DOM.</p>
+        <p class="paragraph section-lead">Start here when you need to locate elements, move through parents and
+          siblings, or narrow a set of matches before changing the DOM.</p>
 
         <section class="section collapsible" data-collapsed="true">
           <h3 class="program">Select Elements</h3>
@@ -503,7 +539,8 @@ $('.my-class a').children('span').css('color', 'blue'); // for testing
             </pre>
           </div>
 
-          <div class="see-more">See more in the jQuery API docs: <a href="https://api.jquery.com/children/">.children() method.</a></div>
+          <div class="see-more">See more in the jQuery API docs: <a href="https://api.jquery.com/children/">.children()
+              method.</a></div>
 
           <div class="javascript">JavaScript:</div>
           <div class="code-wrapper">
@@ -632,7 +669,8 @@ let siblings = item.parentNode.querySelectorAll(':scope &gt; :not(.find-siblings
             </pre>
           </div>
 
-          <div class="see-more">See more in the DOM API docs: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">.parentNode property</a>,
+          <div class="see-more">See more in the DOM API docs: <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode">.parentNode property</a>,
             <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">.querySelectorAll()
               method</a>,
             <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:scope">:scope pseudo-class</a>
@@ -730,7 +768,8 @@ item.previousElementSibling;
         </section>
 
         <h2 id="classes-and-attributes">Classes and attributes</h2>
-        <p class="paragraph section-lead">Use these patterns when UI state lives in classes, attributes, or accessibility markers that must stay synchronized with the DOM.</p>
+        <p class="paragraph section-lead">Use these patterns when UI state lives in classes, attributes, or
+          accessibility markers that must stay synchronized with the DOM.</p>
 
         <section class="section collapsible" data-collapsed="true">
           <h3 class="add-class">Add Class</h3>
@@ -1057,7 +1096,8 @@ item.removeAttribute('target');
         </section>
 
         <h2 id="content-styles-and-inputs">Content, styles, and input state</h2>
-        <p class="paragraph section-lead">These examples cover inserting markup, changing content, and updating inline state when a dedicated CSS class is not the right abstraction.</p>
+        <p class="paragraph section-lead">These examples cover inserting markup, changing content, and updating inline
+          state when a dedicated CSS class is not the right abstraction.</p>
 
         <section class="section collapsible" data-collapsed="true">
           <h3 class="append-a-new-child-element">Append Content</h3>
@@ -1342,7 +1382,8 @@ input.value = 'Marilyn Monroe'; // sets the value
         </section>
 
         <h2 id="visibility-and-events">Visibility and events</h2>
-        <p class="paragraph section-lead">Finish with the patterns that usually control interaction state: showing or hiding UI and wiring event handlers directly to the DOM.</p>
+        <p class="paragraph section-lead">Finish with the patterns that usually control interaction state: showing or
+          hiding UI and wiring event handlers directly to the DOM.</p>
 
         <section class="section collapsible" data-collapsed="true">
           <h3 class="hide-element">Hide Element</h3>
@@ -1549,7 +1590,8 @@ toggle.removeEventListener('click', function() {
   <div class="footer-inner">
     <div class="footer-copy">
       <p class="footer-title">Vanilla JS vs jQuery</p>
-      <p class="footer-note">A modern single-page reference for replacing common jQuery helpers with native browser APIs.</p>
+      <p class="footer-note">A modern single-page reference for replacing common jQuery helpers with native browser
+        APIs.</p>
     </div>
     <div class="footer-links">
       <a class="footer-link-pill" href="#documentation-body">Documentation</a>
